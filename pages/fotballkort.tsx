@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { useSpeechSynthesis } from 'react-speech-kit';
 import Layout from '../components/Layout';
 import styles from '../styles/Fotballkort.module.css';
 import kortData from '../data/fotballkort.json';
 import moreKortData from '../data/fotballkort_more.json';
 import Image from 'next/image';
+import { useSpeech } from '../hooks/useSpeech';
 
 // Kombiner spillere fra begge filer
 const alleSpillere = [...kortData.spillere, ...moreKortData.spillere];
@@ -45,7 +45,12 @@ export default function Fotballkort() {
   const [faktaIndex, setFaktaIndex] = useState(0);
   const [visVelkomst, setVisVelkomst] = useState(true);
   const [nesteKortId, setNesteKortId] = useState<number>(1);
-  const { speak, cancel } = useSpeechSynthesis();
+  const [currentWord, setCurrentWord] = useState('');
+  const { speak, cancel, speaking, supported } = useSpeech({
+    text: currentWord,
+    lang: 'nb-NO',
+    rate: 1
+  });
 
   useEffect(() => {
     // Last inn lagrede data
@@ -110,6 +115,11 @@ export default function Fotballkort() {
   const håndterKortKlikk = (spiller: Spiller) => {
     if (!låsteKort.includes(spiller.id)) return;
     setAktivtKort(spiller.id);
+  };
+
+  const playWord = (word: string, speed: number = 1) => {
+    setCurrentWord(word);
+    setTimeout(() => speak(), 0);
   };
 
   return (
