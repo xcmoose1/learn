@@ -44,12 +44,108 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.9);
-  padding: 20px;
-  border-radius: 10px;
+  background: #1a1a1a;
+  padding: 2rem;
+  border-radius: 15px;
   width: 90%;
   max-width: 500px;
-  z-index: 100;
+  z-index: 1000;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.lukkKnapp {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.lukkKnapp:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.oppgave {
+  margin-bottom: 2rem;
+}
+
+.oppgaveTekst {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.oppgaveTekst button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px;
+  margin-left: 10px;
+}
+
+.alternativer {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.svarKnapp {
+  background: #2a2a2a;
+  border: 2px solid #3a3a3a;
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.svarKnapp:hover {
+  background: #3a3a3a;
+  transform: translateY(-2px);
+}
+
+.svarKnapp.besvart {
+  background: #4CAF50;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.svarKnapp.besvart:hover {
+  transform: none;
+}
+
+.svarKnapp:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.feilSvar {
+  animation: shake 0.5s;
+  background: #ff4444 !important;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
 }
 
 .spørsmålTittel {
@@ -80,18 +176,53 @@
 }
 
 .kort {
-  width: 288px;
   position: relative;
-  background: rgba(17, 24, 39, 0.3);
-  backdrop-filter: blur(8px);
-  padding: 16px;
-  border-radius: 12px;
+  background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+  border-radius: 10px;
+  padding: 1rem;
+  color: white;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s;
+  aspect-ratio: 2/3;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
-.kort:hover {
-  transform: scale(1.05);
+.locked {
+  background: linear-gradient(45deg, #333, #444);
+  cursor: not-allowed;
+  filter: grayscale(1);
+}
+
+.unlocked {
+  cursor: pointer;
+}
+
+.lockedCard {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+.lockedCard span {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.lockedCard p {
+  font-size: 1.2rem;
+  color: #ccc;
 }
 
 .rating {

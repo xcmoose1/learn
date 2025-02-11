@@ -27,6 +27,7 @@ interface Spiller {
     spørsmål: string;
     alternativer: (string | number)[];
     svar: number;
+    type: string;
   }[];
   stats: {
     pace: number;
@@ -46,6 +47,7 @@ export default function Fotballkort() {
   const [visVelkomst, setVisVelkomst] = useState(true);
   const [nesteKortId, setNesteKortId] = useState<number>(1);
   const [currentWord, setCurrentWord] = useState('');
+  const [riktigeSvar, setRiktigeSvar] = useState<{[key: number]: string[]}>({});
   const { speak, cancel, speaking, supported } = useSpeech({
     text: currentWord,
     lang: 'nb-NO',
@@ -59,11 +61,13 @@ export default function Fotballkort() {
       const data = JSON.parse(lagretData);
       setLåsteKort(data.låsteKort || []);
       setNesteKortId(data.nesteKortId || 2);
+      setRiktigeSvar(data.riktigeSvar || {});
       setVisVelkomst(false);
     } else {
       // Start med Haaland-kortet
       setLåsteKort([1]);
       setNesteKortId(2);
+      setRiktigeSvar({1: []});
     }
   }, []);
 
@@ -71,33 +75,61 @@ export default function Fotballkort() {
   useEffect(() => {
     localStorage.setItem('fotballkortData', JSON.stringify({
       låsteKort,
-      nesteKortId
+      nesteKortId,
+      riktigeSvar
     }));
-  }, [låsteKort, nesteKortId]);
+  }, [låsteKort, nesteKortId, riktigeSvar]);
 
-  const håndterRiktigSvar = () => {
-    setVisMålAnimasjon(true);
-    const audio = new Audio('/sounds/goal.mp3');
-    audio.play();
+  const sjekkAlleOppgaverFullført = (kortId: number) => {
+    const svar = riktigeSvar[kortId] || [];
+    const kort = alleSpillere.find(s => s.id === kortId);
+    if (!kort) return false;
     
-    // Lukk det aktive kortet
-    setAktivtKort(null);
+    // Sjekk om vi har riktig svar på både matte og lesing
+    const harMatteSvar = svar.includes('matte');
+    const harLeseSvar = svar.includes('lesing');
     
-    // Oppdater fakta index
-    setFaktaIndex(prev => prev + 1);
-    
-    // Vis neste kort
-    const nesteKort = alleSpillere.find(s => s.id === nesteKortId);
-    if (nesteKort) {
-      setLåsteKort(prev => [...prev, nesteKortId]);
-      setNesteKortId(prev => prev + 1);
-      const unlockAudio = new Audio('/sounds/unlock.mp3');
-      unlockAudio.play();
+    return harMatteSvar && harLeseSvar;
+  };
+
+  const håndterRiktigSvar = (oppgaveType: string) => {
+    if (!aktivtKort) return;
+
+    // Oppdater riktige svar for dette kortet
+    const oppdaterteSvar = {
+      ...riktigeSvar,
+      [aktivtKort]: [...(riktigeSvar[aktivtKort] || []), oppgaveType]
+    };
+    setRiktigeSvar(oppdaterteSvar);
+
+    // Sjekk om alle oppgaver er fullført
+    if (sjekkAlleOppgaverFullført(aktivtKort)) {
+      setVisMålAnimasjon(true);
+      const audio = new Audio('/sounds/goal.mp3');
+      audio.play();
+      
+      // Lukk det aktive kortet
+      setAktivtKort(null);
+      
+      // Vis neste kort
+      const nesteKort = alleSpillere.find(s => s.id === nesteKortId);
+      if (nesteKort) {
+        setLåsteKort([...låsteKort, nesteKort.id]);
+        setNesteKortId(nesteKortId + 1);
+        setRiktigeSvar({
+          ...oppdaterteSvar,
+          [nesteKort.id]: []
+        });
+      }
+      
+      setTimeout(() => {
+        setVisMålAnimasjon(false);
+      }, 2000);
+    } else {
+      // Spill av en lyd for riktig svar, men ikke lås opp nytt kort ennå
+      const audio = new Audio('/sounds/correct.mp3');
+      audio.play();
     }
-
-    setTimeout(() => {
-      setVisMålAnimasjon(false);
-    }, 2000);
   };
 
   const håndterFeilSvar = () => {
@@ -113,8 +145,9 @@ export default function Fotballkort() {
   };
 
   const håndterKortKlikk = (spiller: Spiller) => {
-    if (!låsteKort.includes(spiller.id)) return;
-    setAktivtKort(spiller.id);
+    if (låsteKort.includes(spiller.id)) {
+      setAktivtKort(spiller.id);
+    }
   };
 
   const playWord = (word: string, speed: number = 1) => {
@@ -157,60 +190,117 @@ export default function Fotballkort() {
             {alleSpillere.map((spiller) => (
               <motion.div
                 key={spiller.id}
-                className={`${styles.kort} ${styles[spiller.sjelden]}`}
+                className={`${styles.kort} ${styles[spiller.sjelden]} ${låsteKort.includes(spiller.id) ? styles.unlocked : styles.locked}`}
                 onClick={() => håndterKortKlikk(spiller)}
-                whileHover={{ scale: 1.05 }}
+                whileHover={låsteKort.includes(spiller.id) ? { scale: 1.05 } : {}}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
               >
-                <div className={styles.rating}>{spiller.stats.shooting}</div>
-                <div className={styles.posisjon}>{spiller.posisjon}</div>
-                
-                <div className={styles.spillerBildeContainer}>
-                  <Image
-                    src={spiller.bilde}
-                    alt={spiller.navn}
-                    fill
-                    className={styles.spillerBilde}
-                  />
-                </div>
+                {låsteKort.includes(spiller.id) ? (
+                  <>
+                    <div className={styles.rating}>{spiller.stats.shooting}</div>
+                    <div className={styles.posisjon}>{spiller.posisjon}</div>
+                    
+                    <div className={styles.spillerBildeContainer}>
+                      <Image
+                        src={spiller.bilde}
+                        alt={spiller.navn}
+                        fill
+                        className={styles.spillerBilde}
+                      />
+                    </div>
 
-                <div className={styles.spillerNavn}>{spiller.navn}</div>
-                <div className={styles.klubbInfo}>
-                  <span>{spiller.klubb}</span>
-                  <span>•</span>
-                  <span>{spiller.nasjonalitet}</span>
-                </div>
+                    <div className={styles.spillerNavn}>{spiller.navn}</div>
+                    <div className={styles.klubbInfo}>
+                      <span>{spiller.klubb}</span>
+                      <span>•</span>
+                      <span>{spiller.nasjonalitet}</span>
+                    </div>
 
-                <div className={styles.statsContainer}>
-                  <div className={styles.statItem}>
-                    <span className={styles.statLabel}>PAC</span>
-                    <span className={styles.statValue}>{spiller.stats.pace}</span>
+                    <div className={styles.statsContainer}>
+                      <div className={styles.statItem}>
+                        <span className={styles.statLabel}>PAC</span>
+                        <span className={styles.statValue}>{spiller.stats.pace}</span>
+                      </div>
+                      <div className={styles.statItem}>
+                        <span className={styles.statLabel}>SHO</span>
+                        <span className={styles.statValue}>{spiller.stats.shooting}</span>
+                      </div>
+                      <div className={styles.statItem}>
+                        <span className={styles.statLabel}>PAS</span>
+                        <span className={styles.statValue}>{spiller.stats.passing}</span>
+                      </div>
+                      <div className={styles.statItem}>
+                        <span className={styles.statLabel}>DRI</span>
+                        <span className={styles.statValue}>{spiller.stats.dribbling}</span>
+                      </div>
+                      <div className={styles.statItem}>
+                        <span className={styles.statLabel}>DEF</span>
+                        <span className={styles.statValue}>{spiller.stats.defending}</span>
+                      </div>
+                      <div className={styles.statItem}>
+                        <span className={styles.statLabel}>PHY</span>
+                        <span className={styles.statValue}>{spiller.stats.physical}</span>
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <div className={styles.lockedCard}>
+                    <span>🔒</span>
+                    <p>Svar på spørsmål for å låse opp!</p>
                   </div>
-                  <div className={styles.statItem}>
-                    <span className={styles.statLabel}>SHO</span>
-                    <span className={styles.statValue}>{spiller.stats.shooting}</span>
-                  </div>
-                  <div className={styles.statItem}>
-                    <span className={styles.statLabel}>PAS</span>
-                    <span className={styles.statValue}>{spiller.stats.passing}</span>
-                  </div>
-                  <div className={styles.statItem}>
-                    <span className={styles.statLabel}>DRI</span>
-                    <span className={styles.statValue}>{spiller.stats.dribbling}</span>
-                  </div>
-                  <div className={styles.statItem}>
-                    <span className={styles.statLabel}>DEF</span>
-                    <span className={styles.statValue}>{spiller.stats.defending}</span>
-                  </div>
-                  <div className={styles.statItem}>
-                    <span className={styles.statLabel}>PHY</span>
-                    <span className={styles.statValue}>{spiller.stats.physical}</span>
-                  </div>
-                </div>
+                )}
               </motion.div>
             ))}
           </div>
+        )}
+
+        {aktivtKort && (
+          <motion.div 
+            className={styles.spørsmålContainer}
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.8, opacity: 0 }}
+          >
+            <button 
+              className={styles.lukkKnapp}
+              onClick={() => setAktivtKort(null)}
+            >
+              ✕
+            </button>
+            
+            {alleSpillere.find(s => s.id === aktivtKort)?.oppgaver.map((oppgave, index) => (
+              <div key={index} className={styles.oppgave}>
+                {oppgave.tekst && (
+                  <div className={styles.oppgaveTekst}>
+                    <p>{oppgave.tekst}</p>
+                    <button onClick={() => playWord(oppgave.tekst)}>🔊</button>
+                  </div>
+                )}
+                <h3>{oppgave.spørsmål}</h3>
+                <div className={styles.alternativer}>
+                  {oppgave.alternativer.map((alternativ, altIndex) => (
+                    <button
+                      key={altIndex}
+                      className={`${styles.svarKnapp} ${
+                        riktigeSvar[aktivtKort!]?.includes(oppgave.type || 'matte') ? styles.besvart : ''
+                      }`}
+                      onClick={() => {
+                        if (altIndex === oppgave.svar) {
+                          håndterRiktigSvar(oppgave.type || 'matte');
+                        } else {
+                          håndterFeilSvar();
+                        }
+                      }}
+                      disabled={riktigeSvar[aktivtKort!]?.includes(oppgave.type || 'matte')}
+                    >
+                      {alternativ}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </motion.div>
         )}
 
         {visMålAnimasjon && (
