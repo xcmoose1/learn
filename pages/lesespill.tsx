@@ -146,7 +146,13 @@ export default function Lesespill() {
           animate={{ opacity: 1, scale: 1 }}
           className="bg-dark-blue/30 backdrop-blur-sm rounded-lg p-8 mb-8"
         >
-          <div className="flex items-start space-x-6">
+          <div className="flex flex-col space-y-8">
+            <div className="text-center">
+              <h3 className="text-2xl font-bold mb-4">{currentOppgave.title}</h3>
+              <p className="text-xl leading-relaxed tracking-wide whitespace-pre-line">
+                {currentOppgave.text.split('. ').join('.\n\n')}
+              </p>
+            </div>
             <div className="w-1/4 flex justify-center">
               <motion.div
                 initial={{ scale: 0.5, opacity: 0 }}
@@ -157,36 +163,7 @@ export default function Lesespill() {
                 {currentOppgave.emoji}
               </motion.div>
             </div>
-            
             <div className="w-3/4">
-              <motion.h1 
-                className="text-3xl font-bold mb-4 text-white"
-                initial={{ x: -20, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.2 }}
-              >
-                {currentOppgave.title}
-              </motion.h1>
-              
-              <div className="mb-6">
-                <motion.p 
-                  className="text-lg leading-relaxed mb-4 text-gray-300"
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.4 }}
-                >
-                  {currentOppgave.text}
-                </motion.p>
-                
-                <Button
-                  onClick={handleReadText}
-                  variant="secondary"
-                  className="mb-4"
-                >
-                  🔊 Les høyt
-                </Button>
-              </div>
-
               <AnimatePresence mode="wait">
                 {!showQuiz ? (
                   <motion.div

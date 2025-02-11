@@ -7,7 +7,7 @@
         {
           "id": 1,
           "title": "Ronaldo som ung gutt ⚽",
-          "text": "Cristiano Ronaldo vokste opp på øya Madeira i Portugal. Han var veldig glad i fotball og trente hver dag. Selv når det regnet, ville han spille fotball. Han begynte å spille for Sporting CP da han var bare 12 år gammel.",
+          "text": "Cristiano Ronaldo vokste opp på øya Madeira i Portugal. Han var veldig glad i fotball og trente hver dag. Selv når det regnet, ville han spille fotball. Han begynte å spille for Sporting CP da han var bare 12 år gammel",
           "question": "Hvor vokste Ronaldo opp?",
           "options": ["Madeira", "Lisboa", "Porto"],
           "answer": "Madeira",
@@ -15,228 +15,180 @@
         },
         {
           "id": 2,
-          "title": "Ronaldo i Manchester United 🔴",
-          "text": "I 2003 spilte Sporting CP mot Manchester United i en treningskamp. Ronaldo var så god at alle spillerne på United ville ha ham på laget sitt. Etter kampen kjøpte United ham. Han fikk trøye nummer 7.",
+          "title": "Ronaldos drakt 🔴",
+          "text": "I 2003 kom Ronaldo til Manchester United. Han fikk trøye nummer 7. Dette er et spesielt nummer i klubben. Mange store spillere har brukt dette nummeret før ham",
           "question": "Hvilket draktnummer fikk Ronaldo i United?",
-          "options": ["Nummer 9", "Nummer 7", "Nummer 10"],
+          "options": ["Nummer 7", "Nummer 9", "Nummer 10"],
           "answer": "Nummer 7",
-          "emoji": "🏃"
+          "emoji": "👕"
+        },
+        {
+          "id": 3,
+          "title": "Messi som barn 🌟",
+          "text": "Lionel Messi begynte å spille fotball da han var fem år gammel. Han spilte for et lag som het Grandoli. Hans far Jorge var treneren hans. Messi var liten, men veldig rask med ballen",
+          "question": "Hvor gammel var Messi da han begynte å spille fotball?",
+          "options": ["Fem år", "Seks år", "Sju år"],
+          "answer": "Fem år",
+          "emoji": "⚽"
+        },
+        {
+          "id": 4,
+          "title": "Messis første klubb 🔵",
+          "text": "Da Messi var 13 år, flyttet han til Barcelona i Spania. Han begynte på La Masia. Det er Barcelonas fotballskole. Her lærte han å bli en enda bedre spiller",
+          "question": "Hva heter Barcelonas fotballskole?",
+          "options": ["La Masia", "La Rambla", "Camp Nou"],
+          "answer": "La Masia",
+          "emoji": "🏫"
+        },
+        {
+          "id": 5,
+          "title": "Haaland i Dortmund 🟡",
+          "text": "Erling Haaland spilte for Borussia Dortmund i Tyskland. Han scoret mange mål der. Han hadde gul drakt, som er Dortmunds farge. Fansen elsket ham",
+          "question": "Hvilken farge har Dortmunds drakter?",
+          "options": ["Gul", "Rød", "Blå"],
+          "answer": "Gul",
+          "emoji": "👕"
+        },
+        {
+          "id": 6,
+          "title": "Ødegaard som kaptein 🎯",
+          "text": "Martin Ødegaard er kaptein for Arsenal. Det betyr at han er lagets leder på banen. Han har et bånd rundt armen som viser at han er kaptein. Han er også kaptein for Norge",
+          "question": "Hvilket lag er Ødegaard kaptein for?",
+          "options": ["Arsenal", "Chelsea", "Liverpool"],
+          "answer": "Arsenal",
+          "emoji": "©️"
+        },
+        {
+          "id": 7,
+          "title": "Ada Hegerberg ⭐",
+          "text": "Ada Hegerberg er en norsk fotballspiller. Hun spiller for Lyon i Frankrike. Hun var den første kvinnen som vant Gullballen. Det er en pris til verdens beste spiller",
+          "question": "Hvilken pris vant Ada som første kvinne?",
+          "options": ["Gullballen", "VM-gull", "OL-gull"],
+          "answer": "Gullballen",
+          "emoji": "🏆"
+        },
+        {
+          "id": 8,
+          "title": "Caroline Graham Hansen 🌟",
+          "text": "Caroline Graham Hansen spiller for Barcelona. Hun er kjent for å være veldig god med ballen. Hun dribler forbi mange spillere. Mange sier hun er en av verdens beste",
+          "question": "Hvilket lag spiller Caroline for?",
+          "options": ["Barcelona", "Real Madrid", "Valencia"],
+          "answer": "Barcelona",
+          "emoji": "⚽"
+        },
+        {
+          "id": 9,
+          "title": "Zidanes hodeskalling 🤯",
+          "text": "I VM-finalen i 2006 gjorde Zidane noe dumt. Han skallet en annen spiller i brystet. Han fikk rødt kort og måtte gå av banen. Det var hans siste kamp",
+          "question": "Hva fikk Zidane i sin siste kamp?",
+          "options": ["Rødt kort", "Gult kort", "Straffe"],
+          "answer": "Rødt kort",
+          "emoji": "🟥"
+        },
+        {
+          "id": 10,
+          "title": "Maradonas hånd 🖐️",
+          "text": "I VM i 1986 scoret Maradona et mål med hånden. Han hoppet opp og brukte hånden til å slå ballen i mål. Dommeren så det ikke. Målet ble kalt 'Guds hånd'",
+          "question": "Hva ble Maradonas mål kalt?",
+          "options": ["Guds hånd", "Englehånd", "Magisk hånd"],
+          "answer": "Guds hånd",
+          "emoji": "✋"
         }
       ]
     },
     {
       "id": 2,
-      "tittel": "Berømte Klubblag",
+      "tittel": "Fotballens Regler",
       "oppgaver": [
         {
           "id": 1,
-          "title": "Real Madrid - Los Blancos ⚪",
-          "text": "Real Madrid er verdens mest suksessrike fotballklubb. De har vunnet Champions League 14 ganger! Klubben ble stiftet i 1902 og spiller sine hjemmekamper på Santiago Bernabéu stadion.",
-          "question": "Hvor mange Champions League-titler har Real Madrid?",
-          "options": ["14", "10", "12"],
-          "answer": "14",
-          "emoji": "👑"
-        },
-        {
-          "id": 2,
-          "title": "Manchester United - De røde djevlene 😈",
-          "text": "Manchester United er Englands mest suksessrike klubb. De har vunnet Premier League 20 ganger. Sir Alex Ferguson var manager for klubben i 26 år og vant 38 trofeer!",
-          "question": "Hvor mange Premier League-titler har United?",
-          "options": ["20", "18", "22"],
-          "answer": "20",
-          "emoji": "😈"
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "tittel": "Store Turneringer",
-      "oppgaver": [
-        {
-          "id": 1,
-          "title": "VM - Verdens største turnering 🏆",
-          "text": "Fotball-VM er verdens største idrettsarrangement. Det spilles hvert fjerde år, og 32 lag deltar. Brasil har vunnet VM flest ganger med 5 seiere.",
-          "question": "Hvor ofte spilles VM?",
-          "options": ["Hvert fjerde år", "Hvert andre år", "Hvert år"],
-          "answer": "Hvert fjerde år",
-          "emoji": "🏆"
-        },
-        {
-          "id": 2,
-          "title": "Champions League - Europas beste ⭐",
-          "text": "UEFA Champions League er den største klubbturneringen i Europa. De beste lagene fra hver liga deltar. Finalen er en av verdens mest sette sportsbegivenheter.",
-          "question": "Hvilken turnering er dette?",
-          "options": ["Champions League", "Europa League", "Conference League"],
-          "answer": "Champions League",
-          "emoji": "⭐"
-        }
-      ]
-    },
-    {
-      "id": 4,
-      "tittel": "Fotballens Regler og Historie",
-      "oppgaver": [
-        {
-          "id": 1,
-          "title": "De første reglene 📜",
-          "text": "Moderne fotball ble oppfunnet i England på 1800-tallet. De første offisielle reglene ble skrevet i 1863. Den gang kunne man ikke engang ha en dommer på banen!",
-          "question": "Når ble de første offisielle fotballreglene skrevet?",
-          "options": ["1863", "1890", "1850"],
-          "answer": "1863",
-          "emoji": "📜"
-        },
-        {
-          "id": 2,
-          "title": "Offsideregelen 🚩",
-          "text": "Offsideregelen er en av de viktigste reglene i fotball. Den ble innført for å hindre at angripere bare sto og ventet ved motstanderens mål. En spiller er offside hvis han er nærmere mållinjen enn ballen og nest siste motstander.",
-          "question": "Hvorfor ble offsideregelen innført?",
-          "options": ["Hindre ventende angripere", "Gjøre spillet raskere", "Få flere mål"],
-          "answer": "Hindre ventende angripere",
-          "emoji": "🚩"
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "tittel": "Morsomme Fotballfakta",
-      "oppgaver": [
-        {
-          "id": 1,
-          "title": "Verdens raskeste mål ⚡",
-          "text": "Det raskeste målet i fotballhistorien ble scoret etter bare 2.1 sekunder! Det var Ricardo Olivera som scoret direkte fra avspark i en kamp i Uruguay i 1998.",
-          "question": "Hvor mange sekunder tok det å score det raskeste målet?",
-          "options": ["2.1 sekunder", "5 sekunder", "1 sekund"],
-          "answer": "2.1 sekunder",
-          "emoji": "⚡"
-        },
-        {
-          "id": 2,
-          "title": "Lengste fotballkamp ⏰",
-          "text": "Den lengste fotballkampen noensinne varte i 3 dager! Det var en veldedighetskamp i 1981 som varte i 65 timer og 1 minutt. Spillerne byttet på å hvile seg.",
-          "question": "Hvor lenge varte den lengste fotballkampen?",
-          "options": ["3 dager", "2 dager", "4 dager"],
-          "answer": "3 dager",
+          "title": "Spilletid ⏱️",
+          "text": "En fotballkamp varer i 90 minutter. Den er delt i to omganger. Hver omgang er 45 minutter. Det er en pause mellom omgangene",
+          "question": "Hvor lenge varer en fotballkamp?",
+          "options": ["90 minutter", "60 minutter", "120 minutter"],
+          "answer": "90 minutter",
           "emoji": "⏰"
-        }
-      ]
-    },
-    {
-      "id": 6,
-      "tittel": "Taktikk og Spillestiler",
-      "oppgaver": [
-        {
-          "id": 1,
-          "title": "Tiki-taka ⚽",
-          "text": "Tiki-taka er en spillestil som ble gjort berømt av Barcelona og Spanias landslag. Det handler om å holde ballen i laget med mange korte pasninger. Spillerne beveger seg hele tiden for å skape rom.",
-          "question": "Hvilket lag gjorde tiki-taka berømt?",
-          "options": ["Barcelona", "Real Madrid", "Bayern München"],
-          "answer": "Barcelona",
-          "emoji": "⚽"
         },
         {
           "id": 2,
-          "title": "Total Football 🔄",
-          "text": "Total Football ble utviklet av Nederland på 1970-tallet. I denne spillestilen kan alle spillere spille i alle posisjoner. Johan Cruyff var den mest kjente spilleren i denne stilen.",
-          "question": "Hvilket land utviklet Total Football?",
-          "options": ["Nederland", "Tyskland", "Brasil"],
-          "answer": "Nederland",
+          "title": "Offside 🚩",
+          "text": "Offside er en viktig regel i fotball. Du kan ikke stå bak alle motspillerne når ballen blir spilt til deg. Du må ha minst to motspillere foran deg",
+          "question": "Hvor mange motspillere må være foran deg?",
+          "options": ["To", "En", "Tre"],
+          "answer": "To",
+          "emoji": "🏃"
+        },
+        {
+          "id": 3,
+          "title": "Gult kort 🟨",
+          "text": "Dommeren kan gi deg gult kort. Det er en advarsel. Hvis du får to gule kort i samme kamp, må du gå av banen. Da blir det rødt kort",
+          "question": "Hva skjer hvis du får to gule kort?",
+          "options": ["Rødt kort", "Straffe", "Frispark"],
+          "answer": "Rødt kort",
+          "emoji": "🟨"
+        },
+        {
+          "id": 4,
+          "title": "Innkast 🤾",
+          "text": "Når ballen går ut over sidelinjen, blir det innkast. Du må kaste ballen med begge hender. Føttene må stå på bakken. Du kan ikke score mål direkte fra innkast",
+          "question": "Hvordan må du kaste ved innkast?",
+          "options": ["Med begge hender", "Med én hånd", "Med foten"],
+          "answer": "Med begge hender",
+          "emoji": "🤾‍♂️"
+        },
+        {
+          "id": 5,
+          "title": "Hjørnespark ⛳",
+          "text": "Det blir hjørnespark når ballen går ut over mållinjen. Det er forsvarslaget som sparker ballen ut. Ballen legges i hjørnet av banen. Alle kan score på hjørnespark",
+          "question": "Hvor legges ballen ved hjørnespark?",
+          "options": ["I hjørnet", "På midten", "Ved straffepunktet"],
+          "answer": "I hjørnet",
+          "emoji": "⛳"
+        },
+        {
+          "id": 6,
+          "title": "Straffespark 🎯",
+          "text": "Straffespark gis når et lag gjør feil i eget straffefelt. Ballen legges på straffepunktet. Det er 11 meter fra mål. Bare keeper kan prøve å stoppe ballen",
+          "question": "Hvor langt er det fra straffepunktet til mål?",
+          "options": ["11 meter", "9 meter", "12 meter"],
+          "answer": "11 meter",
+          "emoji": "🎯"
+        },
+        {
+          "id": 7,
+          "title": "Målvakt 🧤",
+          "text": "Målvakten er den eneste som kan ta ballen med hendene. Men bare innenfor eget straffefelt. Utenfor feltet må keeper spille som alle andre",
+          "question": "Hvor kan keeper ta ballen med hendene?",
+          "options": ["I straffefelt", "Over hele banen", "På midtbanen"],
+          "answer": "I straffefelt",
+          "emoji": "🧤"
+        },
+        {
+          "id": 8,
+          "title": "Frispark 🦶",
+          "text": "Når det blir foul, får laget frispark. Motspillerne må stå minst 9,15 meter unna ballen. Du kan skyte rett på mål fra frispark",
+          "question": "Hvor langt unna må motspillerne stå?",
+          "options": ["9,15 meter", "5 meter", "10 meter"],
+          "answer": "9,15 meter",
+          "emoji": "🦶"
+        },
+        {
+          "id": 9,
+          "title": "Bytte av spiller 🔄",
+          "text": "I en kamp kan laget bytte spillere. En sliten spiller går ut, og en ny kommer inn. I de fleste kamper kan man bytte fem ganger",
+          "question": "Hvor mange bytter kan man gjøre?",
+          "options": ["Fem", "Tre", "Fire"],
+          "answer": "Fem",
           "emoji": "🔄"
-        }
-      ]
-    },
-    {
-      "id": 7,
-      "tittel": "Berømte Stadioner",
-      "oppgaver": [
-        {
-          "id": 1,
-          "title": "Camp Nou 🏟️",
-          "text": "Camp Nou er Europas største fotballstadion. Den ligger i Barcelona og har plass til 99,354 tilskuere! Stadion ble åpnet i 1957 og har vært hjemmebanen til FC Barcelona siden da.",
-          "question": "Hvilken by ligger Camp Nou i?",
-          "options": ["Barcelona", "Madrid", "Valencia"],
-          "answer": "Barcelona",
-          "emoji": "🏟️"
         },
         {
-          "id": 2,
-          "title": "Maracanã 🇧🇷",
-          "text": "Maracanã i Rio de Janeiro er en av verdens mest berømte fotballstadioner. Den ble bygget til VM i 1950 og kunne da ha 200,000 tilskuere! Nå er kapasiteten redusert til 78,838.",
-          "question": "I hvilken by ligger Maracanã?",
-          "options": ["Rio de Janeiro", "São Paulo", "Brasília"],
-          "answer": "Rio de Janeiro",
-          "emoji": "🇧🇷"
-        }
-      ]
-    },
-    {
-      "id": 8,
-      "tittel": "Fotballkultur Rundt i Verden",
-      "oppgaver": [
-        {
-          "id": 1,
-          "title": "Fotball i Brasil 🌴",
-          "text": "I Brasil kaller de fotball for 'o jogo bonito' - det vakre spillet. Barn spiller fotball overalt: på stranda, i gatene og på små baner. Mange barn drømmer om å bli profesjonelle fotballspillere.",
-          "question": "Hva kaller brasilianerne fotball?",
-          "options": ["O jogo bonito", "Futebol", "Pelota"],
-          "answer": "O jogo bonito",
-          "emoji": "🌴"
-        },
-        {
-          "id": 2,
-          "title": "Supporterkultur i England 🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-          "text": "I England er fotball en stor del av kulturen. Supporterne synger sanger og heier på laget sitt uansett hvordan det går. Mange familier har holdt med samme lag i generasjoner.",
-          "question": "Hva er spesielt med engelske supportere?",
-          "options": ["De synger sanger", "De sitter stille", "De kommer sent"],
-          "answer": "De synger sanger",
-          "emoji": "🏴󠁧󠁢󠁥󠁮󠁧󠁿"
-        }
-      ]
-    },
-    {
-      "id": 9,
-      "tittel": "Store Øyeblikk i Fotballhistorien",
-      "oppgaver": [
-        {
-          "id": 1,
-          "title": "Guds hånd ✋",
-          "text": "I VM 1986 scoret Diego Maradona et berømt mål mot England. Han hoppet opp og brukte hånden til å slå ballen i mål! Dommeren så det ikke og målet ble godkjent. Maradona sa senere at det var 'Guds hånd' som scoret målet.",
-          "question": "Hvilken kroppsdel brukte Maradona til å score?",
-          "options": ["Hånden", "Hodet", "Foten"],
-          "answer": "Hånden",
-          "emoji": "✋"
-        },
-        {
-          "id": 2,
-          "title": "Mirakelet i Istanbul 🇹🇷",
-          "text": "I Champions League-finalen 2005 lå Liverpool under 0-3 mot AC Milan ved pause. I andre omgang scoret de tre mål på seks minutter! Liverpool vant til slutt på straffespark. Det ble kalt 'Mirakelet i Istanbul'.",
-          "question": "Hvor mange mål lå Liverpool under?",
-          "options": ["3 mål", "2 mål", "4 mål"],
-          "answer": "3 mål",
-          "emoji": "🇹🇷"
-        }
-      ]
-    },
-    {
-      "id": 10,
-      "tittel": "Fotballens Fremtid",
-      "oppgaver": [
-        {
-          "id": 1,
-          "title": "VAR-teknologi 📺",
-          "text": "VAR (Video Assistant Referee) er en ny teknologi i fotball. Dommere kan nå se video av situasjoner for å ta riktige beslutninger. Dette hjelper dem å se om det var offside, straffe eller rødt kort.",
-          "question": "Hva står VAR for?",
-          "options": ["Video Assistant Referee", "Video Action Replay", "Visual Aid Referee"],
-          "answer": "Video Assistant Referee",
-          "emoji": "📺"
-        },
-        {
-          "id": 2,
-          "title": "Mållinjeteknologi 🥅",
-          "text": "Mållinjeteknologi bruker kameraer for å se om ballen har krysset mållinjen. Dommeren får et signal på klokken sin hvis det er mål. Dette gjør at vi unngår 'fantommål' hvor det er usikkert om ballen var inne.",
-          "question": "Hva gjør mållinjeteknologi?",
-          "options": ["Ser om ballen er inne", "Teller mål", "Måler fart"],
-          "answer": "Ser om ballen er inne",
-          "emoji": "🥅"
+          "id": 10,
+          "title": "Spillere på laget 👥",
+          "text": "Hvert lag har 11 spillere på banen. En av dem er keeper. Hvis et lag får mindre enn 7 spillere, må kampen stoppes",
+          "question": "Hvor mange spillere er det på hvert lag?",
+          "options": ["11", "10", "12"],
+          "answer": "11",
+          "emoji": "👥"
         }
       ]
     }
