@@ -73,7 +73,7 @@ export default function Matematikk() {
     setTotalScore(getScore());
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!currentProblem) return;
 
