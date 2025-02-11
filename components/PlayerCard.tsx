@@ -29,7 +29,7 @@ export default function PlayerCard({
 }: PlayerCardProps) {
   return (
     <motion.div
-      className="fifa-card w-72"
+      className="fifa-card w-72 relative bg-dark-blue/30 backdrop-blur-sm p-4 rounded-xl"
       whileHover={{ scale: 1.05 }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -49,12 +49,12 @@ export default function PlayerCard({
       </div>
 
       {/* Player Image */}
-      <div className="relative w-full h-48 mb-4">
+      <div className="relative w-full h-48 mb-4 bg-gradient-to-b from-dark-blue/50 to-dark-blue/80 rounded-lg overflow-hidden">
         <Image
           src={image}
           alt={name}
           fill
-          className="object-contain"
+          className="object-contain mix-blend-luminosity"
         />
       </div>
 

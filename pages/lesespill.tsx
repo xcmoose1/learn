@@ -1,10 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useSpeechSynthesis } from 'react-speech-kit';
-import Head from 'next/head';
+import Layout from '../components/Layout';
 import Button from '../components/Button';
 import leseoppgaver from '../data/leseoppgaver.json';
-import { updateScore } from '../lib/score';
 
 interface Oppgave {
   id: number;
@@ -22,6 +20,16 @@ interface Del {
   oppgaver: Oppgave[];
 }
 
+// Bruk native Web Speech API
+const speak = (text: string) => {
+  if ('speechSynthesis' in window) {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'nb-NO'; // Norsk bokmål
+    utterance.rate = 0.9; // Litt saktere tale
+    speechSynthesis.speak(utterance);
+  }
+};
+
 export default function Lesespill() {
   const [currentDel, setCurrentDel] = useState<Del>(leseoppgaver.deler[0]);
   const [currentOppgave, setCurrentOppgave] = useState<Oppgave>(leseoppgaver.deler[0].oppgaver[0]);
@@ -29,12 +37,19 @@ export default function Lesespill() {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [showDelVelger, setShowDelVelger] = useState(true);
-  const { speak, speaking, supported } = useSpeechSynthesis();
+  const [score, setScore] = useState(0);
+
+  // Stopp tale når komponenten unmountes
+  useEffect(() => {
+    return () => {
+      if ('speechSynthesis' in window) {
+        speechSynthesis.cancel();
+      }
+    };
+  }, []);
 
   const handleReadText = () => {
-    if (supported) {
-      speak({ text: currentOppgave.text });
-    }
+    speak(currentOppgave.text);
   };
 
   const handleAnswer = (option: string) => {
@@ -43,7 +58,7 @@ export default function Lesespill() {
     setIsCorrect(correct);
 
     if (correct) {
-      updateScore(10);
+      setScore(score + 10);
       setTimeout(() => {
         const currentOppgaveIndex = currentDel.oppgaver.findIndex(o => o.id === currentOppgave.id);
         if (currentOppgaveIndex < currentDel.oppgaver.length - 1) {
@@ -70,17 +85,21 @@ export default function Lesespill() {
 
   if (showDelVelger) {
     return (
-      <div className="container mx-auto px-4 py-8">
-        <Head>
-          <title>Velg Del - Fotballhistorier</title>
-        </Head>
+      <Layout title="Lesespill - Velg Del">
+        <div className="max-w-4xl mx-auto py-8 px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center mb-8"
+          >
+            <h1 className="font-heading text-4xl mb-4 text-white">
+              Velg Del
+            </h1>
+            <p className="text-xl text-gray-300">
+              Poeng: {score}
+            </p>
+          </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="max-w-3xl mx-auto"
-        >
-          <h1 className="text-4xl font-bold text-center mb-8">Velg Del</h1>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {leseoppgaver.deler.map((del) => (
               <motion.div
@@ -100,123 +119,141 @@ export default function Lesespill() {
               </motion.div>
             ))}
           </div>
-        </motion.div>
-      </div>
+        </div>
+      </Layout>
     );
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <Head>
-        <title>Del {currentDel.id}: {currentDel.tittel} - Fotballhistorier</title>
-      </Head>
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-6"
-      >
-        <div className="flex justify-between items-center mb-6">
+    <Layout title={`Lesespill - ${currentDel.tittel}`}>
+      <div className="max-w-4xl mx-auto py-8 px-4">
+        <div className="flex justify-between items-center mb-8">
           <Button
             onClick={() => setShowDelVelger(true)}
             variant="secondary"
           >
             ← Tilbake til deler
           </Button>
-          <h2 className="text-xl font-bold">Del {currentDel.id}: {currentDel.tittel}</h2>
-          <div className="w-24" /> {/* For å balansere layouten */}
+          <h2 className="text-xl font-bold text-white">Del {currentDel.id}: {currentDel.tittel}</h2>
+          <div className="w-24 text-right text-white">
+            Poeng: {score}
+          </div>
         </div>
 
-        <div className="flex items-start space-x-6">
-          <div className="w-1/4 flex justify-center">
-            <motion.div
-              initial={{ scale: 0.5, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="text-8xl"
-            >
-              {currentOppgave.emoji}
-            </motion.div>
-          </div>
-          
-          <div className="w-3/4">
-            <motion.h1 
-              className="text-3xl font-bold mb-4"
-              initial={{ x: -20, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.2 }}
-            >
-              {currentOppgave.title}
-            </motion.h1>
-            
-            <div className="mb-6">
-              <motion.p 
-                className="text-lg leading-relaxed mb-4"
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.4 }}
+        <motion.div
+          key={currentOppgave.id}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="bg-dark-blue/30 backdrop-blur-sm rounded-lg p-8 mb-8"
+        >
+          <div className="flex items-start space-x-6">
+            <div className="w-1/4 flex justify-center">
+              <motion.div
+                initial={{ scale: 0.5, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className="text-8xl"
               >
-                {currentOppgave.text}
-              </motion.p>
-              
-              <Button
-                onClick={handleReadText}
-                disabled={speaking}
-                variant="secondary"
-                className="mb-4"
-              >
-                {speaking ? 'Leser... 🔊' : 'Les høyt 🔊'}
-              </Button>
+                {currentOppgave.emoji}
+              </motion.div>
             </div>
+            
+            <div className="w-3/4">
+              <motion.h1 
+                className="text-3xl font-bold mb-4 text-white"
+                initial={{ x: -20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.2 }}
+              >
+                {currentOppgave.title}
+              </motion.h1>
+              
+              <div className="mb-6">
+                <motion.p 
+                  className="text-lg leading-relaxed mb-4 text-gray-300"
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.4 }}
+                >
+                  {currentOppgave.text}
+                </motion.p>
+                
+                <Button
+                  onClick={handleReadText}
+                  variant="secondary"
+                  className="mb-4"
+                >
+                  🔊 Les høyt
+                </Button>
+              </div>
 
-            <AnimatePresence mode="wait">
-              {!showQuiz ? (
-                <motion.div
-                  key="startQuiz"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                >
-                  <Button
-                    onClick={() => setShowQuiz(true)}
-                    variant="primary"
-                    fullWidth
+              <AnimatePresence mode="wait">
+                {!showQuiz ? (
+                  <motion.div
+                    key="startQuiz"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
                   >
-                    Svar på spørsmål ✍️
-                  </Button>
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="quiz"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  className="space-y-4"
-                >
-                  <h3 className="text-xl font-bold mb-4">{currentOppgave.question}</h3>
-                  {currentOppgave.options.map((option) => (
                     <Button
-                      key={option}
-                      onClick={() => handleAnswer(option)}
-                      variant={
-                        selectedAnswer === option
-                          ? option === currentOppgave.answer
-                            ? 'success'
-                            : 'error'
-                          : 'secondary'
-                      }
-                      disabled={selectedAnswer !== null}
+                      onClick={() => setShowQuiz(true)}
+                      variant="primary"
                       fullWidth
                     >
-                      {option}
+                      Svar på spørsmål ✍️
                     </Button>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="quiz"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    className="space-y-4"
+                  >
+                    <h3 className="text-xl font-bold mb-4 text-white">{currentOppgave.question}</h3>
+                    {currentOppgave.options.map((option) => (
+                      <Button
+                        key={option}
+                        onClick={() => handleAnswer(option)}
+                        variant={
+                          selectedAnswer === option
+                            ? option === currentOppgave.answer
+                              ? 'success'
+                              : 'error'
+                            : 'secondary'
+                        }
+                        disabled={selectedAnswer !== null}
+                        fullWidth
+                      >
+                        {option}
+                      </Button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Fremgangsbar */}
+        <div className="max-w-md mx-auto">
+          <div className="flex justify-between text-sm text-gray-400 mb-2">
+            <span>Oppgave {currentOppgave.id} av {currentDel.oppgaver.length}</span>
+            <span>{Math.round((currentOppgave.id / currentDel.oppgaver.length) * 100)}% fullført</span>
+          </div>
+          <div className="w-full h-2 bg-dark-blue rounded-full overflow-hidden">
+            <motion.div
+              className="h-full bg-neon-blue"
+              initial={{ width: 0 }}
+              animate={{ 
+                width: `${(currentOppgave.id / currentDel.oppgaver.length) * 100}%` 
+              }}
+              transition={{ duration: 0.5 }}
+            />
           </div>
         </div>
-      </motion.div>
-    </div>
+      </div>
+    </Layout>
   );
 }

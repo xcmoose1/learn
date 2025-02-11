@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import Head from 'next/head';
+import Layout from '../components/Layout';
 import { motion } from 'framer-motion';
 import Button from '../components/Button';
 import TierVenner from '../components/TierVenner';
@@ -56,6 +56,7 @@ export default function Matematikk() {
   const [totalScore, setTotalScore] = useState(0);
   const [currentProblem, setCurrentProblem] = useState<Problem | null>(null);
   const [feedback, setFeedback] = useState<{ message: string; isCorrect: boolean } | null>(null);
+  const [answer, setAnswer] = useState('');
 
   useEffect(() => {
     setTotalScore(getScore());
@@ -72,7 +73,7 @@ export default function Matematikk() {
     setTotalScore(getScore());
   };
 
-  const handleAnswerSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!currentProblem) return;
 
@@ -94,32 +95,32 @@ export default function Matematikk() {
   };
 
   return (
-    <>
-      <Head>
-        <title>Matematikk | Læringsportal</title>
-        <meta name="description" content="Lær matematikk gjennom morsomme spill" />
-      </Head>
-
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+    <Layout title="Matematikk">
+      <div className="max-w-6xl mx-auto px-4 py-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center mb-8"
+        >
+          <h1 className="font-heading text-4xl mb-4 text-white">
             Matematikk
           </h1>
-          <p className="text-xl text-gray-600">
-            Totale poeng: {totalScore}
+          <p className="text-xl text-gray-300 mb-4">
+            Poeng: {totalScore}
           </p>
-        </div>
+        </motion.div>
 
         {!currentGame ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Tier-Venner Card */}
             <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="p-6 bg-white rounded-xl shadow-lg"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
+              className="bg-dark-blue/30 backdrop-blur-sm rounded-xl p-6 hover:bg-dark-blue/40 transition-colors"
             >
-              <h2 className="text-2xl font-bold text-gray-800 mb-3">
-                Tier-Venner
-              </h2>
-              <p className="text-gray-600 mb-4">
+              <h2 className="text-2xl font-heading text-white mb-4">Tier-Venner</h2>
+              <p className="text-gray-300 mb-6">
                 Finn tallpar som blir 10 til sammen. Kan du klare 5 på rad?
               </p>
               <Button
@@ -131,14 +132,15 @@ export default function Matematikk() {
               </Button>
             </motion.div>
 
+            {/* Fotball-Matte Card */}
             <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="p-6 bg-white rounded-xl shadow-lg"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4 }}
+              className="bg-dark-blue/30 backdrop-blur-sm rounded-xl p-6 hover:bg-dark-blue/40 transition-colors"
             >
-              <h2 className="text-2xl font-bold text-gray-800 mb-3">
-                Fotball-Matte
-              </h2>
-              <p className="text-gray-600 mb-4">
+              <h2 className="text-2xl font-heading text-white mb-4">Fotball-Matte</h2>
+              <p className="text-gray-300 mb-6">
                 Løs morsomme matteoppgaver med fotballtema!
               </p>
               <Button
@@ -150,82 +152,58 @@ export default function Matematikk() {
               </Button>
             </motion.div>
           </div>
+        ) : currentGame === 'tier-venner' ? (
+          <TierVenner onScoreUpdate={handleScoreUpdate} onBack={() => setCurrentGame(null)} />
         ) : (
-          <div className="bg-white p-6 rounded-xl shadow-lg">
-            <div className="flex justify-between items-center mb-6">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="max-w-2xl mx-auto"
+          >
+            <div className="bg-dark-blue/30 backdrop-blur-sm rounded-xl p-8">
               <Button
-                onClick={() => {
-                  setCurrentGame(null);
-                  setCurrentProblem(null);
-                  setFeedback(null);
-                }}
+                onClick={() => setCurrentGame(null)}
                 variant="secondary"
+                className="mb-6"
               >
-                ← Tilbake til spill
+                ← Tilbake til meny
               </Button>
-            </div>
 
-            {currentGame === 'tier-venner' ? (
-              <TierVenner onScoreUpdate={handleScoreUpdate} audioEnabled={false} />
-            ) : currentProblem && (
-              <div>
-                <h2 className="text-2xl font-bold mb-4">Fotball-Matte</h2>
-                <div className="max-w-2xl mx-auto">
-                  <div className="bg-white rounded-lg shadow-lg p-6 mb-4">
-                    <div className="flex justify-between items-center mb-6">
-                      <h1 className="text-3xl font-bold text-gray-900">
-                        Fotballmatematikk
-                      </h1>
-                      <div className="text-right">
-                        <p className="text-lg font-semibold text-blue-600">Poeng: {totalScore}</p>
-                      </div>
-                    </div>
+              <h2 className="text-2xl font-heading text-white mb-6">
+                {currentProblem?.question}
+              </h2>
 
-                    <div className="bg-blue-50 rounded-lg p-6 mb-6">
-                      <p className="text-xl text-gray-800 mb-4">{currentProblem.question}</p>
-                      <form onSubmit={handleAnswerSubmit} className="space-y-4">
-                        <div>
-                          <input
-                            type="number"
-                            name="answer"
-                            className="w-full px-4 py-2 text-lg border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-colors duration-200"
-                            placeholder="Skriv svaret her..."
-                            required
-                          />
-                        </div>
-
-                        <Button
-                          variant="primary"
-                          fullWidth
-                          onClick={(e) => {
-                            e.preventDefault();
-                            const form = e.currentTarget.closest('form');
-                            if (form) form.requestSubmit();
-                          }}
-                        >
-                          Sjekk svar
-                        </Button>
-
-                        {feedback && (
-                          <motion.div
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            className={`text-center text-xl font-bold ${
-                              feedback.isCorrect ? 'text-green-600' : 'text-red-600'
-                            }`}
-                          >
-                            {feedback.message}
-                          </motion.div>
-                        )}
-                      </form>
-                    </div>
-                  </div>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <input
+                    type="number"
+                    name="answer"
+                    placeholder="Skriv ditt svar her..."
+                    className="w-full px-4 py-2 bg-dark-blue/20 border border-neon-blue/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-neon-blue"
+                    required
+                  />
                 </div>
-              </div>
-            )}
-          </div>
+
+                <Button type="submit" variant="primary" fullWidth>
+                  Svar
+                </Button>
+
+                {feedback && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className={`text-center text-lg font-bold ${
+                      feedback.isCorrect ? 'text-green-400' : 'text-red-400'
+                    }`}
+                  >
+                    {feedback.message}
+                  </motion.div>
+                )}
+              </form>
+            </div>
+          </motion.div>
         )}
       </div>
-    </>
+    </Layout>
   );
 }

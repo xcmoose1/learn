@@ -2,6 +2,7 @@ import { motion, HTMLMotionProps } from 'framer-motion';
 import { ButtonHTMLAttributes } from 'react';
 
 interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, keyof HTMLMotionProps<'button'>> {
+  type?: 'button' | 'submit' | 'reset';
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   children: React.ReactNode;
   variant?: 'primary' | 'secondary' | 'success' | 'error' | 'quiz';
@@ -13,6 +14,7 @@ interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, keyo
 }
 
 const Button: React.FC<ButtonProps> = ({
+  type = 'button',
   onClick,
   children,
   variant = 'primary',
@@ -40,6 +42,7 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <motion.button
+      type={type}
       whileHover={disabled ? {} : { scale: 1.02 }}
       whileTap={disabled ? {} : { scale: 0.98 }}
       onClick={onClick}

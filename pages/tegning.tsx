@@ -5,18 +5,12 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import QuizCard from '../components/QuizCard';
 
-// Dynamisk import av Konva komponenter for å unngå SSR problemer
-const Stage = dynamic(() => import('react-konva').then((mod) => mod.Stage), {
-  ssr: false
-});
-const Layer = dynamic(() => import('react-konva').then((mod) => mod.Layer), {
-  ssr: false
-});
-const Rect = dynamic(() => import('react-konva').then((mod) => mod.Rect), {
-  ssr: false
-});
+// Dynamisk import av Konva komponenter
+const Stage = dynamic(() => import('react-konva').then((mod) => mod.Stage), { ssr: false });
+const Layer = dynamic(() => import('react-konva').then((mod) => mod.Layer), { ssr: false });
+const Rect = dynamic(() => import('react-konva').then((mod) => mod.Rect), { ssr: false });
 
-// Predefinerte farger for Ronaldo-tegningen
+// Predefinerte farger
 const colors = {
   skin: '#E0B59E',
   hair: '#2A1B17',
@@ -26,19 +20,72 @@ const colors = {
   boots: '#000000',
 };
 
-// Quiz spørsmål som vises etter fremgang
-const quizQuestions = [
+// Spillerdata
+const players = [
   {
-    question: 'Hvilket år vant Ronaldo sin første Ballon d\'Or?',
-    options: ['2008', '2013', '2016', '2017'],
-    correctAnswer: '2008',
-    explanation: 'Cristiano Ronaldo vant sin første Ballon d\'Or i 2008 mens han spilte for Manchester United.'
+    id: 'ronaldo',
+    name: 'Cristiano Ronaldo',
+    image: '/players/ronaldo-outline.png',
+    quiz: [
+      {
+        question: 'Hvilket år vant Ronaldo sin første Ballon d\'Or?',
+        options: ['2008', '2013', '2016', '2017'],
+        correctAnswer: '2008',
+        explanation: 'Cristiano Ronaldo vant sin første Ballon d\'Or i 2008 mens han spilte for Manchester United.'
+      }
+    ]
   },
   {
-    question: 'Hvor mange Champions League-titler har Ronaldo vunnet?',
-    options: ['3', '4', '5', '6'],
-    correctAnswer: '5',
-    explanation: 'Ronaldo har vunnet Champions League 5 ganger: 1 med Manchester United og 4 med Real Madrid.'
+    id: 'messi',
+    name: 'Lionel Messi',
+    image: '/players/messi-outline.png',
+    quiz: [
+      {
+        question: 'Hvor mange Ballon d\'Or har Messi vunnet?',
+        options: ['6', '7', '8', '9'],
+        correctAnswer: '8',
+        explanation: 'Lionel Messi har vunnet Ballon d\'Or hele 8 ganger, som er rekord!'
+      }
+    ]
+  },
+  {
+    id: 'haaland',
+    name: 'Erling Haaland',
+    image: '/players/haaland-outline.png',
+    quiz: [
+      {
+        question: 'Hvilken klubb spiller Haaland for i Premier League?',
+        options: ['Liverpool', 'Manchester City', 'Arsenal', 'Chelsea'],
+        correctAnswer: 'Manchester City',
+        explanation: 'Erling Haaland spiller for Manchester City siden 2022.'
+      }
+    ]
+  },
+  {
+    id: 'neymar',
+    name: 'Neymar Jr',
+    image: '/players/neymar-outline.png',
+    quiz: [
+      {
+        question: 'Hvilket land kommer Neymar fra?',
+        options: ['Argentina', 'Portugal', 'Brasil', 'Frankrike'],
+        correctAnswer: 'Brasil',
+        explanation: 'Neymar er fra Brasil og er en av landets største fotballstjerner.'
+      }
+    ]
+  },
+  {
+    id: 'lewandowski',
+    name: 'Robert Lewandowski',
+    image: '/players/lewandowski-outline.png',
+    quiz: [
+      {
+        question: 'Hvilken klubb scoret Lewandowski 5 mål på 9 minutter for?',
+        options: ['Dortmund', 'Bayern München', 'Barcelona', 'Polen'],
+        correctAnswer: 'Bayern München',
+        explanation: 'Lewandowski scoret 5 mål på 9 minutter for Bayern München mot Wolfsburg i 2015.'
+      }
+    ]
   }
 ];
 
@@ -49,12 +96,12 @@ interface Cell {
 }
 
 export default function Tegning() {
+  const [currentPlayer, setCurrentPlayer] = useState(players[0]);
   const [currentColor, setCurrentColor] = useState(colors.skin);
   const [grid, setGrid] = useState<Cell[]>([]);
   const [showQuiz, setShowQuiz] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [progress, setProgress] = useState(0);
-  const stageRef = useRef(null);
 
   // Konstanter for grid
   const CELL_SIZE = 20;
@@ -64,25 +111,31 @@ export default function Tegning() {
   const IMAGE_HEIGHT = GRID_HEIGHT * CELL_SIZE;
   const TOTAL_CELLS = GRID_WIDTH * GRID_HEIGHT;
 
-  // Initialiser grid med transparent farge
+  // Initialiser grid
   useEffect(() => {
+    initializeGrid();
+  }, [currentPlayer]);
+
+  const initializeGrid = () => {
     const initialGrid: Cell[] = [];
     for (let y = 0; y < GRID_HEIGHT; y++) {
       for (let x = 0; x < GRID_WIDTH; x++) {
         initialGrid.push({
           x: x * CELL_SIZE,
           y: y * CELL_SIZE,
-          color: 'rgba(255, 255, 255, 0.1)' // Svakt synlig hvit farge
+          color: 'rgba(255, 255, 255, 0.1)'
         });
       }
     }
     setGrid(initialGrid);
-  }, []);
+    setProgress(0);
+    setShowQuiz(false);
+    setCurrentQuestion(0);
+  };
 
-  // Håndter klikk på en celle med opacity
+  // Håndter klikk på en celle
   const handleCellClick = (index: number) => {
     const newGrid = [...grid];
-    // Legg til opacity i fargen
     const color = currentColor === '#FFFFFF' 
       ? 'rgba(255, 255, 255, 0.7)' 
       : currentColor.replace(')', ', 0.7)').replace('rgb', 'rgba');
@@ -104,8 +157,7 @@ export default function Tegning() {
   // Håndter quiz svar
   const handleQuizAnswer = (isCorrect: boolean) => {
     if (isCorrect) {
-      // Gå til neste spørsmål eller skjul quiz
-      if (currentQuestion < quizQuestions.length - 1) {
+      if (currentQuestion < currentPlayer.quiz.length - 1) {
         setCurrentQuestion(curr => curr + 1);
       } else {
         setShowQuiz(false);
@@ -113,17 +165,8 @@ export default function Tegning() {
     }
   };
 
-  // Tilbakestill tegningen
-  const handleReset = () => {
-    const newGrid = grid.map(cell => ({ ...cell, color: 'rgba(255, 255, 255, 0.1)' }));
-    setGrid(newGrid);
-    setProgress(0);
-    setShowQuiz(false);
-    setCurrentQuestion(0);
-  };
-
   return (
-    <Layout title="Tegning - Ronaldo">
+    <Layout title="Tegning - Fotballspillere">
       <div className="max-w-6xl mx-auto py-8 px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -131,12 +174,31 @@ export default function Tegning() {
           className="text-center mb-8"
         >
           <h1 className="font-heading text-4xl mb-4 text-white">
-            Fargelegg Ronaldo
+            Fargelegg {currentPlayer.name}
           </h1>
           <p className="text-xl text-gray-300 mb-4">
             Velg en farge og klikk på rutene for å fargelegge
           </p>
         </motion.div>
+
+        {/* Spillervalg */}
+        <div className="flex justify-center gap-4 mb-8 overflow-x-auto pb-4">
+          {players.map(player => (
+            <motion.button
+              key={player.id}
+              onClick={() => setCurrentPlayer(player)}
+              className={`px-4 py-2 rounded-lg ${
+                currentPlayer.id === player.id 
+                  ? 'bg-neon-blue text-white' 
+                  : 'bg-dark-blue/30 text-gray-300'
+              }`}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {player.name}
+            </motion.button>
+          ))}
+        </div>
 
         {/* Fargepalett */}
         <div className="flex justify-center gap-4 mb-8">
@@ -157,24 +219,15 @@ export default function Tegning() {
         {/* Tegnebrett */}
         <div className="relative flex justify-center mb-8">
           <div className="relative bg-gray-800 p-4 rounded-lg">
-            {/* Debug info */}
-            <div className="text-white mb-4">
-              <p>Grid: {GRID_WIDTH}x{GRID_HEIGHT}</p>
-              <p>Cell size: {CELL_SIZE}px</p>
-              <p>Image size: {IMAGE_WIDTH}x{IMAGE_HEIGHT}px</p>
-            </div>
-            
-            {/* Bakgrunnsbilde */}
             <div className="relative bg-white rounded-lg overflow-hidden" style={{ width: IMAGE_WIDTH, height: IMAGE_HEIGHT }}>
               <Image
-                src="/players/ronaldo-outline.png"
-                alt="Ronaldo outline"
+                src={currentPlayer.image}
+                alt={`${currentPlayer.name} outline`}
                 width={IMAGE_WIDTH}
                 height={IMAGE_HEIGHT}
                 className="absolute top-0 left-0 pointer-events-none z-10"
               />
               
-              {/* Konva Stage */}
               <Stage
                 width={IMAGE_WIDTH}
                 height={IMAGE_HEIGHT}
@@ -194,7 +247,6 @@ export default function Tegning() {
                       onClick={() => handleCellClick(index)}
                       onTap={() => handleCellClick(index)}
                       onMouseEnter={(e) => {
-                        // Hover effekt
                         const stage = e.target.getStage();
                         if (stage) {
                           stage.container().style.cursor = 'pointer';
@@ -224,7 +276,7 @@ export default function Tegning() {
             <span>{progress}% fullført</span>
             <button
               className="btn-neon group px-4 py-2"
-              onClick={handleReset}
+              onClick={initializeGrid}
             >
               Tilbakestill
             </button>
@@ -240,16 +292,16 @@ export default function Tegning() {
         </div>
 
         {/* Quiz */}
-        {showQuiz && (
+        {showQuiz && currentPlayer.quiz[currentQuestion] && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="max-w-2xl mx-auto"
           >
             <QuizCard
-              question={quizQuestions[currentQuestion].question}
-              options={quizQuestions[currentQuestion].options}
-              correctAnswer={quizQuestions[currentQuestion].correctAnswer}
+              question={currentPlayer.quiz[currentQuestion].question}
+              options={currentPlayer.quiz[currentQuestion].options}
+              correctAnswer={currentPlayer.quiz[currentQuestion].correctAnswer}
               onAnswer={handleQuizAnswer}
             />
           </motion.div>
