@@ -4,11 +4,26 @@ import styles from '../styles/Tale.module.css';
 import lesespillData from '../data/lesespill.json';
 import { useSpeech } from '../hooks/useSpeech';
 
+type SoundType = 'r_lyd' | 's_lyd' | 'l_lyd';
+
+interface UttaleTreningItem {
+  ord: string;
+  lydFil: string;
+  bilde: string;
+}
+
+interface UttaleTrening {
+  r_lyd: UttaleTreningItem[];
+  s_lyd: UttaleTreningItem[];
+  l_lyd: UttaleTreningItem[];
+}
+
 const Tale = () => {
   const [activeTab, setActiveTab] = useState('sammensatte');
   const [score, setScore] = useState(0);
   const [showReward, setShowReward] = useState(false);
   const [currentWord, setCurrentWord] = useState('');
+  const [selectedSound, setSelectedSound] = useState<SoundType>('r_lyd');
   const { speak, cancel, speaking, supported } = useSpeech({
     text: currentWord,
     lang: 'nb-NO',
@@ -140,8 +155,6 @@ const Tale = () => {
   };
 
   const UttaleTrening = () => {
-    const [selectedSound, setSelectedSound] = useState('r_lyd');
-    
     return (
       <div className={styles.gameContainer}>
         <h2>Øv på uttale</h2>
@@ -166,7 +179,7 @@ const Tale = () => {
           </button>
         </div>
         <div className={styles.wordList}>
-          {lesespillData.uttaleTrening[selectedSound].map((item, index) => (
+          {(lesespillData.uttaleTrening as UttaleTrening)[selectedSound].map((item, index) => (
             <div key={index} className={styles.wordItem}>
               <img src={item.bilde} alt={item.ord} />
               <h3>{item.ord}</h3>
