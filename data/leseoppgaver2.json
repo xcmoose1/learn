@@ -1,0 +1,76 @@
+{
+  "deler": [
+    {
+      "id": 6,
+      "tittel": "Taktikk og Spillestiler",
+      "oppgaver": [
+        {
+          "id": 1,
+          "title": "Tiki-taka ⚽",
+          "text": "Tiki-taka er en spillestil som ble gjort berømt av Barcelona og Spanias landslag. Det handler om å holde ballen i laget med mange korte pasninger. Spillerne beveger seg hele tiden for å skape rom.",
+          "question": "Hvilket lag gjorde tiki-taka berømt?",
+          "options": ["Barcelona", "Real Madrid", "Bayern München"],
+          "answer": "Barcelona",
+          "emoji": "⚽"
+        },
+        {
+          "id": 2,
+          "title": "Total Football 🔄",
+          "text": "Total Football ble utviklet av Nederland på 1970-tallet. I denne spillestilen kan alle spillere spille i alle posisjoner. Johan Cruyff var den mest kjente spilleren i denne stilen.",
+          "question": "Hvilket land utviklet Total Football?",
+          "options": ["Nederland", "Tyskland", "Brasil"],
+          "answer": "Nederland",
+          "emoji": "🔄"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "tittel": "Berømte Stadioner",
+      "oppgaver": [
+        {
+          "id": 1,
+          "title": "Camp Nou 🏟️",
+          "text": "Camp Nou er Europas største fotballstadion. Den ligger i Barcelona og har plass til 99,354 tilskuere! Stadion ble åpnet i 1957 og har vært hjemmebanen til FC Barcelona siden da.",
+          "question": "Hvilken by ligger Camp Nou i?",
+          "options": ["Barcelona", "Madrid", "Valencia"],
+          "answer": "Barcelona",
+          "emoji": "🏟️"
+        },
+        {
+          "id": 2,
+          "title": "Maracanã 🇧🇷",
+          "text": "Maracanã i Rio de Janeiro er en av verdens mest berømte fotballstadioner. Den ble bygget til VM i 1950 og kunne da ha 200,000 tilskuere! Nå er kapasiteten redusert til 78,838.",
+          "question": "I hvilken by ligger Maracanã?",
+          "options": ["Rio de Janeiro", "São Paulo", "Brasília"],
+          "answer": "Rio de Janeiro",
+          "emoji": "🇧🇷"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "tittel": "Fotballkultur Rundt i Verden",
+      "oppgaver": [
+        {
+          "id": 1,
+          "title": "Fotball i Brasil 🌴",
+          "text": "I Brasil kaller de fotball for 'o jogo bonito' - det vakre spillet. Barn spiller fotball overalt: på stranda, i gatene og på små baner. Mange barn drømmer om å bli profesjonelle fotballspillere.",
+          "question": "Hva kaller brasilianerne fotball?",
+          "options": ["O jogo bonito", "Futebol", "Pelota"],
+          "answer": "O jogo bonito",
+          "emoji": "🌴"
+        },
+        {
+          "id": 2,
+          "title": "Supporterkultur i England 🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+          "text": "I England er fotball en stor del av kulturen. Supporterne synger sanger og heier på laget sitt uansett hvordan det går. Mange familier har holdt med samme lag i generasjoner.",
+          "question": "Hva er spesielt med engelske supportere?",
+          "options": ["De synger sanger", "De sitter stille", "De kommer sent"],
+          "answer": "De synger sanger",
+          "emoji": "🏴󠁧󠁢󠁥󠁮󠁧󠁿"
+        }
+      ]
+    }
+  ]
+}

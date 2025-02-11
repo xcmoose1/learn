@@ -1,0 +1,32 @@
+{
+  "stories": [
+    {
+      "id": 1,
+      "title": "Den store finalen",
+      "content": "Det var en spennende dag på fotballbanen. Emma og laget hennes skulle spille finale i skolecupen. De hadde trent hardt hele sesongen, og nå var den store dagen endelig her. Emma følte sommerfugler i magen da hun gikk ut på banen. I det 89. minutt, med stillingen 1-1, fikk Emma ballen. Hun driblet forbi to forsvarere og skjøt. Ballen suste inn i målet! Hele laget jublet, og Emma ble dagens helt.",
+      "quiz": {
+        "question": "Hva gjorde Emma i det 89. minutt?",
+        "options": [
+          "Hun reddet et skudd som målvakt",
+          "Hun scoret det avgjørende målet",
+          "Hun ble byttet ut av kampen"
+        ],
+        "correctAnswer": 1
+      }
+    },
+    {
+      "id": 2,
+      "title": "Treningskampen",
+      "content": "Marcus var ny på fotballaget. Han var litt nervøs fordi han aldri hadde spilt på et ordentlig lag før. På første trening lærte treneren dem en ny pasningsøvelse. Marcus syntes det var vanskelig i starten, men han ga ikke opp. Han øvde og øvde, og til slutt klarte han det! Treneren smilte og ga ham en high-five. 'Bra jobbet, Marcus!' sa treneren. 'Du viser at øvelse gjør mester!'",
+      "quiz": {
+        "question": "Hva gjorde Marcus på treningen?",
+        "options": [
+          "Han ga opp med en gang",
+          "Han spilte keeper hele tiden",
+          "Han øvde til han klarte pasningsøvelsen"
+        ],
+        "correctAnswer": 2
+      }
+    }
+  ]
+}

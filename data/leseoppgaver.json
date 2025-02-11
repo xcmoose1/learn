@@ -1,0 +1,252 @@
+{
+  "deler": [
+    {
+      "id": 1,
+      "tittel": "Fotballens Legender",
+      "oppgaver": [
+        {
+          "id": 1,
+          "title": "Ronaldo som ung gutt ⚽",
+          "text": "Cristiano Ronaldo vokste opp på øya Madeira i Portugal. Han var veldig glad i fotball og trente hver dag. Selv når det regnet, ville han spille fotball. Han begynte å spille for Sporting CP da han var bare 12 år gammel.",
+          "question": "Hvor vokste Ronaldo opp?",
+          "options": ["Madeira", "Lisboa", "Porto"],
+          "answer": "Madeira",
+          "emoji": "👦"
+        },
+        {
+          "id": 2,
+          "title": "Ronaldo i Manchester United 🔴",
+          "text": "I 2003 spilte Sporting CP mot Manchester United i en treningskamp. Ronaldo var så god at alle spillerne på United ville ha ham på laget sitt. Etter kampen kjøpte United ham. Han fikk trøye nummer 7.",
+          "question": "Hvilket draktnummer fikk Ronaldo i United?",
+          "options": ["Nummer 9", "Nummer 7", "Nummer 10"],
+          "answer": "Nummer 7",
+          "emoji": "🏃"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "tittel": "Berømte Klubblag",
+      "oppgaver": [
+        {
+          "id": 1,
+          "title": "Real Madrid - Los Blancos ⚪",
+          "text": "Real Madrid er verdens mest suksessrike fotballklubb. De har vunnet Champions League 14 ganger! Klubben ble stiftet i 1902 og spiller sine hjemmekamper på Santiago Bernabéu stadion.",
+          "question": "Hvor mange Champions League-titler har Real Madrid?",
+          "options": ["14", "10", "12"],
+          "answer": "14",
+          "emoji": "👑"
+        },
+        {
+          "id": 2,
+          "title": "Manchester United - De røde djevlene 😈",
+          "text": "Manchester United er Englands mest suksessrike klubb. De har vunnet Premier League 20 ganger. Sir Alex Ferguson var manager for klubben i 26 år og vant 38 trofeer!",
+          "question": "Hvor mange Premier League-titler har United?",
+          "options": ["20", "18", "22"],
+          "answer": "20",
+          "emoji": "😈"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "tittel": "Store Turneringer",
+      "oppgaver": [
+        {
+          "id": 1,
+          "title": "VM - Verdens største turnering 🏆",
+          "text": "Fotball-VM er verdens største idrettsarrangement. Det spilles hvert fjerde år, og 32 lag deltar. Brasil har vunnet VM flest ganger med 5 seiere.",
+          "question": "Hvor ofte spilles VM?",
+          "options": ["Hvert fjerde år", "Hvert andre år", "Hvert år"],
+          "answer": "Hvert fjerde år",
+          "emoji": "🏆"
+        },
+        {
+          "id": 2,
+          "title": "Champions League - Europas beste ⭐",
+          "text": "UEFA Champions League er den største klubbturneringen i Europa. De beste lagene fra hver liga deltar. Finalen er en av verdens mest sette sportsbegivenheter.",
+          "question": "Hvilken turnering er dette?",
+          "options": ["Champions League", "Europa League", "Conference League"],
+          "answer": "Champions League",
+          "emoji": "⭐"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "tittel": "Fotballens Regler og Historie",
+      "oppgaver": [
+        {
+          "id": 1,
+          "title": "De første reglene 📜",
+          "text": "Moderne fotball ble oppfunnet i England på 1800-tallet. De første offisielle reglene ble skrevet i 1863. Den gang kunne man ikke engang ha en dommer på banen!",
+          "question": "Når ble de første offisielle fotballreglene skrevet?",
+          "options": ["1863", "1890", "1850"],
+          "answer": "1863",
+          "emoji": "📜"
+        },
+        {
+          "id": 2,
+          "title": "Offsideregelen 🚩",
+          "text": "Offsideregelen er en av de viktigste reglene i fotball. Den ble innført for å hindre at angripere bare sto og ventet ved motstanderens mål. En spiller er offside hvis han er nærmere mållinjen enn ballen og nest siste motstander.",
+          "question": "Hvorfor ble offsideregelen innført?",
+          "options": ["Hindre ventende angripere", "Gjøre spillet raskere", "Få flere mål"],
+          "answer": "Hindre ventende angripere",
+          "emoji": "🚩"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "tittel": "Morsomme Fotballfakta",
+      "oppgaver": [
+        {
+          "id": 1,
+          "title": "Verdens raskeste mål ⚡",
+          "text": "Det raskeste målet i fotballhistorien ble scoret etter bare 2.1 sekunder! Det var Ricardo Olivera som scoret direkte fra avspark i en kamp i Uruguay i 1998.",
+          "question": "Hvor mange sekunder tok det å score det raskeste målet?",
+          "options": ["2.1 sekunder", "5 sekunder", "1 sekund"],
+          "answer": "2.1 sekunder",
+          "emoji": "⚡"
+        },
+        {
+          "id": 2,
+          "title": "Lengste fotballkamp ⏰",
+          "text": "Den lengste fotballkampen noensinne varte i 3 dager! Det var en veldedighetskamp i 1981 som varte i 65 timer og 1 minutt. Spillerne byttet på å hvile seg.",
+          "question": "Hvor lenge varte den lengste fotballkampen?",
+          "options": ["3 dager", "2 dager", "4 dager"],
+          "answer": "3 dager",
+          "emoji": "⏰"
+        }
+      ]
+    }
+  ]
+}
+{
+  "deler": [
+    {
+      "id": 6,
+      "tittel": "Taktikk og Spillestiler",
+      "oppgaver": [
+        {
+          "id": 1,
+          "title": "Tiki-taka ⚽",
+          "text": "Tiki-taka er en spillestil som ble gjort berømt av Barcelona og Spanias landslag. Det handler om å holde ballen i laget med mange korte pasninger. Spillerne beveger seg hele tiden for å skape rom.",
+          "question": "Hvilket lag gjorde tiki-taka berømt?",
+          "options": ["Barcelona", "Real Madrid", "Bayern München"],
+          "answer": "Barcelona",
+          "emoji": "⚽"
+        },
+        {
+          "id": 2,
+          "title": "Total Football 🔄",
+          "text": "Total Football ble utviklet av Nederland på 1970-tallet. I denne spillestilen kan alle spillere spille i alle posisjoner. Johan Cruyff var den mest kjente spilleren i denne stilen.",
+          "question": "Hvilket land utviklet Total Football?",
+          "options": ["Nederland", "Tyskland", "Brasil"],
+          "answer": "Nederland",
+          "emoji": "🔄"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "tittel": "Berømte Stadioner",
+      "oppgaver": [
+        {
+          "id": 1,
+          "title": "Camp Nou 🏟️",
+          "text": "Camp Nou er Europas største fotballstadion. Den ligger i Barcelona og har plass til 99,354 tilskuere! Stadion ble åpnet i 1957 og har vært hjemmebanen til FC Barcelona siden da.",
+          "question": "Hvilken by ligger Camp Nou i?",
+          "options": ["Barcelona", "Madrid", "Valencia"],
+          "answer": "Barcelona",
+          "emoji": "🏟️"
+        },
+        {
+          "id": 2,
+          "title": "Maracanã 🇧🇷",
+          "text": "Maracanã i Rio de Janeiro er en av verdens mest berømte fotballstadioner. Den ble bygget til VM i 1950 og kunne da ha 200,000 tilskuere! Nå er kapasiteten redusert til 78,838.",
+          "question": "I hvilken by ligger Maracanã?",
+          "options": ["Rio de Janeiro", "São Paulo", "Brasília"],
+          "answer": "Rio de Janeiro",
+          "emoji": "🇧🇷"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "tittel": "Fotballkultur Rundt i Verden",
+      "oppgaver": [
+        {
+          "id": 1,
+          "title": "Fotball i Brasil 🌴",
+          "text": "I Brasil kaller de fotball for 'o jogo bonito' - det vakre spillet. Barn spiller fotball overalt: på stranda, i gatene og på små baner. Mange barn drømmer om å bli profesjonelle fotballspillere.",
+          "question": "Hva kaller brasilianerne fotball?",
+          "options": ["O jogo bonito", "Futebol", "Pelota"],
+          "answer": "O jogo bonito",
+          "emoji": "🌴"
+        },
+        {
+          "id": 2,
+          "title": "Supporterkultur i England 🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+          "text": "I England er fotball en stor del av kulturen. Supporterne synger sanger og heier på laget sitt uansett hvordan det går. Mange familier har holdt med samme lag i generasjoner.",
+          "question": "Hva er spesielt med engelske supportere?",
+          "options": ["De synger sanger", "De sitter stille", "De kommer sent"],
+          "answer": "De synger sanger",
+          "emoji": "🏴󠁧󠁢󠁥󠁮󠁧󠁿"
+        }
+      ]
+    }
+  ]
+}
+{
+  "deler": [
+    {
+      "id": 9,
+      "tittel": "Store Øyeblikk i Fotballhistorien",
+      "oppgaver": [
+        {
+          "id": 1,
+          "title": "Guds hånd ✋",
+          "text": "I VM 1986 scoret Diego Maradona et berømt mål mot England. Han hoppet opp og brukte hånden til å slå ballen i mål! Dommeren så det ikke og målet ble godkjent. Maradona sa senere at det var 'Guds hånd' som scoret målet.",
+          "question": "Hvilken kroppsdel brukte Maradona til å score?",
+          "options": ["Hånden", "Hodet", "Foten"],
+          "answer": "Hånden",
+          "emoji": "✋"
+        },
+        {
+          "id": 2,
+          "title": "Mirakelet i Istanbul 🇹🇷",
+          "text": "I Champions League-finalen 2005 lå Liverpool under 0-3 mot AC Milan ved pause. I andre omgang scoret de tre mål på seks minutter! Liverpool vant til slutt på straffespark. Det ble kalt 'Mirakelet i Istanbul'.",
+          "question": "Hvor mange mål lå Liverpool under?",
+          "options": ["3 mål", "2 mål", "4 mål"],
+          "answer": "3 mål",
+          "emoji": "🇹🇷"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "tittel": "Fotballens Fremtid",
+      "oppgaver": [
+        {
+          "id": 1,
+          "title": "VAR-teknologi 📺",
+          "text": "VAR (Video Assistant Referee) er en ny teknologi i fotball. Dommere kan nå se video av situasjoner for å ta riktige beslutninger. Dette hjelper dem å se om det var offside, straffe eller rødt kort.",
+          "question": "Hva står VAR for?",
+          "options": ["Video Assistant Referee", "Video Action Replay", "Visual Aid Referee"],
+          "answer": "Video Assistant Referee",
+          "emoji": "📺"
+        },
+        {
+          "id": 2,
+          "title": "Mållinjeteknologi 🥅",
+          "text": "Mållinjeteknologi bruker kameraer for å se om ballen har krysset mållinjen. Dommeren får et signal på klokken sin hvis det er mål. Dette gjør at vi unngår 'fantommål' hvor det er usikkert om ballen var inne.",
+          "question": "Hva gjør mållinjeteknologi?",
+          "options": ["Ser om ballen er inne", "Teller mål", "Måler fart"],
+          "answer": "Ser om ballen er inne",
+          "emoji": "🥅"
+        }
+      ]
+    }
+  ]
+}

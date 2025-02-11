@@ -1,0 +1,52 @@
+{
+  "deler": [
+    {
+      "id": 9,
+      "tittel": "Store Øyeblikk i Fotballhistorien",
+      "oppgaver": [
+        {
+          "id": 1,
+          "title": "Guds hånd ✋",
+          "text": "I VM 1986 scoret Diego Maradona et berømt mål mot England. Han hoppet opp og brukte hånden til å slå ballen i mål! Dommeren så det ikke og målet ble godkjent. Maradona sa senere at det var 'Guds hånd' som scoret målet.",
+          "question": "Hvilken kroppsdel brukte Maradona til å score?",
+          "options": ["Hånden", "Hodet", "Foten"],
+          "answer": "Hånden",
+          "emoji": "✋"
+        },
+        {
+          "id": 2,
+          "title": "Mirakelet i Istanbul 🇹🇷",
+          "text": "I Champions League-finalen 2005 lå Liverpool under 0-3 mot AC Milan ved pause. I andre omgang scoret de tre mål på seks minutter! Liverpool vant til slutt på straffespark. Det ble kalt 'Mirakelet i Istanbul'.",
+          "question": "Hvor mange mål lå Liverpool under?",
+          "options": ["3 mål", "2 mål", "4 mål"],
+          "answer": "3 mål",
+          "emoji": "🇹🇷"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "tittel": "Fotballens Fremtid",
+      "oppgaver": [
+        {
+          "id": 1,
+          "title": "VAR-teknologi 📺",
+          "text": "VAR (Video Assistant Referee) er en ny teknologi i fotball. Dommere kan nå se video av situasjoner for å ta riktige beslutninger. Dette hjelper dem å se om det var offside, straffe eller rødt kort.",
+          "question": "Hva står VAR for?",
+          "options": ["Video Assistant Referee", "Video Action Replay", "Visual Aid Referee"],
+          "answer": "Video Assistant Referee",
+          "emoji": "📺"
+        },
+        {
+          "id": 2,
+          "title": "Mållinjeteknologi 🥅",
+          "text": "Mållinjeteknologi bruker kameraer for å se om ballen har krysset mållinjen. Dommeren får et signal på klokken sin hvis det er mål. Dette gjør at vi unngår 'fantommål' hvor det er usikkert om ballen var inne.",
+          "question": "Hva gjør mållinjeteknologi?",
+          "options": ["Ser om ballen er inne", "Teller mål", "Måler fart"],
+          "answer": "Ser om ballen er inne",
+          "emoji": "🥅"
+        }
+      ]
+    }
+  ]
+}
