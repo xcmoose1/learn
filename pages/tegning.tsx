@@ -251,16 +251,20 @@ export default function Tegning() {
                         if (stage) {
                           stage.container().style.cursor = 'pointer';
                         }
-                        e.target.opacity(0.8);
-                        e.target.getLayer().draw();
+                        if (e.target) {
+                          e.target.opacity(0.8);
+                          e.target.getLayer()?.draw();
+                        }
                       }}
                       onMouseLeave={(e) => {
                         const stage = e.target.getStage();
                         if (stage) {
                           stage.container().style.cursor = 'default';
                         }
-                        e.target.opacity(1);
-                        e.target.getLayer().draw();
+                        if (e.target) {
+                          e.target.opacity(1);
+                          e.target.getLayer()?.draw();
+                        }
                       }}
                     />
                   ))}

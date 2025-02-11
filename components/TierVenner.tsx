@@ -5,7 +5,8 @@ import SoundEffects from './SoundEffects';
 
 interface TierVennerProps {
   onScoreUpdate: (points: number) => void;
-  audioEnabled: boolean;
+  onBack: () => void;
+  audioEnabled?: boolean;
 }
 
 type Level = {
@@ -23,7 +24,7 @@ const levels: Level[] = [
   { target: 50, name: 'Femti-Venner', description: 'Finn tallpar som blir 50', points: 50 }
 ];
 
-const TierVenner: React.FC<TierVennerProps> = ({ onScoreUpdate, audioEnabled }) => {
+const TierVenner: React.FC<TierVennerProps> = ({ onScoreUpdate, onBack, audioEnabled = false }) => {
   const [currentLevel, setCurrentLevel] = useState<Level | null>(null);
   const [currentNumber, setCurrentNumber] = useState(0);
   const [options, setOptions] = useState<number[]>([]);
@@ -137,10 +138,10 @@ const TierVenner: React.FC<TierVennerProps> = ({ onScoreUpdate, audioEnabled }) 
 
       <div className="flex justify-between items-center">
         <Button
-          onClick={() => setShowLevelSelect(true)}
+          onClick={onBack}
           variant="secondary"
         >
-          ← Velg nivå
+          ← Tilbake
         </Button>
         <div className="text-center">
           <h2 className="text-2xl font-bold">{currentLevel?.name}</h2>
