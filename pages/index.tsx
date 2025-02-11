@@ -1,113 +1,162 @@
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import Layout from '../components/Layout';
+import PlayerCard from '../components/PlayerCard';
+import Link from 'next/link';
 
-const menuItems = [
+const activities = [
   {
-    href: '/lesespill',
-    title: 'Fotballnyheter',
-    description: 'Les spennende historier om dine favorittspillere',
-    icon: '🗞️',
-    color: 'bg-real-white',
-    borderColor: 'border-real-gold',
-    hoverEffect: 'hover:shadow-real-gold/50'
-  },
-  {
+    title: 'Matematikk',
+    description: 'Lær matematikk gjennom morsomme fotballoppgaver',
+    icon: '🔢',
     href: '/matematikk',
-    title: 'Målstatistikk',
-    description: 'Lær matematikk med fotballresultater',
-    icon: '⚽',
-    color: 'bg-psg-blue',
-    borderColor: 'border-psg-red',
-    hoverEffect: 'hover:shadow-psg-red/50'
+    color: 'from-blue-500 to-purple-500',
   },
   {
-    href: '/tegning',
-    title: 'Spillerkort',
-    description: 'Fargelegg dine favorittspillere',
+    title: 'Lesespill',
+    description: 'Les spennende historier om fotballspillere',
+    icon: '📚',
+    href: '/lesespill',
+    color: 'from-green-500 to-teal-500',
+  },
+  {
+    title: 'Tegning',
+    description: 'Tegn dine favorittspillere og lær om dem',
     icon: '🎨',
-    color: 'bg-nassr-yellow',
-    borderColor: 'border-nassr-blue',
-    hoverEffect: 'hover:shadow-nassr-blue/50'
-  }
+    href: '/tegning',
+    color: 'from-yellow-500 to-orange-500',
+  },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      type: 'spring',
-      stiffness: 100
-    }
-  }
-};
+const featuredPlayers = [
+  {
+    name: 'Erling Haaland',
+    image: '/players/haaland.png',
+    rating: 91,
+    position: 'ST',
+    club: 'Manchester City',
+    country: 'Norge',
+    stats: {
+      pace: 89,
+      shooting: 93,
+      passing: 80,
+      dribbling: 85,
+      defending: 45,
+      physical: 88,
+    },
+  },
+  {
+    name: 'Martin Ødegaard',
+    image: '/players/odegaard.png',
+    rating: 87,
+    position: 'CAM',
+    club: 'Arsenal',
+    country: 'Norge',
+    stats: {
+      pace: 78,
+      shooting: 82,
+      passing: 89,
+      dribbling: 88,
+      defending: 55,
+      physical: 68,
+    },
+  },
+  {
+    name: 'Ada Hegerberg',
+    image: '/players/hegerberg.png',
+    rating: 90,
+    position: 'ST',
+    club: 'Lyon',
+    country: 'Norge',
+    stats: {
+      pace: 85,
+      shooting: 91,
+      passing: 82,
+      dribbling: 86,
+      defending: 42,
+      physical: 78,
+    },
+  },
+];
 
 export default function Home() {
   return (
-    <Layout title="Fotball Læring - Hjem">
-      <div className="min-h-screen py-8 md:py-12 px-4 md:px-8">
+    <Layout>
+      {/* Hero Section */}
+      <section className="relative py-20 overflow-hidden">
         <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={containerVariants}
-          className="max-w-6xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center"
         >
-          <motion.h1
-            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white text-center mb-8 font-oswald tracking-wider"
-            initial={{ scale: 0.5, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ type: 'spring', stiffness: 100 }}
-          >
-            Velkommen til Fotball Læring
-          </motion.h1>
+          <h1 className="font-heading text-6xl mb-6 text-white">
+            Lær med <span className="text-neon-blue">Fotball</span>
+          </h1>
+          <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+            Bli med på en spennende reise hvor du lærer matematikk, lesing og tegning
+            gjennom fotballens magiske verden!
+          </p>
+        </motion.div>
 
-          <motion.p
-            className="text-xl md:text-2xl text-white text-center mb-12 md:mb-16"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
-            Lær mens du utforsker fotballens magiske verden! 🌟
-          </motion.p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {menuItems.map((item) => (
-              <motion.div
-                key={item.href}
-                variants={itemVariants}
-                whileHover={{ 
-                  scale: 1.03,
-                  transition: { type: 'spring', stiffness: 300 }
-                }}
-                whileTap={{ scale: 0.95 }}
-                className="touch-manipulation"
-              >
-                <Link href={item.href}>
-                  <div 
-                    className={`${item.color} ${item.borderColor} border-4 md:border-6 rounded-xl md:rounded-2xl p-6 md:p-8 h-full shadow-xl transition-all duration-300 ${item.hoverEffect} hover:shadow-2xl`}
-                  >
-                    <div className="text-4xl md:text-5xl mb-4 md:mb-6">{item.icon}</div>
-                    <h2 className="text-2xl md:text-3xl font-bold mb-2 md:mb-4 font-oswald">{item.title}</h2>
-                    <p className="text-gray-700 text-lg md:text-xl">{item.description}</p>
+        {/* Activity Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+          {activities.map((activity, index) => (
+            <motion.div
+              key={activity.title}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+            >
+              <Link href={activity.href}>
+                <div className={`fifa-card group cursor-pointer`}>
+                  <div className={`absolute inset-0 bg-gradient-to-br ${activity.color} opacity-10 group-hover:opacity-20 transition-opacity rounded-xl`} />
+                  <div className="relative z-10">
+                    <span className="text-4xl mb-4 block">{activity.icon}</span>
+                    <h2 className="font-heading text-2xl mb-2 text-white">
+                      {activity.title}
+                    </h2>
+                    <p className="text-gray-400">
+                      {activity.description}
+                    </p>
                   </div>
-                </Link>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Featured Players */}
+        <div className="mb-20">
+          <h2 className="font-heading text-4xl mb-8 text-center text-white">
+            Ukens Spillere
+          </h2>
+          <div className="flex flex-wrap justify-center gap-8">
+            {featuredPlayers.map((player, index) => (
+              <motion.div
+                key={player.name}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 + index * 0.1 }}
+              >
+                <PlayerCard {...player} />
               </motion.div>
             ))}
           </div>
+        </div>
+
+        {/* Call to Action */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="text-center"
+        >
+          <Link href="/matematikk">
+            <button className="btn-neon group text-xl px-8 py-4">
+              Start Læringen! ⚽
+            </button>
+          </Link>
         </motion.div>
-      </div>
+      </section>
     </Layout>
   );
 }

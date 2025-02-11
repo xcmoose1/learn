@@ -51,7 +51,7 @@ const TierVenner: React.FC<TierVennerProps> = ({ onScoreUpdate, audioEnabled }) 
     const number = Math.floor(Math.random() * (target - 1)) + 1;
     const correctAnswer = target - number;
     
-    let wrongOptions = [];
+    let wrongOptions: number[] = [];
     while (wrongOptions.length < 3) {
       const wrong = Math.floor(Math.random() * target * 1.5);
       if (wrong !== correctAnswer && !wrongOptions.includes(wrong) && wrong >= 0) {

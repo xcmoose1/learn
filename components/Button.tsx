@@ -2,7 +2,7 @@ import { motion, HTMLMotionProps } from 'framer-motion';
 import { ButtonHTMLAttributes } from 'react';
 
 interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, keyof HTMLMotionProps<'button'>> {
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   children: React.ReactNode;
   variant?: 'primary' | 'secondary' | 'success' | 'error' | 'quiz';
   disabled?: boolean;

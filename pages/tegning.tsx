@@ -1,299 +1,259 @@
-import { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import Head from 'next/head';
-import { ReactSketchCanvas } from 'react-sketch-canvas';
-import type { ReactSketchCanvasRef } from 'react-sketch-canvas';
-import { useSpeechSynthesis } from 'react-speech-kit';
+import { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
-import Button from '../components/Button';
-import { fotballspillere, Quiz } from '../data/fotballspillere';
-import * as htmlToImage from 'html-to-image';
+import dynamic from 'next/dynamic';
+import Image from 'next/image';
+import QuizCard from '../components/QuizCard';
 
-const farger = [
-  { navn: 'Svart', hex: '#000000' },
-  { navn: 'Rød', hex: '#FF0000' },
-  { navn: 'Blå', hex: '#0000FF' },
-  { navn: 'Grønn', hex: '#00FF00' },
-  { navn: 'Gul', hex: '#FFFF00' },
-  { navn: 'Oransje', hex: '#FFA500' },
-  { navn: 'Lilla', hex: '#800080' },
-  { navn: 'Rosa', hex: '#FFC0CB' },
-  { navn: 'Brun', hex: '#8B4513' },
-  { navn: 'Grå', hex: '#808080' },
+// Dynamisk import av Konva komponenter for å unngå SSR problemer
+const Stage = dynamic(() => import('react-konva').then((mod) => mod.Stage), {
+  ssr: false
+});
+const Layer = dynamic(() => import('react-konva').then((mod) => mod.Layer), {
+  ssr: false
+});
+const Rect = dynamic(() => import('react-konva').then((mod) => mod.Rect), {
+  ssr: false
+});
+
+// Predefinerte farger for Ronaldo-tegningen
+const colors = {
+  skin: '#E0B59E',
+  hair: '#2A1B17',
+  jersey: '#FF0000',
+  shorts: '#FFFFFF',
+  background: '#87CEEB',
+  boots: '#000000',
+};
+
+// Quiz spørsmål som vises etter fremgang
+const quizQuestions = [
+  {
+    question: 'Hvilket år vant Ronaldo sin første Ballon d\'Or?',
+    options: ['2008', '2013', '2016', '2017'],
+    correctAnswer: '2008',
+    explanation: 'Cristiano Ronaldo vant sin første Ballon d\'Or i 2008 mens han spilte for Manchester United.'
+  },
+  {
+    question: 'Hvor mange Champions League-titler har Ronaldo vunnet?',
+    options: ['3', '4', '5', '6'],
+    correctAnswer: '5',
+    explanation: 'Ronaldo har vunnet Champions League 5 ganger: 1 med Manchester United og 4 med Real Madrid.'
+  }
 ];
 
+interface Cell {
+  x: number;
+  y: number;
+  color: string;
+}
+
 export default function Tegning() {
-  const [currentSpiller, setCurrentSpiller] = useState(fotballspillere[0]);
-  const [currentColor, setCurrentColor] = useState(farger[0].hex);
-  const [isErasing, setIsErasing] = useState(false);
-  const [currentQuiz, setCurrentQuiz] = useState<Quiz | null>(null);
+  const [currentColor, setCurrentColor] = useState(colors.skin);
+  const [grid, setGrid] = useState<Cell[]>([]);
   const [showQuiz, setShowQuiz] = useState(false);
-  const [quizAnswer, setQuizAnswer] = useState<string | null>(null);
-  const [currentFaktaIndex, setCurrentFaktaIndex] = useState(0);
-  const [showGullstjerne, setShowGullstjerne] = useState(false);
-  const canvasRef = useRef<ReactSketchCanvasRef>(null);
-  const { speak, speaking, supported } = useSpeechSynthesis();
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const stageRef = useRef(null);
 
+  // Konstanter for grid
+  const CELL_SIZE = 20;
+  const GRID_WIDTH = 30;
+  const GRID_HEIGHT = 40;
+  const IMAGE_WIDTH = GRID_WIDTH * CELL_SIZE;
+  const IMAGE_HEIGHT = GRID_HEIGHT * CELL_SIZE;
+  const TOTAL_CELLS = GRID_WIDTH * GRID_HEIGHT;
+
+  // Initialiser grid med transparent farge
   useEffect(() => {
-    const interval = setInterval(() => {
-      const nextIndex = (currentFaktaIndex + 1) % currentSpiller.morsommeFakta.length;
-      setCurrentFaktaIndex(nextIndex);
-      if (supported) {
-        speak({ text: currentSpiller.morsommeFakta[nextIndex] });
+    const initialGrid: Cell[] = [];
+    for (let y = 0; y < GRID_HEIGHT; y++) {
+      for (let x = 0; x < GRID_WIDTH; x++) {
+        initialGrid.push({
+          x: x * CELL_SIZE,
+          y: y * CELL_SIZE,
+          color: 'rgba(255, 255, 255, 0.1)' // Svakt synlig hvit farge
+        });
       }
-    }, 20000);
-
-    return () => clearInterval(interval);
-  }, [currentSpiller, currentFaktaIndex, speak, supported]);
-
-  const handleColorChange = (color: string) => {
-    setCurrentColor(color);
-    setIsErasing(false);
-    if (canvasRef.current) {
-      canvasRef.current.eraseMode(false);
     }
+    setGrid(initialGrid);
+  }, []);
 
-    // Sjekk fargeutfordring
-    const utfordring = currentSpiller.fargeutfordringer.find(u => u.farge === color);
-    if (utfordring) {
-      speak({ text: utfordring.beskrivelse });
-    }
+  // Håndter klikk på en celle med opacity
+  const handleCellClick = (index: number) => {
+    const newGrid = [...grid];
+    // Legg til opacity i fargen
+    const color = currentColor === '#FFFFFF' 
+      ? 'rgba(255, 255, 255, 0.7)' 
+      : currentColor.replace(')', ', 0.7)').replace('rgb', 'rgba');
+    
+    newGrid[index] = { ...newGrid[index], color };
+    setGrid(newGrid);
 
-    // Start quiz med 20% sjanse
-    if (Math.random() < 0.2 && !showQuiz) {
-      const randomQuiz = currentSpiller.quiz[Math.floor(Math.random() * currentSpiller.quiz.length)];
-      setCurrentQuiz(randomQuiz);
+    // Beregn fremgang
+    const filledCells = newGrid.filter(cell => cell.color !== 'rgba(255, 255, 255, 0.1)').length;
+    const newProgress = Math.floor((filledCells / TOTAL_CELLS) * 100);
+    setProgress(newProgress);
+
+    // Vis quiz ved 50% fremgang
+    if (newProgress >= 50 && !showQuiz) {
       setShowQuiz(true);
-      setQuizAnswer(null);
-      speak({ text: randomQuiz.sporsmal });
     }
   };
 
-  const handleQuizAnswer = (svar: string) => {
-    setQuizAnswer(svar);
-    if (currentQuiz && svar === currentQuiz.riktigSvar) {
-      setShowGullstjerne(true);
-      speak({ text: currentQuiz.forklaring });
-      setTimeout(() => {
-        setShowGullstjerne(false);
+  // Håndter quiz svar
+  const handleQuizAnswer = (isCorrect: boolean) => {
+    if (isCorrect) {
+      // Gå til neste spørsmål eller skjul quiz
+      if (currentQuestion < quizQuestions.length - 1) {
+        setCurrentQuestion(curr => curr + 1);
+      } else {
         setShowQuiz(false);
-        setCurrentQuiz(null);
-      }, 3000);
-    }
-  };
-
-  const toggleEraser = () => {
-    setIsErasing(!isErasing);
-    if (canvasRef.current) {
-      canvasRef.current.eraseMode(!isErasing);
-    }
-  };
-
-  const clearCanvas = () => {
-    if (canvasRef.current) {
-      canvasRef.current.clearCanvas();
-    }
-  };
-
-  const undoLastStroke = () => {
-    if (canvasRef.current) {
-      canvasRef.current.undo();
-    }
-  };
-
-  const redoLastStroke = () => {
-    if (canvasRef.current) {
-      canvasRef.current.redo();
-    }
-  };
-
-  const saveDrawing = async () => {
-    const element = document.getElementById('tegning-container');
-    if (element) {
-      try {
-        const dataUrl = await htmlToImage.toPng(element);
-        const link = document.createElement('a');
-        link.download = `${currentSpiller.navn.toLowerCase()}-tegning.png`;
-        link.href = dataUrl;
-        link.click();
-      } catch (error) {
-        console.error('Kunne ikke lagre tegningen:', error);
       }
     }
   };
 
-  const handleSpillerChange = (spiller: typeof currentSpiller) => {
-    setCurrentSpiller(spiller);
+  // Tilbakestill tegningen
+  const handleReset = () => {
+    const newGrid = grid.map(cell => ({ ...cell, color: 'rgba(255, 255, 255, 0.1)' }));
+    setGrid(newGrid);
+    setProgress(0);
     setShowQuiz(false);
-    setCurrentQuiz(null);
-    setQuizAnswer(null);
-    clearCanvas();
-    if (supported) {
-      speak({ text: spiller.beskrivelse });
-    }
+    setCurrentQuestion(0);
   };
 
   return (
-    <Layout title="Fargelegg fotballspillere">
-      <div className="container mx-auto px-4 py-8">
-        <Head>
-          <title>Fargelegg fotballspillere</title>
-        </Head>
+    <Layout title="Tegning - Ronaldo">
+      <div className="max-w-6xl mx-auto py-8 px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center mb-8"
+        >
+          <h1 className="font-heading text-4xl mb-4 text-white">
+            Fargelegg Ronaldo
+          </h1>
+          <p className="text-xl text-gray-300 mb-4">
+            Velg en farge og klikk på rutene for å fargelegge
+          </p>
+        </motion.div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="flex flex-wrap gap-4 mb-6">
-            {fotballspillere.map((spiller) => (
-              <Button
-                key={spiller.id}
-                onClick={() => handleSpillerChange(spiller)}
-                variant={currentSpiller.id === spiller.id ? 'primary' : 'secondary'}
+        {/* Fargepalett */}
+        <div className="flex justify-center gap-4 mb-8">
+          {Object.entries(colors).map(([name, color]) => (
+            <motion.button
+              key={color}
+              className={`w-12 h-12 rounded-full border-4 ${
+                currentColor === color ? 'border-neon-blue' : 'border-transparent'
+              }`}
+              style={{ backgroundColor: color }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setCurrentColor(color)}
+            />
+          ))}
+        </div>
+
+        {/* Tegnebrett */}
+        <div className="relative flex justify-center mb-8">
+          <div className="relative bg-gray-800 p-4 rounded-lg">
+            {/* Debug info */}
+            <div className="text-white mb-4">
+              <p>Grid: {GRID_WIDTH}x{GRID_HEIGHT}</p>
+              <p>Cell size: {CELL_SIZE}px</p>
+              <p>Image size: {IMAGE_WIDTH}x{IMAGE_HEIGHT}px</p>
+            </div>
+            
+            {/* Bakgrunnsbilde */}
+            <div className="relative bg-white rounded-lg overflow-hidden" style={{ width: IMAGE_WIDTH, height: IMAGE_HEIGHT }}>
+              <Image
+                src="/players/ronaldo-outline.png"
+                alt="Ronaldo outline"
+                width={IMAGE_WIDTH}
+                height={IMAGE_HEIGHT}
+                className="absolute top-0 left-0 pointer-events-none z-10"
+              />
+              
+              {/* Konva Stage */}
+              <Stage
+                width={IMAGE_WIDTH}
+                height={IMAGE_HEIGHT}
+                className="absolute top-0 left-0"
               >
-                {spiller.navn}
-              </Button>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="order-2 md:order-1 space-y-4">
-              <div className="bg-white rounded-lg shadow p-4">
-                <h2 className="text-xl font-bold mb-4">Farger</h2>
-                <div className="grid grid-cols-5 gap-2">
-                  {farger.map((farge) => (
-                    <motion.button
-                      key={farge.hex}
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      className={`w-10 h-10 rounded-full border-2 ${
-                        currentColor === farge.hex ? 'border-black' : 'border-gray-200'
-                      }`}
-                      style={{ backgroundColor: farge.hex }}
-                      onClick={() => handleColorChange(farge.hex)}
-                      title={farge.navn}
+                <Layer>
+                  {grid.map((cell, index) => (
+                    <Rect
+                      key={index}
+                      x={cell.x}
+                      y={cell.y}
+                      width={CELL_SIZE}
+                      height={CELL_SIZE}
+                      fill={cell.color}
+                      stroke="rgba(255, 255, 255, 0.2)"
+                      strokeWidth={1}
+                      onClick={() => handleCellClick(index)}
+                      onTap={() => handleCellClick(index)}
+                      onMouseEnter={(e) => {
+                        // Hover effekt
+                        const stage = e.target.getStage();
+                        if (stage) {
+                          stage.container().style.cursor = 'pointer';
+                        }
+                        e.target.opacity(0.8);
+                        e.target.getLayer().draw();
+                      }}
+                      onMouseLeave={(e) => {
+                        const stage = e.target.getStage();
+                        if (stage) {
+                          stage.container().style.cursor = 'default';
+                        }
+                        e.target.opacity(1);
+                        e.target.getLayer().draw();
+                      }}
                     />
                   ))}
-                </div>
-              </div>
-
-              <div className="bg-white rounded-lg shadow p-4 space-y-2">
-                <Button
-                  onClick={toggleEraser}
-                  variant={isErasing ? 'primary' : 'secondary'}
-                  fullWidth
-                >
-                  {isErasing ? '🧽 Visker aktiv' : '🧽 Bruk viskelær'}
-                </Button>
-
-                <Button onClick={clearCanvas} variant="secondary" fullWidth>
-                  🗑️ Tøm tegningen
-                </Button>
-
-                <div className="grid grid-cols-2 gap-2">
-                  <Button onClick={undoLastStroke} variant="secondary">
-                    ↩️ Angre
-                  </Button>
-                  <Button onClick={redoLastStroke} variant="secondary">
-                    ↪️ Gjør om
-                  </Button>
-                </div>
-
-                <Button onClick={saveDrawing} variant="primary" fullWidth>
-                  💾 Lagre tegning
-                </Button>
-              </div>
-
-              <div className="bg-white rounded-lg shadow p-4">
-                <h2 className="text-xl font-bold mb-2">Visste du at...</h2>
-                <motion.p
-                  key={currentFaktaIndex}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="text-gray-600"
-                >
-                  {currentSpiller.morsommeFakta[currentFaktaIndex]}
-                </motion.p>
-              </div>
+                </Layer>
+              </Stage>
             </div>
-
-            <div className="order-1 md:order-2 md:col-span-2">
-              <div 
-                id="tegning-container"
-                className="bg-white rounded-lg shadow p-4 aspect-square relative"
-              >
-                <div
-                  className="w-full h-full absolute top-0 left-0"
-                  dangerouslySetInnerHTML={{ 
-                    __html: currentSpiller.svg.replace(
-                      /stroke="black"/g, 
-                      'stroke="gray" stroke-dasharray="4"'
-                    )
-                  }}
-                />
-                <ReactSketchCanvas
-                  ref={canvasRef}
-                  strokeWidth={4}
-                  strokeColor={currentColor}
-                  canvasColor="transparent"
-                  className="absolute top-0 left-0 w-full h-full"
-                  style={{
-                    border: 'none',
-                    touchAction: 'none'
-                  }}
-                  allowOnlyPointerType="all"
-                />
-
-                <AnimatePresence>
-                  {showGullstjerne && (
-                    <motion.div
-                      initial={{ scale: 0, rotate: -180 }}
-                      animate={{ scale: 1, rotate: 0 }}
-                      exit={{ scale: 0, rotate: 180 }}
-                      className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-8xl"
-                    >
-                      ⭐
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-
-              <AnimatePresence>
-                {showQuiz && currentQuiz && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    className="mt-4 bg-white rounded-lg shadow p-4"
-                  >
-                    <h3 className="text-xl font-bold mb-4">{currentQuiz.sporsmal}</h3>
-                    <div className="grid grid-cols-1 gap-2">
-                      {currentQuiz.alternativer.map((alternativ) => (
-                        <Button
-                          key={alternativ}
-                          onClick={() => handleQuizAnswer(alternativ)}
-                          variant={
-                            quizAnswer === alternativ
-                              ? alternativ === currentQuiz.riktigSvar
-                                ? 'success'
-                                : 'error'
-                              : 'secondary'
-                          }
-                          disabled={quizAnswer !== null}
-                          fullWidth
-                        >
-                          {alternativ}
-                        </Button>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          </div>
-
-          <div className="mt-6 bg-white rounded-lg shadow p-4">
-            <h2 className="text-xl font-bold mb-2">{currentSpiller.navn}</h2>
-            <p className="text-gray-600">{currentSpiller.beskrivelse}</p>
           </div>
         </div>
+
+        {/* Fremgangsbar */}
+        <div className="max-w-md mx-auto mb-8">
+          <div className="flex justify-between text-sm text-gray-400 mb-2">
+            <span>{progress}% fullført</span>
+            <button
+              className="btn-neon group px-4 py-2"
+              onClick={handleReset}
+            >
+              Tilbakestill
+            </button>
+          </div>
+          <div className="w-full h-2 bg-dark-blue rounded-full overflow-hidden">
+            <motion.div
+              className="h-full bg-neon-blue"
+              initial={{ width: 0 }}
+              animate={{ width: `${progress}%` }}
+              transition={{ duration: 0.5 }}
+            />
+          </div>
+        </div>
+
+        {/* Quiz */}
+        {showQuiz && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="max-w-2xl mx-auto"
+          >
+            <QuizCard
+              question={quizQuestions[currentQuestion].question}
+              options={quizQuestions[currentQuestion].options}
+              correctAnswer={quizQuestions[currentQuestion].correctAnswer}
+              onAnswer={handleQuizAnswer}
+            />
+          </motion.div>
+        )}
       </div>
     </Layout>
   );

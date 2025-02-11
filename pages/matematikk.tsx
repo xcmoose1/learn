@@ -195,9 +195,13 @@ export default function Matematikk() {
                         </div>
 
                         <Button
-                          type="submit"
                           variant="primary"
                           fullWidth
+                          onClick={(e) => {
+                            e.preventDefault();
+                            const form = e.currentTarget.closest('form');
+                            if (form) form.requestSubmit();
+                          }}
                         >
                           Sjekk svar
                         </Button>

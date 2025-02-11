@@ -1,71 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Legg til egendefinerte stiler under denne linjen */
-
-/* Forbedret touch-interaksjon */
-* {
-  -webkit-tap-highlight-color: transparent;
+:root {
+  --neon-blue: 0 242 255;   /* #00f2ff */
+  --neon-green: 0 255 157;  /* #00ff9d */
+  --dark-blue: 10 25 47;    /* #0a192f */
+  --darker-blue: 6 12 23;   /* #060c17 */
 }
 
-/* Deaktiver tekst-markering på interaktive elementer */
-.touch-manipulation {
-  touch-action: manipulation;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  user-select: none;
+body {
+  background-color: rgb(var(--darker-blue));
+  color: white;
 }
 
-/* Forbedret scrolling på iOS */
-.smooth-scroll {
-  -webkit-overflow-scrolling: touch;
+/* FIFA Card Style */
+.fifa-card {
+  @apply relative p-6 rounded-xl shadow-lg;
+  background: linear-gradient(
+    145deg,
+    rgb(var(--dark-blue) / 0.95) 0%,
+    rgb(var(--darker-blue) / 0.95) 100%
+  );
+  border: 1px solid rgb(var(--neon-blue) / 0.2);
+  backdrop-filter: blur(10px);
 }
 
-/* Større touch-targets */
-@media (max-width: 768px) {
-  button, 
-  a {
-    min-height: 44px;
-    min-width: 44px;
+/* Neon Button Style */
+.btn-neon {
+  @apply relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-medium text-white transition duration-300 ease-out rounded-lg shadow-md;
+  background: linear-gradient(
+    45deg,
+    rgb(var(--dark-blue)) 0%,
+    rgb(var(--darker-blue)) 100%
+  );
+  border: 1px solid rgb(var(--neon-blue) / 0.5);
+}
+
+.btn-neon:hover {
+  box-shadow: 0 0 20px rgb(var(--neon-blue) / 0.5);
+}
+
+.btn-neon:hover:before {
+  transform: translateX(100%);
+}
+
+.btn-neon:before {
+  content: '';
+  @apply absolute top-0 left-0 w-full h-full transition-all duration-500 ease-in-out transform -translate-x-full;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgb(var(--neon-blue)) 50%,
+    transparent 100%
+  );
+  opacity: 0.1;
+}
+
+/* Scoreboard Number Style */
+.scoreboard-number {
+  @apply font-tech text-2xl font-bold;
+  color: rgb(var(--neon-blue));
+  text-shadow: 0 0 10px rgb(var(--neon-blue));
+}
+
+/* Goal Animation */
+@keyframes goal-celebration {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
 }
 
-/* Tilpasset font-rendering */
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
+.goal-animation {
+  animation: goal-celebration 0.5s ease-out forwards;
 }
 
-/* Fotballbane gradient overlay */
-.field-overlay {
-  background: linear-gradient(
-    to bottom,
-    rgba(34, 197, 94, 0.9),
-    rgba(34, 197, 94, 0.7)
-  );
+/* Glow Animation */
+@keyframes glow {
+  from {
+    text-shadow: 
+      0 0 5px #fff,
+      0 0 10px #fff,
+      0 0 15px rgb(var(--neon-blue)),
+      0 0 20px rgb(var(--neon-blue));
+  }
+  to {
+    text-shadow:
+      0 0 10px #fff,
+      0 0 20px #fff,
+      0 0 30px rgb(var(--neon-blue)),
+      0 0 40px rgb(var(--neon-blue));
+  }
 }
 
-/* Forbedret kontrast for tekst på lys bakgrunn */
-.text-shadow-sm {
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+.text-glow {
+  animation: glow 1.5s ease-in-out infinite alternate;
 }
 
-.text-shadow-md {
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-/* Forbedret visuell hierarki */
-.depth-effect {
-  box-shadow: 
-    0 1px 3px rgba(0, 0, 0, 0.12),
-    0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
+::-webkit-scrollbar-track {
+  background: rgb(var(--darker-blue));
 }
 
-.depth-effect:hover {
-  box-shadow: 
-    0 14px 28px rgba(0, 0, 0, 0.25),
-    0 10px 10px rgba(0, 0, 0, 0.22);
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--neon-blue));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--neon-green));
+}
+
+/* Responsive Font Sizes */
+@media (max-width: 640px) {
+  h1 {
+    @apply text-4xl;
+  }
+  h2 {
+    @apply text-3xl;
+  }
+  h3 {
+    @apply text-2xl;
+  }
+  p {
+    @apply text-base;
+  }
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  @apply w-12 h-12 rounded-full animate-spin;
+  border: 4px solid rgb(var(--neon-blue));
+  border-top-color: transparent;
 }
