@@ -5,7 +5,7 @@ import { ReactSketchCanvas } from 'react-sketch-canvas';
 import type { ReactSketchCanvasRef } from 'react-sketch-canvas';
 import { useSpeechSynthesis } from 'react-speech-kit';
 import Layout from '../components/Layout';
-import { Button } from '../components/Button';
+import Button from '../components/Button';
 import { fotballspillere, Quiz } from '../data/fotballspillere';
 import * as htmlToImage from 'html-to-image';
 
