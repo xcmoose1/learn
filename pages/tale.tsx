@@ -1,16 +1,19 @@
 import { useState, useEffect } from 'react';
-import { useSpeechSynthesis } from 'react-speech-kit';
 import { motion, Reorder, useDragControls, AnimatePresence } from 'framer-motion';
 import styles from '../styles/Tale.module.css';
 import lesespillData from '../data/lesespill.json';
+import { useSpeech } from '../hooks/useSpeech';
 
 const Tale = () => {
   const [activeTab, setActiveTab] = useState('sammensatte');
   const [score, setScore] = useState(0);
   const [showReward, setShowReward] = useState(false);
-  const { speak, voices } = useSpeechSynthesis();
-
-  const norwegianVoice = voices.find(voice => voice.lang.includes('nb-NO') || voice.lang.includes('nn-NO'));
+  const [currentWord, setCurrentWord] = useState('');
+  const { speak, cancel, speaking, supported } = useSpeech({
+    text: currentWord,
+    lang: 'nb-NO',
+    rate: 1
+  });
 
   useEffect(() => {
     const savedScore = localStorage.getItem('lesespillScore');
@@ -20,11 +23,8 @@ const Tale = () => {
   }, []);
 
   const playWord = (word: string, speed: number = 1) => {
-    speak({ 
-      text: word, 
-      voice: norwegianVoice,
-      rate: speed
-    });
+    setCurrentWord(word);
+    setTimeout(() => speak(), 0);
   };
 
   const handleCorrectAnswer = () => {
@@ -173,7 +173,7 @@ const Tale = () => {
               <div className={styles.playButtons}>
                 <button onClick={() => playWord(item.ord, 1)}>🔊 Normal</button>
                 <button onClick={() => playWord(item.ord, 0.5)}>🐌 Sakte</button>
-                <button onClick={() => playWordSyllables(item.ord)}>📝 Stavelser</button>
+                <button onClick={() => playSyllables(item.ord)}>📝 Stavelser</button>
               </div>
             </div>
           ))}
@@ -182,19 +182,14 @@ const Tale = () => {
     );
   };
 
-  const playWordSyllables = (word: string) => {
-    const syllables = word.match(/.{1,2}/g) || [];
-    let delay = 0;
-    
+  const playSyllables = (word: string) => {
+    const syllables = word.split('-');
     syllables.forEach((syllable, index) => {
+      const delay = index * 1000;
       setTimeout(() => {
-        speak({ 
-          text: syllable, 
-          voice: norwegianVoice,
-          rate: 0.7
-        });
+        setCurrentWord(syllable);
+        setTimeout(() => speak(), 0);
       }, delay);
-      delay += 800;
     });
   };
 
