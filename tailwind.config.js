@@ -1,19 +1,22 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
       colors: {
-        'neon-blue': 'rgb(var(--neon-blue) / <alpha-value>)',
+        'dark-blue': '#16213E',
+        'darker-blue': '#1A1A2E',
+        'neon-blue': '#4CAF50',
+        'light-blue': '#97C1E7',
         'neon-green': 'rgb(var(--neon-green) / <alpha-value>)',
-        'dark-blue': 'rgb(var(--dark-blue) / <alpha-value>)',
-        'darker-blue': 'rgb(var(--darker-blue) / <alpha-value>)',
       },
       fontFamily: {
-        'heading': ['Bebas Neue', 'sans-serif'],
+        'heading': ['Poppins', 'sans-serif'],
+        'body': ['Poppins', 'sans-serif'],
         'tech': ['Orbitron', 'sans-serif'],
       },
       animation: {
@@ -37,6 +40,8 @@ module.exports = {
       },
       backgroundImage: {
         'stadium': "url('/stadium-background.jpg')",
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
     },
   },

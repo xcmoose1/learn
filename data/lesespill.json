@@ -1,0 +1,127 @@
+{
+  "sammensatteOrd": [
+    {
+      "id": 1,
+      "del1": "fot",
+      "del2": "ball",
+      "bilde": "/images/words/fotball.png",
+      "lydFil": "fotball.mp3"
+    },
+    {
+      "id": 2,
+      "del1": "mål",
+      "del2": "vakt",
+      "bilde": "/images/words/keeper.png",
+      "lydFil": "keeper.mp3"
+    },
+    {
+      "id": 3,
+      "del1": "lag",
+      "del2": "kamerat",
+      "bilde": "/images/words/lagkamerat.png",
+      "lydFil": "lagkamerat.mp3"
+    }
+  ],
+  "uttaleTrening": {
+    "r_lyd": [
+      {
+        "ord": "Ronaldo",
+        "lydFil": "ronaldo.mp3",
+        "bilde": "/images/words/ronaldo.png"
+      },
+      {
+        "ord": "Real Madrid",
+        "lydFil": "real-madrid.mp3",
+        "bilde": "/images/words/real-madrid.png"
+      },
+      {
+        "ord": "drible",
+        "lydFil": "drible.mp3",
+        "bilde": "/images/words/drible.png"
+      }
+    ],
+    "s_lyd": [
+      {
+        "ord": "Messi",
+        "lydFil": "messi.mp3",
+        "bilde": "/images/words/messi.png"
+      },
+      {
+        "ord": "scoring",
+        "lydFil": "scoring.mp3",
+        "bilde": "/images/words/scoring.png"
+      },
+      {
+        "ord": "pasning",
+        "lydFil": "pasning.mp3",
+        "bilde": "/images/words/pasning.png"
+      }
+    ],
+    "l_lyd": [
+      {
+        "ord": "ball",
+        "lydFil": "ball.mp3",
+        "bilde": "/images/words/ball.png"
+      },
+      {
+        "ord": "Lewandowski",
+        "lydFil": "lewandowski.mp3",
+        "bilde": "/images/words/lewandowski.png"
+      },
+      {
+        "ord": "mål",
+        "lydFil": "maal.mp3",
+        "bilde": "/images/words/maal.png"
+      }
+    ]
+  },
+  "autofullfor": [
+    {
+      "ord": "Ronaldo",
+      "hint": "R_naldo",
+      "bilde": "/images/words/ronaldo.png"
+    },
+    {
+      "ord": "Messi",
+      "hint": "M_ssi",
+      "bilde": "/images/words/messi.png"
+    },
+    {
+      "ord": "keeper",
+      "hint": "k__per",
+      "bilde": "/images/words/keeper.png"
+    }
+  ],
+  "setninger": [
+    {
+      "ord": ["Messi", "scoret", "et", "mål"],
+      "bilde": "/images/words/messi-goal.png"
+    },
+    {
+      "ord": ["Haaland", "løper", "mot", "målet"],
+      "bilde": "/images/words/haaland-running.png"
+    }
+  ],
+  "vokaler": [
+    {
+      "kort": {
+        "ord": "ball",
+        "lydFil": "ball.mp3"
+      },
+      "lang": {
+        "ord": "mål",
+        "lydFil": "maal.mp3"
+      }
+    },
+    {
+      "kort": {
+        "ord": "kamp",
+        "lydFil": "kamp.mp3"
+      },
+      "lang": {
+        "ord": "bane",
+        "lydFil": "bane.mp3"
+      }
+    }
+  ]
+}

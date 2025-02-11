@@ -12,23 +12,47 @@ interface LayoutProps {
 export default function Layout({ children, title = 'Fotball Læring' }: LayoutProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [score, setScore] = useState(getScore());
+  const [showResetConfirm, setShowResetConfirm] = useState(false);
 
   const menuItems = [
     { href: '/', label: '🏠 Hjem', icon: '⚽' },
     { href: '/matematikk', label: '🔢 Matematikk', icon: '📊' },
     { href: '/lesespill', label: '📚 Lesespill', icon: '📖' },
+    { href: '/tale', label: '🗣️ Talespill', icon: '🎯' },
+    { href: '/fotballkort', label: '🎴 Fotballkort', icon: '⭐' },
     { href: '/tegning', label: '🎨 Tegning', icon: '✏️' },
   ];
 
+  const handleReset = () => {
+    if (!showResetConfirm) {
+      setShowResetConfirm(true);
+      return;
+    }
+    
+    // Clear all localStorage data
+    localStorage.clear();
+    
+    // Reset confirmation state
+    setShowResetConfirm(false);
+    
+    // Reload the page to reset all state
+    window.location.reload();
+  };
+
+  const cancelReset = () => {
+    setShowResetConfirm(false);
+  };
+
   return (
-    <div className="min-h-screen bg-darker-blue">
+    <div className="min-h-screen bg-gradient-to-b from-darker-blue to-dark-blue">
       <Head>
         <title>{title} | Fotball Læring</title>
         <meta name="description" content="Lær mens du har det gøy med fotball!" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </Head>
 
       {/* Top Navigation Bar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-dark-blue to-darker-blue border-b border-neon-blue/20">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-dark-blue to-darker-blue border-b border-neon-blue/20 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center space-x-2">
@@ -69,6 +93,36 @@ export default function Layout({ children, title = 'Fotball Læring' }: LayoutPr
                   {item.label}
                 </Link>
               ))}
+            </div>
+
+            {/* Reset Button Group */}
+            <div className="flex items-center gap-2">
+              {showResetConfirm ? (
+                <>
+                  <button 
+                    className="btn-neon group px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700 transition-colors"
+                    onClick={handleReset}
+                    title="Bekreft reset"
+                  >
+                    Er du sikker? ⚠️
+                  </button>
+                  <button 
+                    className="btn-neon group px-4 py-2 rounded-lg text-white hover:text-neon-blue transition-colors"
+                    onClick={cancelReset}
+                    title="Avbryt"
+                  >
+                    Avbryt
+                  </button>
+                </>
+              ) : (
+                <button 
+                  className="btn-neon group px-4 py-2 rounded-lg text-white hover:text-neon-blue transition-colors"
+                  onClick={handleReset}
+                  title="Start på nytt"
+                >
+                  🔄 Start på nytt
+                </button>
+              )}
             </div>
           </div>
         </div>

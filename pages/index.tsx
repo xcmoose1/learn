@@ -19,6 +19,20 @@ const activities = [
     color: 'from-green-500 to-teal-500',
   },
   {
+    title: 'Talespill',
+    description: 'Øv på uttale og sammensatte ord med fotballtema',
+    icon: '🗣️',
+    href: '/tale',
+    color: 'from-orange-500 to-yellow-500',
+  },
+  {
+    title: 'Fotballkort',
+    description: 'Samle kort, lær fakta og løs morsomme oppgaver',
+    icon: '🎴',
+    href: '/fotballkort',
+    color: 'from-pink-500 to-red-500',
+  },
+  {
     title: 'Tegning',
     description: 'Tegn dine favorittspillere og lær om dem',
     icon: '🎨',

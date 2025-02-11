@@ -18,7 +18,8 @@
     "react-dom": "^18.2.0",
     "react-konva": "^19.0.2",
     "react-p5": "^1.4.1",
-    "react-sketch-canvas": "^6.2.0"
+    "react-sketch-canvas": "^6.2.0",
+    "react-speech-kit": "^3.0.1"
   },
   "devDependencies": {
     "@types/node": "^20",

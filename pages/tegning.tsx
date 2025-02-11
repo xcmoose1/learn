@@ -104,9 +104,9 @@ export default function Tegning() {
   const [progress, setProgress] = useState(0);
 
   // Konstanter for grid
-  const CELL_SIZE = 20;
-  const GRID_WIDTH = 30;
-  const GRID_HEIGHT = 40;
+  const CELL_SIZE = 15;
+  const GRID_WIDTH = 40;
+  const GRID_HEIGHT = 50;
   const IMAGE_WIDTH = GRID_WIDTH * CELL_SIZE;
   const IMAGE_HEIGHT = GRID_HEIGHT * CELL_SIZE;
   const TOTAL_CELLS = GRID_WIDTH * GRID_HEIGHT;
@@ -225,7 +225,8 @@ export default function Tegning() {
                 alt={`${currentPlayer.name} outline`}
                 width={IMAGE_WIDTH}
                 height={IMAGE_HEIGHT}
-                className="absolute top-0 left-0 pointer-events-none z-10"
+                className="absolute top-0 left-0 pointer-events-none z-10 object-contain"
+                style={{ width: '100%', height: '100%' }}
               />
               
               <Stage
@@ -242,30 +243,11 @@ export default function Tegning() {
                       width={CELL_SIZE}
                       height={CELL_SIZE}
                       fill={cell.color}
-                      stroke="rgba(255, 255, 255, 0.2)"
-                      strokeWidth={1}
+                      stroke="rgba(255, 255, 255, 0.1)"
+                      strokeWidth={0.5}
                       onClick={() => handleCellClick(index)}
                       onTap={() => handleCellClick(index)}
-                      onMouseEnter={(e) => {
-                        const stage = e.target.getStage();
-                        if (stage) {
-                          stage.container().style.cursor = 'pointer';
-                        }
-                        if (e.target) {
-                          e.target.opacity(0.8);
-                          e.target.getLayer()?.draw();
-                        }
-                      }}
-                      onMouseLeave={(e) => {
-                        const stage = e.target.getStage();
-                        if (stage) {
-                          stage.container().style.cursor = 'default';
-                        }
-                        if (e.target) {
-                          e.target.opacity(1);
-                          e.target.getLayer()?.draw();
-                        }
-                      }}
+                      onMouseDown={() => handleCellClick(index)}
                     />
                   ))}
                 </Layer>

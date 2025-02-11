@@ -7,7 +7,7 @@
         {
           "id": 1,
           "title": "Ronaldo som ung gutt ⚽",
-          "text": "Cristiano Ronaldo vokste opp på øya Madeira i Portugal. Han var veldig glad i fotball og trente hver dag. Selv når det regnet, ville han spille fotball. Han begynte å spille for Sporting CP da han var bare 12 år gammel",
+          "text": "Ronaldo vokste opp på en øy.\n\nØya heter Madeira.\n\nDen ligger i Portugal.\n\nHan elsket fotball.\n\nHan trente hver eneste dag.\n\nHan drømte om å bli god.",
           "question": "Hvor vokste Ronaldo opp?",
           "options": ["Madeira", "Lisboa", "Porto"],
           "answer": "Madeira",
@@ -16,8 +16,8 @@
         {
           "id": 2,
           "title": "Ronaldos drakt 🔴",
-          "text": "I 2003 kom Ronaldo til Manchester United. Han fikk trøye nummer 7. Dette er et spesielt nummer i klubben. Mange store spillere har brukt dette nummeret før ham",
-          "question": "Hvilket draktnummer fikk Ronaldo i United?",
+          "text": "Ronaldo kom til Manchester United.\n\nDet var i 2003.\n\nHan fikk en rød drakt.\n\nPå drakten sto det nummer 7.\n\nDet var hans lykketall.",
+          "question": "Hvilket nummer hadde Ronaldo?",
           "options": ["Nummer 7", "Nummer 9", "Nummer 10"],
           "answer": "Nummer 7",
           "emoji": "👕"
@@ -25,8 +25,8 @@
         {
           "id": 3,
           "title": "Messi som barn 🌟",
-          "text": "Lionel Messi begynte å spille fotball da han var fem år gammel. Han spilte for et lag som het Grandoli. Hans far Jorge var treneren hans. Messi var liten, men veldig rask med ballen",
-          "question": "Hvor gammel var Messi da han begynte å spille fotball?",
+          "text": "Lille Messi elsket fotball.\n\nHan var bare fem år gammel.\n\nDa begynte han å spille.\n\nHan var veldig flink.\n\nAlle så at han var spesiell.",
+          "question": "Hvor gammel var Messi da han begynte?",
           "options": ["Fem år", "Seks år", "Sju år"],
           "answer": "Fem år",
           "emoji": "⚽"
@@ -34,52 +34,52 @@
         {
           "id": 4,
           "title": "Messis første klubb 🔵",
-          "text": "Da Messi var 13 år, flyttet han til Barcelona i Spania. Han begynte på La Masia. Det er Barcelonas fotballskole. Her lærte han å bli en enda bedre spiller",
-          "question": "Hva heter Barcelonas fotballskole?",
-          "options": ["La Masia", "La Rambla", "Camp Nou"],
-          "answer": "La Masia",
+          "text": "Messi flyttet til Spania.\n\nHan var 13 år.\n\nHan begynte å spille i Barcelona.\n\nDet var en stor klubb.\n\nDer lærte han mye.",
+          "question": "Hvilken klubb dro Messi til?",
+          "options": ["Barcelona", "Madrid", "Valencia"],
+          "answer": "Barcelona",
           "emoji": "🏫"
         },
         {
           "id": 5,
-          "title": "Haaland i Dortmund 🟡",
-          "text": "Erling Haaland spilte for Borussia Dortmund i Tyskland. Han scoret mange mål der. Han hadde gul drakt, som er Dortmunds farge. Fansen elsket ham",
-          "question": "Hvilken farge har Dortmunds drakter?",
-          "options": ["Gul", "Rød", "Blå"],
-          "answer": "Gul",
+          "title": "Haaland scorer mål 🟡",
+          "text": "Erling Haaland er norsk.\n\nHan spilte i Tyskland.\n\nLaget het Dortmund.\n\nHan scoret masse mål.\n\nAlle heiet på ham.",
+          "question": "Hvilket land spilte Haaland i?",
+          "options": ["Tyskland", "England", "Spania"],
+          "answer": "Tyskland",
           "emoji": "👕"
         },
         {
           "id": 6,
-          "title": "Ødegaard som kaptein 🎯",
-          "text": "Martin Ødegaard er kaptein for Arsenal. Det betyr at han er lagets leder på banen. Han har et bånd rundt armen som viser at han er kaptein. Han er også kaptein for Norge",
-          "question": "Hvilket lag er Ødegaard kaptein for?",
-          "options": ["Arsenal", "Chelsea", "Liverpool"],
-          "answer": "Arsenal",
-          "emoji": "©️"
+          "title": "Ødegaard er sjef 🎯",
+          "text": "Martin er fra Norge.\n\nHan spiller i Arsenal.\n\nHan er lagets kaptein.\n\nDet betyr at han er sjefen.\n\nAlle ser opp til ham.",
+          "question": "Hva er Martin i Arsenal?",
+          "options": ["Kaptein", "Keeper", "Trener"],
+          "answer": "Kaptein",
+          "emoji": "👕"
         },
         {
           "id": 7,
-          "title": "Ada Hegerberg ⭐",
-          "text": "Ada Hegerberg er en norsk fotballspiller. Hun spiller for Lyon i Frankrike. Hun var den første kvinnen som vant Gullballen. Det er en pris til verdens beste spiller",
-          "question": "Hvilken pris vant Ada som første kvinne?",
+          "title": "Ada er best ⭐",
+          "text": "Ada er fra Norge.\n\nHun er kjempeflink til å spille fotball.\n\nHun vant en gullball.\n\nDet er en pris til verdens beste spiller.\n\nIngen jente hadde fått den før.",
+          "question": "Hva vant Ada?",
           "options": ["Gullballen", "VM-gull", "OL-gull"],
           "answer": "Gullballen",
           "emoji": "🏆"
         },
         {
           "id": 8,
-          "title": "Caroline Graham Hansen 🌟",
-          "text": "Caroline Graham Hansen spiller for Barcelona. Hun er kjent for å være veldig god med ballen. Hun dribler forbi mange spillere. Mange sier hun er en av verdens beste",
-          "question": "Hvilket lag spiller Caroline for?",
-          "options": ["Barcelona", "Real Madrid", "Valencia"],
+          "title": "Caroline er rask 🌟",
+          "text": "Caroline er norsk.\n\nHun spiller i Barcelona.\n\nHun er veldig rask.\n\nHun dribler fint.\n\nAlle synes hun er flink.",
+          "question": "Hvor spiller Caroline?",
+          "options": ["Barcelona", "Madrid", "Valencia"],
           "answer": "Barcelona",
           "emoji": "⚽"
         },
         {
           "id": 9,
           "title": "Zidanes hodeskalling 🤯",
-          "text": "I VM-finalen i 2006 gjorde Zidane noe dumt. Han skallet en annen spiller i brystet. Han fikk rødt kort og måtte gå av banen. Det var hans siste kamp",
+          "text": "Zidane spilte i VM.\n\nHan gjorde noe dumt.\n\nHan fikk rødt kort.\n\nDet betyr at han måtte gå av banen.\n\nLaget hans tapte.",
           "question": "Hva fikk Zidane i sin siste kamp?",
           "options": ["Rødt kort", "Gult kort", "Straffe"],
           "answer": "Rødt kort",
@@ -88,7 +88,7 @@
         {
           "id": 10,
           "title": "Maradonas hånd 🖐️",
-          "text": "I VM i 1986 scoret Maradona et mål med hånden. Han hoppet opp og brukte hånden til å slå ballen i mål. Dommeren så det ikke. Målet ble kalt 'Guds hånd'",
+          "text": "Maradona spilte i VM.\n\nHan scoret et mål.\n\nHan brukte hånden.\n\nDet var ikke lov.\n\nMålet ble kalt 'Guds hånd'.",
           "question": "Hva ble Maradonas mål kalt?",
           "options": ["Guds hånd", "Englehånd", "Magisk hånd"],
           "answer": "Guds hånd",
@@ -102,36 +102,36 @@
       "oppgaver": [
         {
           "id": 1,
-          "title": "Spilletid ⏱️",
-          "text": "En fotballkamp varer i 90 minutter. Den er delt i to omganger. Hver omgang er 45 minutter. Det er en pause mellom omgangene",
-          "question": "Hvor lenge varer en fotballkamp?",
-          "options": ["90 minutter", "60 minutter", "120 minutter"],
-          "answer": "90 minutter",
+          "title": "Hvor lenge spiller vi? ⏱️",
+          "text": "En fotballkamp er lang.\n\nDen varer i 90 minutter.\n\nVi deler kampen i to deler.\n\nHver del er 45 minutter.\n\nI pausen hviler vi i 15 minutter.",
+          "question": "Hvor lang er hver del av kampen?",
+          "options": ["45 minutter", "90 minutter", "15 minutter"],
+          "answer": "45 minutter",
           "emoji": "⏰"
         },
         {
           "id": 2,
           "title": "Offside 🚩",
-          "text": "Offside er en viktig regel i fotball. Du kan ikke stå bak alle motspillerne når ballen blir spilt til deg. Du må ha minst to motspillere foran deg",
+          "text": "Offside er en viktig regel.\n\nDu kan ikke stå bak alle motspillerne.\n\nDu må ha minst to motspillere foran deg.\n\nKeeperen teller som en spiller.\n\nDet er lurt å passe på dette.",
           "question": "Hvor mange motspillere må være foran deg?",
-          "options": ["To", "En", "Tre"],
-          "answer": "To",
+          "options": ["To spillere", "En spiller", "Tre spillere"],
+          "answer": "To spillere",
           "emoji": "🏃"
         },
         {
           "id": 3,
           "title": "Gult kort 🟨",
-          "text": "Dommeren kan gi deg gult kort. Det er en advarsel. Hvis du får to gule kort i samme kamp, må du gå av banen. Da blir det rødt kort",
+          "text": "Dommeren har to kort.\n\nDet gule kortet er en advarsel.\n\nHvis du får to gule kort.\n\nBlir det til et rødt kort.\n\nDa må du gå av banen.",
           "question": "Hva skjer hvis du får to gule kort?",
-          "options": ["Rødt kort", "Straffe", "Frispark"],
-          "answer": "Rødt kort",
+          "options": ["Du får rødt kort", "Du får straffe", "Du får frispark"],
+          "answer": "Du får rødt kort",
           "emoji": "🟨"
         },
         {
           "id": 4,
           "title": "Innkast 🤾",
-          "text": "Når ballen går ut over sidelinjen, blir det innkast. Du må kaste ballen med begge hender. Føttene må stå på bakken. Du kan ikke score mål direkte fra innkast",
-          "question": "Hvordan må du kaste ved innkast?",
+          "text": "Når ballen går ut på siden.\n\nBlir det innkast.\n\nDu må stå med begge føtter på bakken.\n\nDu må kaste med begge hender.\n\nDu kan ikke score mål direkte fra innkast.",
+          "question": "Hvordan tar du innkast?",
           "options": ["Med begge hender", "Med én hånd", "Med foten"],
           "answer": "Med begge hender",
           "emoji": "🤾‍♂️"
@@ -139,56 +139,893 @@
         {
           "id": 5,
           "title": "Hjørnespark ⛳",
-          "text": "Det blir hjørnespark når ballen går ut over mållinjen. Det er forsvarslaget som sparker ballen ut. Ballen legges i hjørnet av banen. Alle kan score på hjørnespark",
-          "question": "Hvor legges ballen ved hjørnespark?",
-          "options": ["I hjørnet", "På midten", "Ved straffepunktet"],
-          "answer": "I hjørnet",
+          "text": "Noen ganger går ballen ut bak mål.\n\nHvis forsvaret sparker den ut.\n\nBlir det hjørnespark.\n\nDa legger vi ballen i hjørnet.\n\nSå kan vi score mål.",
+          "question": "Når får vi hjørnespark?",
+          "options": ["Når forsvaret sparker ballen ut", "Når vi sparker den ut", "Når keeper tar ballen"],
+          "answer": "Når forsvaret sparker ballen ut",
           "emoji": "⛳"
         },
         {
           "id": 6,
-          "title": "Straffespark 🎯",
-          "text": "Straffespark gis når et lag gjør feil i eget straffefelt. Ballen legges på straffepunktet. Det er 11 meter fra mål. Bare keeper kan prøve å stoppe ballen",
-          "question": "Hvor langt er det fra straffepunktet til mål?",
-          "options": ["11 meter", "9 meter", "12 meter"],
-          "answer": "11 meter",
+          "title": "Straffe 🎯",
+          "text": "Straffe er spennende.\n\nDet er bare keeper og den som skyter.\n\nBallen legges 11 meter fra mål.\n\nAlle andre må stå langt unna.\n\nDet blir ofte mål på straffe.",
+          "question": "Hvem kan stå foran mål ved straffe?",
+          "options": ["Bare keeper", "Alle spillerne", "Tre spillere"],
+          "answer": "Bare keeper",
           "emoji": "🎯"
         },
         {
           "id": 7,
-          "title": "Målvakt 🧤",
-          "text": "Målvakten er den eneste som kan ta ballen med hendene. Men bare innenfor eget straffefelt. Utenfor feltet må keeper spille som alle andre",
+          "title": "Keeper 🧤",
+          "text": "Keeperen er spesiell.\n\nHan kan ta ballen med hendene.\n\nMen bare inni sitt eget felt.\n\nUtenfor feltet må han sparke.\n\nAkkurat som alle andre.",
           "question": "Hvor kan keeper ta ballen med hendene?",
-          "options": ["I straffefelt", "Over hele banen", "På midtbanen"],
-          "answer": "I straffefelt",
+          "options": ["I sitt felt", "Over hele banen", "På midtbanen"],
+          "answer": "I sitt felt",
           "emoji": "🧤"
         },
         {
           "id": 8,
           "title": "Frispark 🦶",
-          "text": "Når det blir foul, får laget frispark. Motspillerne må stå minst 9,15 meter unna ballen. Du kan skyte rett på mål fra frispark",
-          "question": "Hvor langt unna må motspillerne stå?",
-          "options": ["9,15 meter", "5 meter", "10 meter"],
-          "answer": "9,15 meter",
+          "text": "Vi får frispark når noen gjør feil.\n\nAlle må stå langt unna ballen.\n\nDu kan skyte rett på mål.\n\nEller spille til en annen.\n\nDet er du som bestemmer.",
+          "question": "Hva kan du gjøre på frispark?",
+          "options": ["Skyte eller spille til andre", "Bare skyte", "Bare spille til andre"],
+          "answer": "Skyte eller spille til andre",
           "emoji": "🦶"
         },
         {
           "id": 9,
-          "title": "Bytte av spiller 🔄",
-          "text": "I en kamp kan laget bytte spillere. En sliten spiller går ut, og en ny kommer inn. I de fleste kamper kan man bytte fem ganger",
-          "question": "Hvor mange bytter kan man gjøre?",
-          "options": ["Fem", "Tre", "Fire"],
-          "answer": "Fem",
+          "title": "Bytte spiller 🔄",
+          "text": "Vi kan bytte spillere.\n\nDet er lov med fem bytter.\n\nVi må vente til spillet stopper.\n\nDommeren må si ja.\n\nDa kan en ny spiller komme inn.",
+          "question": "Når kan vi bytte spillere?",
+          "options": ["Når spillet stopper", "Når som helst", "Bare i pausen"],
+          "answer": "Når spillet stopper",
           "emoji": "🔄"
         },
         {
           "id": 10,
-          "title": "Spillere på laget 👥",
-          "text": "Hvert lag har 11 spillere på banen. En av dem er keeper. Hvis et lag får mindre enn 7 spillere, må kampen stoppes",
-          "question": "Hvor mange spillere er det på hvert lag?",
-          "options": ["11", "10", "12"],
-          "answer": "11",
+          "title": "Laget vårt 👥",
+          "text": "Vi er 11 spillere på laget.\n\nEn er keeper.\n\nTi er utespillere.\n\nVi må være minst 7 spillere.\n\nEllers kan vi ikke spille.",
+          "question": "Hvor mange spillere starter på laget?",
+          "options": ["11 spillere", "10 spillere", "9 spillere"],
+          "answer": "11 spillere",
           "emoji": "👥"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "tittel": "Flere Fotballlegender",
+      "oppgaver": [
+        {
+          "id": 1,
+          "title": "Pelé - Kongen av fotball 👑",
+          "text": "Pelé er regnet som den største fotballspilleren gjennom tidene. Han vant VM med Brasil tre ganger: i 1958, 1962 og 1970. Han scoret utrolige 1279 mål i sin karriere og spilte nesten hele karrieren for klubben Santos i Brasil.",
+          "question": "Hvilken klubb spilte Pelé mesteparten av sin karriere for?",
+          "options": ["Santos", "Flamengo", "Vasco da Gama"],
+          "answer": "Santos",
+          "emoji": "👑"
+        },
+        {
+          "id": 2,
+          "title": "Johan Cruyff - Totalfotball 🌟",
+          "text": "Johan Cruyff var en nederlandsk spiller som revolusjonerte fotballen. Han var kjent for 'totalfotball', hvor alle spillere kunne spille i alle posisjoner. Han fant også opp 'Cruyff-vendingen', en finte hvor man later som man skal sparke ballen, men i stedet drar den bak støttebenet og snur 180 grader.",
+          "question": "Hva var Cruyffs bidrag til fotballen?",
+          "options": ["Totalfotball og Cruyff-vendingen", "Bare Cruyff-vendingen", "Bare totalfotball"],
+          "answer": "Totalfotball og Cruyff-vendingen",
+          "emoji": "🌟"
+        },
+        {
+          "id": 3,
+          "title": "Zinedine Zidane - Zizou ⚽",
+          "text": "Zinedine Zidane, kjent som 'Zizou', ledet Frankrike til VM-seier på hjemmebane i 1998. Han scoret to mål i finalen mot Brasil. Zidane var kjent for sin elegante spillestil og utrolige teknikk. Senere ble han trener og vant Champions League tre ganger på rad med Real Madrid.",
+          "question": "Hva gjorde Zidane i VM-finalen 1998?",
+          "options": ["Scoret to mål", "Scoret ett mål", "Ga to målgivende"],
+          "answer": "Scoret to mål",
+          "emoji": "⚽"
+        },
+        {
+          "id": 4,
+          "title": "Beckenbauer - Der Kaiser 🇩🇪",
+          "text": "Franz Beckenbauer fikk kallenavnet 'Der Kaiser' (Keiseren) fordi han spilte så elegant og kontrollert. Han er den eneste som har vunnet VM både som spiller (1974) og som trener (1990). Han oppfant posisjonen 'libero', en forsvarer som også kunne delta i angrepsspillet.",
+          "question": "Hvorfor kalte de Beckenbauer for 'Der Kaiser'?",
+          "options": ["For hans elegante spillestil", "Fordi han var tysk", "Fordi han var kaptein"],
+          "answer": "For hans elegante spillestil",
+          "emoji": "👑"
+        },
+        {
+          "id": 5,
+          "title": "Eusébio - Den sorte panteren 🐆",
+          "text": "Eusébio var en portugisisk spiller født i Mozambik. Han fikk kallenavnet 'Den sorte panteren' på grunn av sin utrolige hurtighet og styrke. I VM 1966 scoret han ni mål og vant turneringens toppscorertittel, selv om Portugal ikke vant VM.",
+          "question": "Hva gjorde Eusébio spesielt i VM 1966?",
+          "options": ["Ble toppscorer med ni mål", "Vant VM", "Scoret i finalen"],
+          "answer": "Ble toppscorer med ni mål",
+          "emoji": "🐆"
+        },
+        {
+          "id": 6,
+          "title": "George Best - Geniet 🎭",
+          "text": "George Best var en nordirsk spiller som spilte for Manchester United på 1960- og 70-tallet. Han var kjent for sin utrolige teknikk og dribleferdigheter. Best vant Gullballen i 1968, samme år som han hjalp United til seier i Europacupen. Han var like kjent for sitt liv utenfor banen som på den.",
+          "question": "Hva vant Best med Manchester United i 1968?",
+          "options": ["Europacupen og Gullballen", "Bare Europacupen", "Bare Gullballen"],
+          "answer": "Europacupen og Gullballen",
+          "emoji": "🎭"
+        },
+        {
+          "id": 7,
+          "title": "Roberto Baggio - Den guddommelige hestehale 🎯",
+          "text": "Roberto Baggio var en italiensk spiller kjent for sin lange hestehale og buddhistiske tro, som ga ham kallenavnet 'Den guddommelige hestehale'. Han var en mester på frispark og straffespark. I VM 1994 ledet han Italia til finalen, men bommet dessverre på den avgjørende straffen i finalen mot Brasil.",
+          "question": "Hva skjedde med Baggio i VM-finalen 1994?",
+          "options": ["Bommet på den avgjørende straffen", "Scoret det avgjørende målet", "Ble skadet"],
+          "answer": "Bommet på den avgjørende straffen",
+          "emoji": "🎯"
+        },
+        {
+          "id": 8,
+          "title": "Ronaldinho - Fotballens gledesspreder 😊",
+          "text": "Ronaldinho var en brasiliansk spiller som alltid spilte med et stort smil. Han var kjent for sine utrolige triks og finter som ingen andre kunne gjøre. Han vant VM med Brasil i 2002 og Champions League med Barcelona i 2006. Hans spilleglede og kreativitet inspirerte en hel generasjon fotballspillere.",
+          "question": "Hva var spesielt med Ronaldinhos spillestil?",
+          "options": ["Hans triks og kreativitet", "Hans hurtighet", "Hans heading"],
+          "answer": "Hans triks og kreativitet",
+          "emoji": "😊"
+        },
+        {
+          "id": 9,
+          "title": "Marco van Basten - Volleykongen 🦢",
+          "text": "Marco van Basten var en nederlandsk spiss kjent for sine utrolige volleyskudd. Hans mest berømte mål var en umulig volley fra en umulig vinkel i EM-finalen 1988, som Nederland vant. Dessverre måtte han avslutte karrieren tidlig, bare 28 år gammel, på grunn av skader.",
+          "question": "Hvorfor måtte van Basten avslutte karrieren tidlig?",
+          "options": ["På grunn av skader", "Han ville bli trener", "Han ble lei"],
+          "answer": "På grunn av skader",
+          "emoji": "🦢"
+        },
+        {
+          "id": 10,
+          "title": "Paolo Maldini - Forsvarssjefen 🛡️",
+          "text": "Paolo Maldini spilte hele sin 25 år lange karriere for AC Milan. Han bar draktnummer 3, som senere ble pensjonert av klubben. Maldini vant Champions League fem ganger og ble kjent for sin elegante forsvarsspill og lederskap. Han kunne spille både som venstreback og midtstopper.",
+          "question": "Hvor mange Champions League-titler vant Maldini?",
+          "options": ["Fem", "Fire", "Tre"],
+          "answer": "Fem",
+          "emoji": "🛡️"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "tittel": "Fotballutstyr",
+      "oppgaver": [
+        {
+          "id": 1,
+          "title": "Fotballsko 👟",
+          "text": "Fotballsko er spesielle.\n\nDe har knotter under.\n\nKnottene hjelper oss å ikke skli.\n\nDet finnes to typer.\n\nNoen for gress.\n\nOg noen for kunstgress.",
+          "question": "Hvorfor har fotballsko knotter?",
+          "options": ["For å ikke skli", "For å se kule ut", "For å løpe fort"],
+          "answer": "For å ikke skli",
+          "emoji": "👟"
+        },
+        {
+          "id": 2,
+          "title": "Leggskinn 🦿",
+          "text": "Leggskinn er viktig.\n\nDe beskytter beina våre.\n\nDe må sitte godt fast.\n\nVi bruker sokker utenpå.\n\nDa holder de seg på plass.",
+          "question": "Hvorfor bruker vi leggskinn?",
+          "options": ["For å beskytte beina", "For å løpe fort", "For å score mål"],
+          "answer": "For å beskytte beina",
+          "emoji": "🦿"
+        },
+        {
+          "id": 3,
+          "title": "Fotballdrakt 👕",
+          "text": "Alle på laget har lik drakt.\n\nDen har lagets farger.\n\nPå ryggen står det et tall.\n\nDet er ditt spillernummer.\n\nDet er gøy å ha på drakt.",
+          "question": "Hva står på ryggen av drakten?",
+          "options": ["Et tall", "Et navn", "En farge"],
+          "answer": "Et tall",
+          "emoji": "👕"
+        },
+        {
+          "id": 4,
+          "title": "Fotballsokker 🧦",
+          "text": "Sokkene er lange.\n\nDe går opp til kneet.\n\nDe holder leggskinna på plass.\n\nAlle på laget har like sokker.\n\nDe matcher drakten vår.",
+          "question": "Hvor lange er fotballsokkene?",
+          "options": ["Opp til kneet", "Til ankelen", "Til låret"],
+          "answer": "Opp til kneet",
+          "emoji": "🧦"
+        },
+        {
+          "id": 5,
+          "title": "Fotballen ⚽",
+          "text": "Ballen er rund.\n\nDen er svart og hvit.\n\nVi må pumpe den med luft.\n\nDa spretter den fint.\n\nDen må ikke være for hard.",
+          "question": "Hva må vi gjøre med ballen?",
+          "options": ["Pumpe den med luft", "Male den", "Vaske den"],
+          "answer": "Pumpe den med luft",
+          "emoji": "⚽"
+        },
+        {
+          "id": 6,
+          "title": "Keeperhansker 🧤",
+          "text": "Keeperen har hansker.\n\nDe er myke på innsiden.\n\nDe hjelper å ta ballen.\n\nDe beskytter hendene.\n\nDe må være passe store.",
+          "question": "Hvorfor bruker keeper hansker?",
+          "options": ["For å ta ballen bedre", "For varme", "For å se kul ut"],
+          "answer": "For å ta ballen bedre",
+          "emoji": "🧤"
+        },
+        {
+          "id": 7,
+          "title": "Shorts 🩳",
+          "text": "Vi spiller i shorts.\n\nDe er korte og lette.\n\nDe er gode å løpe i.\n\nDe har samme farge som drakten.\n\nDe må ikke være for trange.",
+          "question": "Hvordan skal shortsen være?",
+          "options": ["Kort og lett", "Lang og tung", "Trang og varm"],
+          "answer": "Kort og lett",
+          "emoji": "🩳"
+        },
+        {
+          "id": 8,
+          "title": "Kapteinsbind 💪",
+          "text": "Kapteinen har et bind på armen.\n\nDet viser at han er sjef.\n\nDet er ofte i en fin farge.\n\nDet sitter rundt overarmen.\n\nAlle kan se det godt.",
+          "question": "Hva viser kapteinsbindet?",
+          "options": ["At du er sjef", "At du er keeper", "At du er ny"],
+          "answer": "At du er sjef",
+          "emoji": "💪"
+        },
+        {
+          "id": 9,
+          "title": "Keeperdrakt 🥅",
+          "text": "Keeperen har egen drakt.\n\nDen er annerledes enn de andre.\n\nDen har tykt stoff.\n\nDen beskytter når keeper kaster seg.\n\nDen har lange ermer.",
+          "question": "Hvorfor er keeperdrakten tykk?",
+          "options": ["For å beskytte", "For å se fin ut", "For å holde varmen"],
+          "answer": "For å beskytte",
+          "emoji": "🥅"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "tittel": "Fotballbanen",
+      "oppgaver": [
+        {
+          "id": 1,
+          "title": "Midtsirkelen ⭕",
+          "text": "Midt på banen er det en stor sirkel.\n\nI midten er det en prikk.\n\nHer starter kampen.\n\nHer starter vi også etter mål.\n\nAlle må stå på sin side.",
+          "question": "Hvor starter kampen?",
+          "options": ["I midtsirkelen", "Ved målet", "På sidelinjen"],
+          "answer": "I midtsirkelen",
+          "emoji": "⭕"
+        },
+        {
+          "id": 2,
+          "title": "Målet 🥅",
+          "text": "På hver side er det et mål.\n\nDet er stort og hvitt.\n\nDet har nett bak.\n\nDet er 2,44 meter høyt.\n\nDet er 7,32 meter bredt.",
+          "question": "Hva er bak målet?",
+          "options": ["Et nett", "En vegg", "En dør"],
+          "answer": "Et nett",
+          "emoji": "🥅"
+        },
+        {
+          "id": 3,
+          "title": "Straffepunktet ⚪",
+          "text": "Foran målet er det en prikk.\n\nDen er 11 meter fra mål.\n\nHer tar vi straffe.\n\nDet er bare keeper og den som skyter.\n\nDet er veldig spennende.",
+          "question": "Hvor langt er det til mål?",
+          "options": ["11 meter", "5 meter", "15 meter"],
+          "answer": "11 meter",
+          "emoji": "⚪"
+        },
+        {
+          "id": 4,
+          "title": "Hjørneflagget 🚩",
+          "text": "I hvert hjørne er det et flagg.\n\nDet er rødt og gult.\n\nDet viser hvor banen slutter.\n\nHer tar vi hjørnespark.\n\nFlagget må stå rett opp.",
+          "question": "Hva gjør vi ved flagget?",
+          "options": ["Tar hjørnespark", "Tar straffe", "Tar innkast"],
+          "answer": "Tar hjørnespark",
+          "emoji": "🚩"
+        },
+        {
+          "id": 5,
+          "title": "Målfeltet 📏",
+          "text": "Nærmest målet er det et lite felt.\n\nDet er keeper sitt område.\n\nHer setter vi ballen ved målspark.\n\nDet er tegnet med hvite streker.\n\nDet er mindre enn straffefeltet.",
+          "question": "Hvem bestemmer i målfeltet?",
+          "options": ["Keeper", "Dommer", "Spissen"],
+          "answer": "Keeper",
+          "emoji": "📏"
+        },
+        {
+          "id": 6,
+          "title": "Straffefeltet 🎯",
+          "text": "Rundt målet er det et stort felt.\n\nDet kalles straffefeltet.\n\nHer kan keeper ta ballen med hendene.\n\nHvis noen jukser her.\n\nBlir det straffe.",
+          "question": "Hva kan keeper gjøre her?",
+          "options": ["Ta ballen med hendene", "Score mål", "Ta innkast"],
+          "answer": "Ta ballen med hendene",
+          "emoji": "🎯"
+        },
+        {
+          "id": 7,
+          "title": "Sidelinjen ➖",
+          "text": "På siden av banen er det streker.\n\nDe viser hvor banen slutter.\n\nHvis ballen går over.\n\nBlir det innkast.\n\nDa må vi kaste med hendene.",
+          "question": "Hva skjer når ballen går over streken?",
+          "options": ["Det blir innkast", "Det blir corner", "Det blir mål"],
+          "answer": "Det blir innkast",
+          "emoji": "➖"
+        },
+        {
+          "id": 8,
+          "title": "Midtlinjen ➖",
+          "text": "En strek deler banen i to.\n\nDen går tvers over.\n\nHvert lag har sin side.\n\nVed avspark må alle stå på sin side.\n\nBare den som sparker kan stå på midten.",
+          "question": "Hvor må spillerne stå ved avspark?",
+          "options": ["På sin side", "Hvor de vil", "Ved målet"],
+          "answer": "På sin side",
+          "emoji": "➖"
+        },
+        {
+          "id": 9,
+          "title": "Gresset 🌱",
+          "text": "Vi spiller på gress.\n\nDet kan være ekte gress.\n\nEller kunstgress.\n\nDet må være kort og fint.\n\nDa triller ballen godt.",
+          "question": "Hvordan må gresset være?",
+          "options": ["Kort og fint", "Langt og vilt", "Vått og glatt"],
+          "answer": "Kort og fint",
+          "emoji": "🌱"
+        },
+        {
+          "id": 10,
+          "title": "Mållinjen ⚪",
+          "text": "Bak målet er det en strek.\n\nDen er hvit.\n\nHvis ballen går over.\n\nKan det bli mål.\n\nEller målspark.",
+          "question": "Hva kan skje når ballen går over?",
+          "options": ["Mål eller målspark", "Innkast", "Frispark"],
+          "answer": "Mål eller målspark",
+          "emoji": "⚪"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "tittel": "Fotballhistorie",
+      "oppgaver": [
+        {
+          "id": 1,
+          "title": "Første kamp 🎮",
+          "text": "Fotball er veldig gammelt.\n\nDet startet i England.\n\nDe spilte på gata.\n\nDe hadde ikke regler.\n\nDet var litt kaos.",
+          "question": "Hvor startet fotball?",
+          "options": ["I England", "I Norge", "I Brasil"],
+          "answer": "I England",
+          "emoji": "🎮"
+        },
+        {
+          "id": 2,
+          "title": "Første VM 🏆",
+          "text": "Det første VM var i 1930.\n\nDet var i Uruguay.\n\nDet var 13 lag med.\n\nUruguay vant.\n\nAlle var glade.",
+          "question": "Hvem vant første VM?",
+          "options": ["Uruguay", "Brasil", "England"],
+          "answer": "Uruguay",
+          "emoji": "🏆"
+        },
+        {
+          "id": 3,
+          "title": "Første ball ⚽",
+          "text": "Før brukte de lærballer.\n\nDe var brune.\n\nDe ble tunge i regn.\n\nNå er de lettere.\n\nDe er svarte og hvite.",
+          "question": "Hvordan var de gamle ballene?",
+          "options": ["Tunge i regn", "Lette som fjær", "Lagd av gull"],
+          "answer": "Tunge i regn",
+          "emoji": "⚽"
+        },
+        {
+          "id": 4,
+          "title": "Første drakt 👕",
+          "text": "Før hadde alle like klær.\n\nDet var vanskelig å se lagene.\n\nSå fant de på farger.\n\nHvert lag fikk sin farge.\n\nNå ser vi forskjell.",
+          "question": "Hvorfor har lag ulike farger?",
+          "options": ["For å se forskjell", "For å være fine", "For gøy"],
+          "answer": "For å se forskjell",
+          "emoji": "👕"
+        },
+        {
+          "id": 5,
+          "title": "Første regler 📖",
+          "text": "De skrev ned reglene.\n\nDet var i England.\n\nNå visste alle hvordan.\n\nDe måtte være snille.\n\nIngen lov å slå.",
+          "question": "Hvor skrev de reglene?",
+          "options": ["I England", "I Norge", "I Sverige"],
+          "answer": "I England",
+          "emoji": "📖"
+        },
+        {
+          "id": 6,
+          "title": "Første liga 🏃",
+          "text": "Den første ligaen.\n\nVar i England.\n\nDet var i 1888.\n\nTolv lag var med.\n\nDe spilte hver uke.",
+          "question": "Når startet første liga?",
+          "options": ["I 1888", "I 1999", "I 2020"],
+          "answer": "I 1888",
+          "emoji": "🏃"
+        },
+        {
+          "id": 7,
+          "title": "Første mål 🥅",
+          "text": "Før var det ikke mål.\n\nDe brukte steiner.\n\nEller jakker på bakken.\n\nNå har vi fine mål.\n\nMed nett bak.",
+          "question": "Hva brukte de før mål?",
+          "options": ["Steiner og jakker", "Store trær", "Fine mål"],
+          "answer": "Steiner og jakker",
+          "emoji": "🥅"
+        },
+        {
+          "id": 8,
+          "title": "Første dommer 😊",
+          "text": "Før var det ingen dommer.\n\nSpillerne måtte være enige.\n\nDet var vanskelig.\n\nNå har vi dommere.\n\nDe har fløyte.",
+          "question": "Hvorfor var det vanskelig uten dommer?",
+          "options": ["Vanskelig", "Lett", "Gøy"],
+          "answer": "Vanskelig",
+          "emoji": "😊"
+        },
+        {
+          "id": 9,
+          "title": "Jenter spiller 👧",
+          "text": "Før var det bare gutter.\n\nNå spiller jenter også.\n\nDe er kjempeflinke.\n\nDe vinner mange kamper.\n\nAlle heier på dem.",
+          "question": "Hvordan er jentene?",
+          "options": ["Kjempeflinke", "Dårlige", "Redde"],
+          "answer": "Kjempeflinke",
+          "emoji": "👧"
+        },
+        {
+          "id": 10,
+          "title": "Fotball nå 🌟",
+          "text": "Nå er fotball stort.\n\nAlle kan spille.\n\nDet er gøy.\n\nVi har fine baner.\n\nOg mange venner.",
+          "question": "Hvordan er fotball nå?",
+          "options": ["Gøy for alle", "Kjedelig", "Vanskelig"],
+          "answer": "Gøy for alle",
+          "emoji": "🌟"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "tittel": "Morsomme Fotballfakta",
+      "oppgaver": [
+        {
+          "id": 1,
+          "title": "Første VM 🏆",
+          "text": "Det første FIFA Verdensmesterskapet i fotball ble arrangert i Uruguay i 1930. Uruguay ble valgt som vertsland fordi de var regjerende olympiske mestre og feiret 100 år som uavhengig nasjon. 13 lag deltok, og Uruguay vant finalen 4-2 over Argentina.",
+          "question": "Hvorfor ble Uruguay valgt som vertsland for det første VM?",
+          "options": ["De var olympiske mestre og feiret 100 års uavhengighet", "De hadde den største stadion", "De hadde det beste landslaget"],
+          "answer": "De var olympiske mestre og feiret 100 års uavhengighet",
+          "emoji": "🏆"
+        },
+        {
+          "id": 2,
+          "title": "Raskeste Mål ⚡",
+          "text": "Det raskeste målet i en profesjonell fotballkamp ble scoret av Ricardo Olivera i 1998. Han scoret direkte fra avspark etter bare 2.8 sekunder! Dette skjedde i en kamp i Uruguay mellom Rio Negro og Soriano. Målet ble mulig fordi vinden var så sterk at ballen fløy rett i mål.",
+          "question": "Hva gjorde det mulig å score så raskt?",
+          "options": ["Den sterke vinden", "Dårlig keeper", "Langt skudd"],
+          "answer": "Den sterke vinden",
+          "emoji": "⚡"
+        },
+        {
+          "id": 3,
+          "title": "Lengste Kamp ⏰",
+          "text": "I 1981 ble den lengste fotballkampen noensinne spilt i England. To lag, Stockport og Doncaster, spilte kontinuerlig i 65 timer for å sette verdensrekord. De samlet inn penger til veldedighet. En vanlig fotballkamp varer til sammenligning bare 90 minutter, pluss eventuell tilleggstid.",
+          "question": "Hva var formålet med den lengste fotballkampen?",
+          "options": ["Samle inn penger til veldedighet", "Vinne en turnering", "Trene utholdenhet"],
+          "answer": "Samle inn penger til veldedighet",
+          "emoji": "⏰"
+        },
+        {
+          "id": 4,
+          "title": "Største Seier 📈",
+          "text": "Den største seieren i en offisiell fotballkamp var da AS Adema vant 149-0 over SO l'Emyrne i Madagaskar i 2002. Den utrolige scoringen skjedde fordi SO l'Emyrne protesterte mot en dommeravgjørelse ved å score selvmål med vilje gjennom hele kampen.",
+          "question": "Hvorfor ble resultatet så høyt?",
+          "options": ["Laget scoret selvmål med vilje", "Det ene laget var mye bedre", "Keeperen var skadet"],
+          "answer": "Laget scoret selvmål med vilje",
+          "emoji": "📈"
+        },
+        {
+          "id": 5,
+          "title": "Første Fotball ⚽",
+          "text": "På 1800-tallet ble fotballer laget av oppblåste ku-blærer dekket med lær. Dette var før gummi og plast ble oppfunnet. Ballene var ujevne og tunge, spesielt når det regnet. I 1855 ble den første gummiballen oppfunnet av Charles Goodyear, som gjorde ballen mye bedre å spille med.",
+          "question": "Hvorfor var de første fotballene vanskelige å spille med?",
+          "options": ["De var ujevne og ble tunge i regn", "De var for lette", "De var for små"],
+          "answer": "De var ujevne og ble tunge i regn",
+          "emoji": "⚽"
+        },
+        {
+          "id": 6,
+          "title": "Eldste Klubb 🏰",
+          "text": "Sheffield FC, grunnlagt i 1857, er verdens eldste fotballklubb. Klubben ble startet av to cricketspillere som ville ha en sport å spille om vinteren. De skrev også noen av de første fotballreglene, som inkluderte forbud mot å sparke motspillere og bruke hendene.",
+          "question": "Hvorfor ble Sheffield FC stiftet?",
+          "options": ["For å ha en vintersport", "For å bli berømte", "For å tjene penger"],
+          "answer": "For å ha en vintersport",
+          "emoji": "🏰"
+        },
+        {
+          "id": 7,
+          "title": "Største Stadion 🏟️",
+          "text": "Rungrado 1st of May Stadium i Nord-Korea er verdens største fotballstadion, med plass til 150 000 tilskuere. Stadion ble bygget i 1989 og brukes ikke bare til fotball, men også til store parader og festivaler. Stadion har form som en blomstrende magnolia, Nord-Koreas nasjonalblomst.",
+          "question": "Hva brukes denne stadion til i tillegg til fotball?",
+          "options": ["Parader og festivaler", "Bare fotballkamper", "Bare konserter"],
+          "answer": "Parader og festivaler",
+          "emoji": "🏟️"
+        },
+        {
+          "id": 8,
+          "title": "Første Regler 📜",
+          "text": "De første offisielle fotballreglene ble skrevet ned av The Football Association (FA) i England i 1863. Før dette hadde hver skole og klubb sine egne regler. Noen tillot å ta ballen med hendene, andre ikke. FA's regler la grunnlaget for moderne fotball og skilte fotball fra rugby.",
+          "question": "Hvorfor var det viktig å lage felles regler?",
+          "options": ["Så alle kunne spille med samme regler", "For å gjøre spillet vanskeligere", "For å gjøre spillet lettere"],
+          "answer": "Så alle kunne spille med samme regler",
+          "emoji": "📜"
+        },
+        {
+          "id": 9,
+          "title": "Merkelig Straff 🟨",
+          "text": "I 2009 fikk en spiller gult kort for å nyse høylytt under en kamp i Saudi-Arabia. Dommeren mente at nysingen var respektløs og forstyrrende. Dette er et av de mest uvanlige gule kortene som noensinne er gitt i fotball. Vanligvis gis gule kort for usportslig oppførsel som taklinger eller protester.",
+          "question": "Hvorfor mente dommeren at nysingen fortjente gult kort?",
+          "options": ["Det var respektløst og forstyrrende", "Det var farlig", "Det var juks"],
+          "answer": "Det var respektløst og forstyrrende",
+          "emoji": "🟨"
+        },
+        {
+          "id": 10,
+          "title": "Fotball i Verdensrommet 🚀",
+          "text": "I 2014 tok astronauter med en spesiallaget fotball til Den internasjonale romstasjonen. De spilte fotball i vektløs tilstand for å feire VM i Brasil. Ballen måtte være spesielt designet for å ikke skade utstyret på romstasjonen, og den hadde mindre luft enn vanlige fotballer.",
+          "question": "Hvorfor måtte fotballen være spesialdesignet?",
+          "options": ["For å ikke skade utstyret på romstasjonen", "For å være lettere", "For å være tyngre"],
+          "answer": "For å ikke skade utstyret på romstasjonen",
+          "emoji": "🚀"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "tittel": "Fotballturneringer",
+      "oppgaver": [
+        {
+          "id": 1,
+          "title": "VM ⭐",
+          "text": "VM er den største turneringen.\n\nLag fra hele verden spiller.\n\nDet er hvert fjerde år.\n\nAlle vil vinne VM.\n\nDet er veldig gøy å se på.",
+          "question": "Hvor ofte er det VM?",
+          "options": ["Hvert fjerde år", "Hvert år", "Hvert andre år"],
+          "answer": "Hvert fjerde år",
+          "emoji": "⭐"
+        },
+        {
+          "id": 2,
+          "title": "Champions League 🏆",
+          "text": "Dette er for de beste lagene.\n\nDe spiller på kvelden.\n\nDe har en fin sang.\n\nAlle vil vinne pokalen.\n\nDen er stor og fin.",
+          "question": "Når spiller de kampene?",
+          "options": ["På kvelden", "Om morgenen", "Midt på dagen"],
+          "answer": "På kvelden",
+          "emoji": "🏆"
+        },
+        {
+          "id": 3,
+          "title": "Eliteserien 🇳🇴",
+          "text": "Dette er i Norge.\n\nDe beste lagene spiller her.\n\nDe spiller mange kamper.\n\nVinneren blir seriemester.\n\nDe får en fin pokal.",
+          "question": "Hva får vinneren?",
+          "options": ["En fin pokal", "Penger", "En ball"],
+          "answer": "En fin pokal",
+          "emoji": "🇳🇴"
+        },
+        {
+          "id": 4,
+          "title": "NM-cup 🏆",
+          "text": "Dette er gøy.\n\nAlle lag kan være med.\n\nDe små kan slå de store.\n\nFinalen er på Ullevaal.\n\nDet er en fin fest.",
+          "question": "Hvor spilles finalen?",
+          "options": ["På Ullevaal", "I Bergen", "I Trondheim"],
+          "answer": "På Ullevaal",
+          "emoji": "🏆"
+        },
+        {
+          "id": 5,
+          "title": "EM ⚽",
+          "text": "Dette er i Europa.\n\nMange land er med.\n\nDet er hvert fjerde år.\n\nDet er stor fest.\n\nAlle heier på sitt land.",
+          "question": "Hvem kan være med?",
+          "options": ["Land i Europa", "Alle land", "Bare Norge"],
+          "answer": "Land i Europa",
+          "emoji": "⚽"
+        },
+        {
+          "id": 6,
+          "title": "Toppserien 👧",
+          "text": "Dette er for jenter.\n\nDe beste lagene spiller.\n\nDe er veldig flinke.\n\nDe spiller i Norge.\n\nMange ser på kampene.",
+          "question": "Hvem spiller her?",
+          "options": ["De beste jentene", "Gutter", "Barn"],
+          "answer": "De beste jentene",
+          "emoji": "👧"
+        },
+        {
+          "id": 7,
+          "title": "OBOS-ligaen 🔝",
+          "text": "Dette er under Eliteserien.\n\nDe vil komme opp.\n\nDe spiller mange kamper.\n\nDe beste går opp.\n\nDe dårligste går ned.",
+          "question": "Hva skjer med de beste?",
+          "options": ["De går opp", "De går ned", "De blir"],
+          "answer": "De går opp",
+          "emoji": "🔝"
+        },
+        {
+          "id": 8,
+          "title": "Barnefotball 👶",
+          "text": "Dette er for barn.\n\nAlle får spille.\n\nDet er gøy.\n\nVi teller ikke mål.\n\nAlle får premie.",
+          "question": "Hvordan er barnefotball?",
+          "options": ["Gøy for alle", "Veldig hardt", "Bare for de beste"],
+          "answer": "Gøy for alle",
+          "emoji": "👶"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "tittel": "Lagspill og Fair Play",
+      "oppgaver": [
+        {
+          "id": 1,
+          "title": "Være snill 😊",
+          "text": "Vi er snille med alle.\n\nVi sier fine ting.\n\nVi hjelper andre.\n\nVi er gode venner.\n\nDa blir alle glade.",
+          "question": "Hvordan skal vi være?",
+          "options": ["Snille med alle", "Sure og sinte", "Ikke hjelpe"],
+          "answer": "Snille med alle",
+          "emoji": "😊"
+        },
+        {
+          "id": 2,
+          "title": "Følge regler 📖",
+          "text": "Vi følger reglene.\n\nDet er viktig.\n\nDa blir det rettferdig.\n\nDa blir det gøy.\n\nAlle liker det.",
+          "question": "Hvorfor følger vi regler?",
+          "options": ["For å være rettferdig", "For å jukse", "For å vinne"],
+          "answer": "For å være rettferdig",
+          "emoji": "📖"
+        },
+        {
+          "id": 3,
+          "title": "Heie på alle 📣",
+          "text": "Vi heier på laget.\n\nVi heier på alle.\n\nVi klapper og smiler.\n\nVi er positive.\n\nDet er gøy.",
+          "question": "Hva gjør vi for laget?",
+          "options": ["Heier på alle", "Er stille", "Er sure"],
+          "answer": "Heier på alle",
+          "emoji": "📣"
+        },
+        {
+          "id": 4,
+          "title": "Takke for kampen 🤝",
+          "text": "Vi takker etter kampen.\n\nVi gir high five.\n\nVi sier bra spilt.\n\nVi smiler til alle.\n\nDet er hyggelig.",
+          "question": "Hva gjør vi etter kampen?",
+          "options": ["Takker alle", "Går hjem", "Er sure"],
+          "answer": "Takker alle",
+          "emoji": "🤝"
+        },
+        {
+          "id": 5,
+          "title": "Dele med andre 🤲",
+          "text": "Vi deler på ballen.\n\nVi deler på utstyret.\n\nVi spiller sammen.\n\nVi er et lag.\n\nDet er fint.",
+          "question": "Hva deler vi?",
+          "options": ["Ball og utstyr", "Ingenting", "Bare vann"],
+          "answer": "Ball og utstyr",
+          "emoji": "🤲"
+        },
+        {
+          "id": 6,
+          "title": "Være modig 💪",
+          "text": "Vi tør å prøve.\n\nVi er ikke redde.\n\nVi gjør vårt beste.\n\nVi lærer av feil.\n\nDet er bra.",
+          "question": "Hva gjør vi når vi er modige?",
+          "options": ["Tør å prøve", "Gir opp", "Blir redde"],
+          "answer": "Tør å prøve",
+          "emoji": "💪"
+        },
+        {
+          "id": 7,
+          "title": "Komme i tide ⏰",
+          "text": "Vi kommer når vi skal.\n\nVi er klare til start.\n\nVi venter på andre.\n\nVi er tålmodige.\n\nDet er fint.",
+          "question": "Når kommer vi?",
+          "options": ["Når vi skal", "For sent", "Neste dag"],
+          "answer": "Når vi skal",
+          "emoji": "⏰"
+        },
+        {
+          "id": 8,
+          "title": "Rydde opp 🧹",
+          "text": "Vi rydder etter oss.\n\nVi tar med søppel.\n\nVi setter bort utstyr.\n\nVi hjelper til.\n\nDa blir det fint.",
+          "question": "Hva gjør vi etter trening?",
+          "options": ["Rydder opp", "Går hjem", "Roter mer"],
+          "answer": "Rydder opp",
+          "emoji": "🧹"
+        },
+        {
+          "id": 9,
+          "title": "Lytte til treneren 👂",
+          "text": "Vi hører på treneren.\n\nVi er stille når han prater.\n\nVi gjør det han sier.\n\nVi lærer mye.\n\nDet er smart.",
+          "question": "Hva gjør vi når treneren prater?",
+          "options": ["Er stille", "Bråker", "Løper rundt"],
+          "answer": "Er stille",
+          "emoji": "👂"
+        },
+        {
+          "id": 10,
+          "title": "Ha det gøy 🌟",
+          "text": "Vi har det gøy sammen.\n\nVi ler og smiler.\n\nVi koser oss.\n\nVi liker fotball.\n\nDet er best.",
+          "question": "Hva er viktigst?",
+          "options": ["Ha det gøy", "Vinne alltid", "Være best"],
+          "answer": "Ha det gøy",
+          "emoji": "🌟"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "tittel": "Fotballglede",
+      "oppgaver": [
+        {
+          "id": 1,
+          "title": "Spille sammen 🤝",
+          "text": "Vi spiller sammen.\n\nVi deler ballen.\n\nVi er venner.\n\nVi har det gøy.\n\nDet er best.",
+          "question": "Hvorfor er det gøy?",
+          "options": ["Vi er sammen", "Vi er alene", "Vi er sure"],
+          "answer": "Vi er sammen",
+          "emoji": "🤝"
+        },
+        {
+          "id": 2,
+          "title": "Score mål ⚽",
+          "text": "Å score er gøy.\n\nVi jubler høyt.\n\nVi blir glade.\n\nVi feirer sammen.\n\nDet er fint.",
+          "question": "Hva gjør vi når vi scorer?",
+          "options": ["Jubler høyt", "Er stille", "Går hjem"],
+          "answer": "Jubler høyt",
+          "emoji": "⚽"
+        },
+        {
+          "id": 3,
+          "title": "Lære nye ting 📚",
+          "text": "Vi lærer hver dag.\n\nVi blir bedre.\n\nVi øver mye.\n\nVi prøver igjen.\n\nDet er smart.",
+          "question": "Hva skjer når vi øver?",
+          "options": ["Vi blir bedre", "Vi blir verre", "Vi blir lei"],
+          "answer": "Vi blir bedre",
+          "emoji": "📚"
+        },
+        {
+          "id": 4,
+          "title": "Være aktiv 🏃",
+          "text": "Vi løper mye.\n\nVi hopper høyt.\n\nVi blir sterke.\n\nVi blir friske.\n\nDet er sunt.",
+          "question": "Hvorfor er fotball bra?",
+          "options": ["Vi blir sterke", "Vi blir svake", "Vi blir syke"],
+          "answer": "Vi blir sterke",
+          "emoji": "🏃"
+        },
+        {
+          "id": 5,
+          "title": "Møte venner 👥",
+          "text": "Vi møter venner.\n\nVi får nye venner.\n\nVi leker sammen.\n\nVi blir kjent.\n\nDet er hyggelig.",
+          "question": "Hva får vi på fotball?",
+          "options": ["Nye venner", "Nye sko", "Nye baller"],
+          "answer": "Nye venner",
+          "emoji": "👥"
+        },
+        {
+          "id": 6,
+          "title": "Være ute 🌞",
+          "text": "Vi er ute i sola.\n\nVi er i frisk luft.\n\nVi ser naturen.\n\nVi liker det.\n\nDet er deilig.",
+          "question": "Hvor spiller vi?",
+          "options": ["Ute i sola", "Inne i huset", "Under senga"],
+          "answer": "Ute i sola",
+          "emoji": "🌞"
+        },
+        {
+          "id": 7,
+          "title": "Vinne og tape 🎮",
+          "text": "Vi vinner noen ganger.\n\nVi taper noen ganger.\n\nBegge er greit.\n\nVi lærer av det.\n\nDet er viktig.",
+          "question": "Hva er greit?",
+          "options": ["Både vinne og tape", "Bare vinne", "Bare tape"],
+          "answer": "Både vinne og tape",
+          "emoji": "🎮"
+        },
+        {
+          "id": 8,
+          "title": "Være stolt 🌟",
+          "text": "Vi er stolte.\n\nVi gjør vårt beste.\n\nVi hjelper laget.\n\nVi er flinke.\n\nDet er bra.",
+          "question": "Hvordan føler vi oss?",
+          "options": ["Stolte", "Redde", "Sinte"],
+          "answer": "Stolte",
+          "emoji": "🌟"
+        },
+        {
+          "id": 9,
+          "title": "Drømme stort 🌈",
+          "text": "Vi har drømmer.\n\nVi vil bli gode.\n\nVi jobber hardt.\n\nVi tror på oss.\n\nDet er mulig.",
+          "question": "Hva har vi?",
+          "options": ["Drømmer", "Mareritt", "Ingenting"],
+          "answer": "Drømmer",
+          "emoji": "🌈"
+        },
+        {
+          "id": 10,
+          "title": "Elske fotball ❤️",
+          "text": "Vi elsker fotball.\n\nVi gleder oss.\n\nVi har det gøy.\n\nVi kommer igjen.\n\nDet er fantastisk.",
+          "question": "Hvordan er fotball?",
+          "options": ["Fantastisk", "Kjedelig", "Trist"],
+          "answer": "Fantastisk",
+          "emoji": "❤️"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "tittel": "Fotballposisjoner",
+      "oppgaver": [
+        {
+          "id": 1,
+          "title": "Keeper 🧤",
+          "text": "Keeper står i mål.\n\nHan kan ta ballen.\n\nHan må være modig.\n\nHan stopper skudd.\n\nHan roper høyt.",
+          "question": "Hva gjør keeper?",
+          "options": ["Stopper skudd", "Scorer mål", "Løper fort"],
+          "answer": "Stopper skudd",
+          "emoji": "🧤"
+        },
+        {
+          "id": 2,
+          "title": "Forsvar 🛡️",
+          "text": "De passer på bak.\n\nDe stopper andre lag.\n\nDe er sterke.\n\nDe hjelper keeper.\n\nDe er viktige.",
+          "question": "Hvor spiller forsvarerne?",
+          "options": ["Bak på banen", "Foran på banen", "På midten"],
+          "answer": "Bak på banen",
+          "emoji": "🛡️"
+        },
+        {
+          "id": 3,
+          "title": "Midtbane 🏃",
+          "text": "De løper mest.\n\nDe er over alt.\n\nDe hjelper alle.\n\nDe spiller mye ball.\n\nDe er flinke.",
+          "question": "Hva gjør midtbanespillere?",
+          "options": ["Løper og hjelper", "Står i mål", "Sitter stille"],
+          "answer": "Løper og hjelper",
+          "emoji": "🏃"
+        },
+        {
+          "id": 4,
+          "title": "Spiss ⚽",
+          "text": "De scorer mål.\n\nDe er foran.\n\nDe skyter hardt.\n\nDe er raske.\n\nDe er modige.",
+          "question": "Hva er spissens jobb?",
+          "options": ["Score mål", "Redde ballen", "Ta innkast"],
+          "answer": "Score mål",
+          "emoji": "⚽"
+        },
+        {
+          "id": 5,
+          "title": "Kaptein 👑",
+          "text": "Kapteinen er sjef.\n\nHan har bind på armen.\n\nHan hjelper alle.\n\nHan snakker med dommer.\n\nHan er snill.",
+          "question": "Hva har kapteinen på armen?",
+          "options": ["Et bind", "En klokke", "En sokk"],
+          "answer": "Et bind",
+          "emoji": "👑"
+        },
+        {
+          "id": 6,
+          "title": "Høyreback 👉",
+          "text": "Spiller på høyre side.\n\nLøper opp og ned.\n\nStopper motstandere.\n\nSender innlegg.\n\nEr rask.",
+          "question": "Hvor spiller høyreback?",
+          "options": ["På høyre side", "På venstre side", "I midten"],
+          "answer": "På høyre side",
+          "emoji": "👉"
+        },
+        {
+          "id": 7,
+          "title": "Venstreback 👈",
+          "text": "Spiller på venstre.\n\nLøper mye.\n\nForsvarer bra.\n\nSender ballen fram.\n\nEr sterk.",
+          "question": "Hvor spiller venstreback?",
+          "options": ["På venstre side", "På høyre side", "I midten"],
+          "answer": "På venstre side",
+          "emoji": "👈"
+        },
+        {
+          "id": 8,
+          "title": "Stopper 🚫",
+          "text": "Er midt i forsvaret.\n\nEr ofte høy.\n\nEr sterk i dueller.\n\nHeader bra.\n\nPasser på spissene.",
+          "question": "Hva gjør en stopper?",
+          "options": ["Passer på spissene", "Scorer mål", "Tar straffe"],
+          "answer": "Passer på spissene",
+          "emoji": "🚫"
+        },
+        {
+          "id": 9,
+          "title": "Kant 💨",
+          "text": "Løper på siden.\n\nEr veldig rask.\n\nDribler mye.\n\nSender innlegg.\n\nHjelper spissen.",
+          "question": "Hvordan er en kant?",
+          "options": ["Veldig rask", "Veldig stor", "Veldig treg"],
+          "answer": "Veldig rask",
+          "emoji": "💨"
+        },
+        {
+          "id": 10,
+          "title": "Lagspill 🤝",
+          "text": "Alle er viktige.\n\nVi spiller sammen.\n\nVi hjelper hverandre.\n\nVi er et lag.\n\nDet er gøy.",
+          "question": "Hvorfor er alle viktige?",
+          "options": ["Vi er et lag", "Vi er alene", "Vi er lei"],
+          "answer": "Vi er et lag",
+          "emoji": "🤝"
         }
       ]
     }

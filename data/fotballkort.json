@@ -1,0 +1,372 @@
+{
+  "spillere": [
+    {
+      "id": 1,
+      "navn": "Erling Haaland",
+      "klubb": "Manchester City",
+      "nasjonalitet": "Norge",
+      "posisjon": "ST",
+      "bilde": "/images/fotballkort/haaland.jpg",
+      "sjelden": "legendary",
+      "stats": {
+        "pace": 89,
+        "shooting": 93,
+        "passing": 75,
+        "dribbling": 80,
+        "defending": 45,
+        "physical": 88
+      },
+      "oppgaver": [
+        {
+          "spørsmål": "Hvis Haaland scorer 2 mål i første omgang og 3 mål i andre omgang, hvor mange mål scorer han totalt?",
+          "alternativer": [4, 5, 6],
+          "svar": 1
+        },
+        {
+          "tekst": "Erling Haaland er en målmaskin som scorer mål nesten hver kamp for Manchester City!",
+          "spørsmål": "Hvilket lag spiller Haaland for?",
+          "alternativer": ["Liverpool", "Manchester City", "Chelsea"],
+          "svar": 1,
+          "type": "lesing"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "navn": "Lionel Messi",
+      "klubb": "Inter Miami",
+      "nasjonalitet": "Argentina",
+      "posisjon": "RW",
+      "bilde": "/images/fotballkort/messi.jpg",
+      "sjelden": "legendary",
+      "stats": {
+        "pace": 85,
+        "shooting": 92,
+        "passing": 95,
+        "dribbling": 98,
+        "defending": 40,
+        "physical": 75
+      },
+      "oppgaver": [
+        {
+          "spørsmål": "Hvis Messi dribler forbi 3 spillere og scorer 2 mål, hvor mange spillere har han lurt totalt?",
+          "alternativer": [2, 3, 5],
+          "svar": 2
+        },
+        {
+          "tekst": "Lionel Messi vant endelig VM med Argentina i 2022. Det var hans største drøm!",
+          "spørsmål": "Hvilket år vant Messi VM?",
+          "alternativer": ["2020", "2021", "2022"],
+          "svar": 2,
+          "type": "lesing"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "navn": "Cristiano Ronaldo",
+      "klubb": "Al Nassr",
+      "nasjonalitet": "Portugal",
+      "posisjon": "ST",
+      "bilde": "/images/fotballkort/ronaldo.jpg",
+      "sjelden": "legendary",
+      "stats": {
+        "pace": 85,
+        "shooting": 93,
+        "passing": 82,
+        "dribbling": 88,
+        "defending": 35,
+        "physical": 90
+      },
+      "oppgaver": [
+        {
+          "spørsmål": "Hvis Ronaldo scorer på 2 straffespark og 1 heading, hvor mange mål har han scoret?",
+          "alternativer": [2, 3, 4],
+          "svar": 1
+        },
+        {
+          "tekst": "Cristiano Ronaldo er kjent for å hoppe høyt og skyte hardt. Han kan hoppe høyere enn de fleste spillere!",
+          "spørsmål": "Hva er Ronaldo spesielt kjent for?",
+          "alternativer": ["Å løpe fort", "Å hoppe høyt", "Å drible bra"],
+          "svar": 1,
+          "type": "lesing"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "navn": "Marcus Rashford",
+      "klubb": "Manchester United",
+      "nasjonalitet": "England",
+      "posisjon": "LW",
+      "bilde": "/images/fotballkort/rashford.jpg",
+      "sjelden": "epic",
+      "stats": {
+        "pace": 92,
+        "shooting": 85,
+        "passing": 80,
+        "dribbling": 87,
+        "defending": 45,
+        "physical": 78
+      },
+      "oppgaver": [
+        {
+          "spørsmål": "Hvis Rashford løper 30 meter i første sprint og 20 meter i andre sprint, hvor langt har han løpt?",
+          "alternativer": [40, 50, 60],
+          "svar": 1
+        },
+        {
+          "tekst": "Marcus Rashford er en rask spiller fra Manchester United. Han startet å spille for klubben da han var bare 7 år gammel!",
+          "spørsmål": "Hvor gammel var Rashford da han begynte i United?",
+          "alternativer": ["5 år", "7 år", "9 år"],
+          "svar": 1,
+          "type": "lesing"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "navn": "Martin Ødegaard",
+      "klubb": "Arsenal",
+      "nasjonalitet": "Norge",
+      "posisjon": "CAM",
+      "bilde": "/images/fotballkort/odegaard.jpg",
+      "sjelden": "epic",
+      "stats": {
+        "pace": 78,
+        "shooting": 82,
+        "passing": 89,
+        "dribbling": 86,
+        "defending": 68,
+        "physical": 75
+      },
+      "oppgaver": [
+        {
+          "spørsmål": "Hvis Ødegaard har 3 målgivende pasninger og scorer 2 mål selv, hvor mange målpoeng får han?",
+          "alternativer": [4, 5, 6],
+          "svar": 1
+        },
+        {
+          "tekst": "Martin Ødegaard er kaptein for både Arsenal og det norske landslaget. Han er kjent for å være veldig god til å sentre!",
+          "spørsmål": "Hva er Ødegaard spesielt god til?",
+          "alternativer": ["Å heade", "Å sentre", "Å tabbe seg ut"],
+          "svar": 1,
+          "type": "lesing"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "navn": "Kylian Mbappé",
+      "klubb": "PSG",
+      "nasjonalitet": "Frankrike",
+      "posisjon": "ST",
+      "bilde": "/images/fotballkort/mbappe.jpg",
+      "sjelden": "legendary",
+      "stats": {
+        "pace": 97,
+        "shooting": 89,
+        "passing": 83,
+        "dribbling": 92,
+        "defending": 38,
+        "physical": 80
+      },
+      "oppgaver": [
+        {
+          "spørsmål": "Hvis Mbappé løper i 35 km/t i 2 sekunder, hvor mange meter løper han?",
+          "alternativer": [15, 20, 25],
+          "svar": 1
+        },
+        {
+          "tekst": "Kylian Mbappé er en av verdens raskeste spillere. Han kan løpe 100 meter på under 11 sekunder!",
+          "spørsmål": "Hvor fort kan Mbappé løpe 100 meter?",
+          "alternativer": ["Under 10 sekunder", "Under 11 sekunder", "Under 12 sekunder"],
+          "svar": 1,
+          "type": "lesing"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "navn": "Jude Bellingham",
+      "klubb": "Real Madrid",
+      "nasjonalitet": "England",
+      "posisjon": "CM",
+      "bilde": "/images/fotballkort/bellingham.jpg",
+      "sjelden": "epic",
+      "stats": {
+        "pace": 82,
+        "shooting": 84,
+        "passing": 86,
+        "dribbling": 87,
+        "defending": 80,
+        "physical": 85
+      },
+      "oppgaver": [
+        {
+          "spørsmål": "Hvis Bellingham vinner 4 dueller i midtbanen og 3 dueller i forsvaret, hvor mange dueller vinner han totalt?",
+          "alternativer": [6, 7, 8],
+          "svar": 1
+        },
+        {
+          "tekst": "Jude Bellingham spiller på Real Madrid og har nummer 5 på ryggen. Han scorer mange mål som midtbanespiller!",
+          "spørsmål": "Hvilket nummer har Bellingham på drakten?",
+          "alternativer": ["Nummer 4", "Nummer 5", "Nummer 6"],
+          "svar": 1,
+          "type": "lesing"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "navn": "Mohamed Salah",
+      "klubb": "Liverpool",
+      "nasjonalitet": "Egypt",
+      "posisjon": "RW",
+      "bilde": "/images/fotballkort/salah.jpg",
+      "sjelden": "legendary",
+      "stats": {
+        "pace": 90,
+        "shooting": 89,
+        "passing": 84,
+        "dribbling": 90,
+        "defending": 45,
+        "physical": 78
+      },
+      "oppgaver": [
+        {
+          "spørsmål": "Hvis Salah scorer i 3 kamper på rad og får 1 assist i hver kamp, hvor mange målpoeng får han totalt?",
+          "alternativer": [5, 6, 7],
+          "svar": 1
+        },
+        {
+          "tekst": "Mohamed Salah kommer fra Egypt og spiller for Liverpool. Han er kjent som 'Den egyptiske kongen' av fansen!",
+          "spørsmål": "Hva kaller fansen Salah?",
+          "alternativer": ["Den egyptiske prinsen", "Den egyptiske kongen", "Den egyptiske helten"],
+          "svar": 1,
+          "type": "lesing"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "navn": "Vinicius Jr",
+      "klubb": "Real Madrid",
+      "nasjonalitet": "Brasil",
+      "posisjon": "LW",
+      "bilde": "/images/fotballkort/vinicius.jpg",
+      "sjelden": "epic",
+      "stats": {
+        "pace": 95,
+        "shooting": 83,
+        "passing": 82,
+        "dribbling": 92,
+        "defending": 40,
+        "physical": 75
+      },
+      "oppgaver": [
+        {
+          "spørsmål": "Hvis Vinicius dribler forbi 5 spillere men mister ballen 2 ganger, hvor mange vellykkede driblinger gjør han?",
+          "alternativer": [2, 3, 4],
+          "svar": 1
+        },
+        {
+          "tekst": "Vinicius Jr kommer fra Brasil og spiller med nummer 20 på Real Madrid. Han er utrolig god til å drible!",
+          "spørsmål": "Hvilket land kommer Vinicius fra?",
+          "alternativer": ["Argentina", "Brasil", "Portugal"],
+          "svar": 1,
+          "type": "lesing"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "navn": "Bukayo Saka",
+      "klubb": "Arsenal",
+      "nasjonalitet": "England",
+      "posisjon": "RW",
+      "bilde": "/images/fotballkort/saka.jpg",
+      "sjelden": "epic",
+      "stats": {
+        "pace": 88,
+        "shooting": 84,
+        "passing": 85,
+        "dribbling": 88,
+        "defending": 45,
+        "physical": 75
+      },
+      "oppgaver": [
+        {
+          "spørsmål": "Hvis Saka har 2 skudd på mål i første omgang og dobler antallet i andre omgang, hvor mange skudd har han totalt?",
+          "alternativer": [4, 6, 8],
+          "svar": 0
+        },
+        {
+          "tekst": "Bukayo Saka er en ung spiller som er god med både høyre og venstre fot. Han har spilt for Arsenal siden han var liten!",
+          "spørsmål": "Hva er spesielt med måten Saka spiller på?",
+          "alternativer": ["Han er god med begge føtter", "Han er god til å heade", "Han er god til å redde skudd"],
+          "svar": 0,
+          "type": "lesing"
+        }
+      ]
+    }
+  ],
+  "kortPakker": {
+    "normal": {
+      "pris": 10,
+      "innhold": "1 tilfeldig kort",
+      "sannsynlighet": {
+        "common": 70,
+        "rare": 20,
+        "epic": 8,
+        "legendary": 2
+      }
+    },
+    "super": {
+      "pris": 25,
+      "innhold": "3 tilfeldige kort",
+      "sannsynlighet": {
+        "common": 50,
+        "rare": 30,
+        "epic": 15,
+        "legendary": 5
+      }
+    }
+  },
+  "sjeldenhet": {
+    "common": {
+      "farge": "#808080",
+      "animasjon": "enkel_glow"
+    },
+    "rare": {
+      "farge": "#4169E1",
+      "animasjon": "blaa_gnister"
+    },
+    "epic": {
+      "farge": "#9400D3",
+      "animasjon": "lilla_ekslosjon"
+    },
+    "legendary": {
+      "farge": "#FFD700",
+      "animasjon": "gull_fyrverkeri"
+    }
+  },
+  "achievements": {
+    "forsteKort": {
+      "tittel": "Første Kort!",
+      "beskrivelse": "Du åpnet ditt første fotballkort",
+      "belønning": 5
+    },
+    "tiKort": {
+      "tittel": "Ivrig Samler",
+      "beskrivelse": "Du har samlet 10 forskjellige kort",
+      "belønning": 15
+    },
+    "femtiKort": {
+      "tittel": "Fotballekspert!",
+      "beskrivelse": "Du har samlet alle 50 kort!",
+      "belønning": 50,
+      "spesialAnimasjon": "champion_celebration"
+    }
+  }
+}

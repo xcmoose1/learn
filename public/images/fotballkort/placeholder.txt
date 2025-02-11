@@ -1,0 +1,12 @@
+For nå trenger vi bilder av:
+1. haaland.jpg
+2. odegaard.jpg
+3. hegerberg.jpg
+4. graham-hansen.jpg
+5. rashford.jpg
+
+Bildene bør være:
+- Kvadratiske eller 3:4 format
+- Minimum 300x300 piksler
+- Vise spilleren i klubbdrakt
+- Ha en ren bakgrunn

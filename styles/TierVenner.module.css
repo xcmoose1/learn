@@ -1,0 +1,195 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.tierValg {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.tierValg h2 {
+  color: #ffffff;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.tierButtons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.tierButton {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tierButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px);
+}
+
+.scoreBoard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.scoreItem {
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.gameCard {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.question {
+  font-size: 24px;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.emoji {
+  font-size: 30px;
+  margin-left: 10px;
+}
+
+.optionsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.optionButton {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  padding: 15px;
+  border-radius: 10px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.optionButton:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.optionButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.correct {
+  background: rgba(46, 204, 113, 0.5) !important;
+  border-color: #2ecc71;
+}
+
+.wrong {
+  background: rgba(231, 76, 60, 0.5) !important;
+  border-color: #e74c3c;
+}
+
+.showCorrect {
+  background: rgba(46, 204, 113, 0.5) !important;
+  border-color: #2ecc71;
+}
+
+.feedback {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.correctFeedback {
+  color: #2ecc71;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.wrongFeedback {
+  color: #e74c3c;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.encouragement {
+  color: #ffffff;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.celebration {
+  font-size: 24px;
+  margin-top: 10px;
+  animation: bounce 1s;
+}
+
+.nextButton {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 20px;
+}
+
+.nextButton:hover {
+  background: #2980b9;
+  transform: translateY(-2px);
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 600px) {
+  .tierButtons {
+    grid-template-columns: 1fr;
+  }
+  
+  .optionsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .question {
+    font-size: 20px;
+  }
+  
+  .optionButton {
+    font-size: 18px;
+  }
+}

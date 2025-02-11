@@ -1,0 +1,790 @@
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
+}
+
+.tittel {
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.progress {
+  text-align: center;
+  color: white;
+  margin-bottom: 30px;
+  font-size: 1.2rem;
+}
+
+.kortGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.målAnimasjon {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px 40px;
+  border-radius: 10px;
+  color: white;
+  font-size: 2rem;
+  z-index: 1000;
+}
+
+.spørsmålContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  z-index: 100;
+}
+
+.spørsmålTittel {
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.svarKnapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.svarKnapp {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background: #4CAF50;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.svarKnapp:hover {
+  background: #45a049;
+}
+
+.kort {
+  width: 288px;
+  position: relative;
+  background: rgba(17, 24, 39, 0.3);
+  backdrop-filter: blur(8px);
+  padding: 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.kort:hover {
+  transform: scale(1.05);
+}
+
+.rating {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 64px;
+  height: 64px;
+  border-radius: 9999px;
+  background: linear-gradient(to bottom right, #60a5fa, #4ade80);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+.posisjon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background: linear-gradient(to bottom right, #60a5fa, #4ade80);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+.spillerBildeContainer {
+  position: relative;
+  width: 100%;
+  height: 192px;
+  margin-bottom: 16px;
+  background: linear-gradient(to bottom, rgba(17, 24, 39, 0.5), rgba(17, 24, 39, 0.8));
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.spillerBilde {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: luminosity;
+}
+
+.spillerNavn {
+  text-align: center;
+  margin-bottom: 16px;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 24px;
+  color: white;
+}
+
+.klubbInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #9ca3af;
+  margin-bottom: 16px;
+}
+
+.statsContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  font-size: 14px;
+}
+
+.statItem {
+  display: flex;
+  justify-content: space-between;
+}
+
+.statLabel {
+  color: #9ca3af;
+}
+
+.statValue {
+  font-family: 'Space Grotesk', sans-serif;
+  color: #60a5fa;
+}
+
+.kort::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(96, 165, 250, 0.1), rgba(74, 222, 128, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s;
+  border-radius: 12px;
+}
+
+.kort:hover::after {
+  opacity: 1;
+}
+
+.legendary {
+  border: 2px solid #FFB700;
+  box-shadow: 0 8px 16px rgba(255, 183, 0, 0.2);
+}
+
+.epic {
+  border: 2px solid #9932CC;
+  box-shadow: 0 8px 16px rgba(153, 50, 204, 0.2);
+}
+
+.rare {
+  border: 2px solid #4169e1;
+  box-shadow: 0 8px 16px rgba(65, 105, 225, 0.2);
+}
+
+.kortInnhold {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 12px;
+  background: #1a1a1a;
+}
+
+.flagg {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 20px;
+  height: auto;
+}
+
+/* Hover effect */
+.kort:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+}
+
+/* Container for all cards */
+.kortContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Locked card styling */
+.locked {
+  position: relative;
+}
+
+.locked::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px;
+}
+
+.lockIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: white;
+  z-index: 2;
+}
+
+.klubbLogo {
+  position: absolute;
+  top: 120px;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: white;
+  padding: 2px;
+}
+
+.klubbLogo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.nasjonalitet {
+  position: absolute;
+  top: 90px;
+  left: 10px;
+  width: 30px;
+  height: 20px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.nasjonalitet img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pakkeMeny {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.pakkeMeny h2 {
+  color: white;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.pakkeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.pakkekort {
+  background: linear-gradient(135deg, #2a3f5f, #1a2a3f);
+  border-radius: 10px;
+  padding: 1.5rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.pakkekort:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-5px);
+}
+
+.pakkekort.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pakkekort h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.pris {
+  font-size: 1.2rem;
+  color: #ffd700;
+  margin-top: 1rem;
+}
+
+.åpningAnimasjon {
+  text-align: center;
+  padding: 3rem;
+  color: white;
+}
+
+.åpningAnimasjon h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.spinner {
+  font-size: 5rem;
+  animation: spin 2s linear infinite;
+}
+
+.nyttKort {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, var(--kort-primær), var(--kort-sekundær));
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+  z-index: 1000;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+.nyttKort img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.nyttKort button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  padding: 0.8rem 2rem;
+  color: white;
+  border-radius: 5px;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nyttKort button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.kortGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.spillerBilde {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.spillerNavn {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.spillerInfo {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 1rem;
+}
+
+.statsContainer {
+  margin: 1rem 0;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.statBar {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.statBar span {
+  width: 40px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.statBarInner {
+  height: 12px;
+  background: #ffd700;
+  border-radius: 6px;
+  transition: width 0.3s ease;
+  text-align: right;
+  font-size: 0.8rem;
+  padding-right: 5px;
+  line-height: 12px;
+  color: #000;
+  min-width: 30px;
+}
+
+.faktaBoks {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.faktaTekst {
+  margin-bottom: 0.5rem;
+}
+
+.lesHoytKnapp {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.lesHoytKnapp:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.oppgaveBoks {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.oppgaveSporsmal {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.svarKnapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.svarKnapp {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2c3e50;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.svarKnapp:hover {
+  transform: translateY(-2px);
+  background-color: #34495e;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.svarKnapp.feilSvar {
+  animation: shake 0.5s;
+  background-color: #e74c3c;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.legendary {
+  --kort-gradient: linear-gradient(135deg, #ffd700, #b8860b);
+}
+
+.epic {
+  --kort-gradient: linear-gradient(135deg, #9400d3, #4b0082);
+}
+
+.rare {
+  --kort-gradient: linear-gradient(135deg, #4169e1, #000080);
+}
+
+.maalAnimasjon {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  z-index: 1000;
+}
+
+.velkomst {
+  text-align: center;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.velkomst h2 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.velkomst ul {
+  text-align: left;
+  margin: 1.5rem 0;
+  padding-left: 2rem;
+}
+
+.velkomst li {
+  margin: 0.5rem 0;
+  color: #666;
+}
+
+.startKnapp {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.startKnapp:hover {
+  background: #45a049;
+  transform: translateY(-2px);
+}
+
+.åpningAnimasjon {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 2rem;
+  border-radius: 15px;
+  color: white;
+  text-align: center;
+  z-index: 1000;
+}
+
+.spinner {
+  font-size: 3rem;
+  margin: 1rem 0;
+}
+
+.nyttKort {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.nyttKort img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 1rem 0;
+}
+
+.nyttKort button {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nyttKort button:hover {
+  background: #45a049;
+  transform: translateY(-2px);
+}
+
+.kort:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.kortInnhold {
+  padding: 1.5rem;
+  color: white;
+}
+
+.common {
+  border: 2px solid #808080;
+}
+
+.rare {
+  border: 2px solid #4169E1;
+  animation: rareGlow 2s infinite;
+}
+
+.epic {
+  border: 2px solid #9400D3;
+  animation: epicGlow 2s infinite;
+}
+
+.legendary {
+  border: 2px solid #FFD700;
+  animation: legendaryGlow 2s infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rareGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(65, 105, 225, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(65, 105, 225, 0.8);
+  }
+}
+
+@keyframes epicGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(148, 0, 211, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(148, 0, 211, 0.8);
+  }
+}
+
+@keyframes legendaryGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+  }
+}
+
+/* Tablet-optimalisering */
+@media (max-width: 1024px) {
+  .kortGrid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .spillerBilde {
+    height: 250px;
+  }
+
+  .spillerNavn {
+    font-size: 1.6rem;
+  }
+
+  .faktaTekst,
+  .oppgaveSporsmal {
+    font-size: 1.3rem;
+  }
+
+  .svarKnapp {
+    font-size: 1.3rem;
+    padding: 0.8rem;
+  }
+}
+
+/* Mobil-optimalisering */
+@media (max-width: 640px) {
+  .kortGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .spillerBilde {
+    height: 200px;
+  }
+
+  .spillerNavn {
+    font-size: 1.4rem;
+  }
+
+  .faktaTekst,
+  .oppgaveSporsmal {
+    font-size: 1.2rem;
+  }
+
+  .svarKnapper {
+    grid-template-columns: 1fr;
+  }
+
+  .svarKnapp {
+    font-size: 1.2rem;
+    padding: 1rem;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

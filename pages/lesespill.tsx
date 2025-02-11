@@ -1,122 +1,31 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import Layout from '../components/Layout';
-import Button from '../components/Button';
+import { useState } from 'react';
 import leseoppgaver from '../data/leseoppgaver.json';
-
-interface Oppgave {
-  id: number;
-  title: string;
-  text: string;
-  question: string;
-  options: string[];
-  answer: string;
-  emoji: string;
-}
-
-interface Del {
-  id: number;
-  tittel: string;
-  oppgaver: Oppgave[];
-}
-
-// Bruk native Web Speech API
-const speak = (text: string) => {
-  if ('speechSynthesis' in window) {
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'nb-NO'; // Norsk bokmål
-    utterance.rate = 0.9; // Litt saktere tale
-    speechSynthesis.speak(utterance);
-  }
-};
+import styles from '../styles/Lesespill.module.css';
+import Layout from '../components/Layout';
 
 export default function Lesespill() {
-  const [currentDel, setCurrentDel] = useState<Del>(leseoppgaver.deler[0]);
-  const [currentOppgave, setCurrentOppgave] = useState<Oppgave>(leseoppgaver.deler[0].oppgaver[0]);
-  const [showQuiz, setShowQuiz] = useState(false);
+  const [currentDel, setCurrentDel] = useState<number | null>(null);
+  const [currentOppgave, setCurrentOppgave] = useState(0);
+  const [showAnswer, setShowAnswer] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
-  const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
-  const [showDelVelger, setShowDelVelger] = useState(true);
   const [score, setScore] = useState(0);
+  const [streak, setStreak] = useState(0);
 
-  // Stopp tale når komponenten unmountes
-  useEffect(() => {
-    return () => {
-      if ('speechSynthesis' in window) {
-        speechSynthesis.cancel();
-      }
-    };
-  }, []);
-
-  const handleReadText = () => {
-    speak(currentOppgave.text);
-  };
-
-  const handleAnswer = (option: string) => {
-    setSelectedAnswer(option);
-    const correct = option === currentOppgave.answer;
-    setIsCorrect(correct);
-
-    if (correct) {
-      setScore(score + 10);
-      setTimeout(() => {
-        const currentOppgaveIndex = currentDel.oppgaver.findIndex(o => o.id === currentOppgave.id);
-        if (currentOppgaveIndex < currentDel.oppgaver.length - 1) {
-          setCurrentOppgave(currentDel.oppgaver[currentOppgaveIndex + 1]);
-          setShowQuiz(false);
-          setSelectedAnswer(null);
-          setIsCorrect(null);
-        } else {
-          // Ferdig med denne delen
-          setShowDelVelger(true);
-        }
-      }, 1500);
-    }
-  };
-
-  const handleDelValg = (del: Del) => {
-    setCurrentDel(del);
-    setCurrentOppgave(del.oppgaver[0]);
-    setShowDelVelger(false);
-    setShowQuiz(false);
-    setSelectedAnswer(null);
-    setIsCorrect(null);
-  };
-
-  if (showDelVelger) {
+  if (currentDel === null) {
     return (
-      <Layout title="Lesespill - Velg Del">
-        <div className="max-w-4xl mx-auto py-8 px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-8"
-          >
-            <h1 className="font-heading text-4xl mb-4 text-white">
-              Velg Del
-            </h1>
-            <p className="text-xl text-gray-300">
-              Poeng: {score}
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <Layout>
+        <div className={styles.container}>
+          <h1 className={styles.title}>Velg en del å lese</h1>
+          <div className={styles.delGrid}>
             {leseoppgaver.deler.map((del) => (
-              <motion.div
+              <button
                 key={del.id}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                className={styles.delButton}
+                onClick={() => setCurrentDel(del.id - 1)}
               >
-                <Button
-                  onClick={() => handleDelValg(del)}
-                  variant="primary"
-                  fullWidth
-                  className="h-24 flex flex-col items-center justify-center"
-                >
-                  <span className="text-xl font-bold">Del {del.id}</span>
-                  <span className="text-sm">{del.tittel}</span>
-                </Button>
-              </motion.div>
+                <h2>Del {del.id}</h2>
+                <p>{del.tittel}</p>
+              </button>
             ))}
           </div>
         </div>
@@ -124,111 +33,101 @@ export default function Lesespill() {
     );
   }
 
+  const currentDelData = leseoppgaver.deler[currentDel];
+  const currentOppgaveData = currentDelData.oppgaver[currentOppgave];
+
+  const handleAnswer = (answer: string) => {
+    setSelectedAnswer(answer);
+    setShowAnswer(true);
+    
+    if (answer === currentOppgaveData.answer) {
+      setScore(score + 1);
+      setStreak(streak + 1);
+      const audio = new Audio('/sounds/correct.mp3');
+      audio.play();
+    } else {
+      setStreak(0);
+      const audio = new Audio('/sounds/incorrect.mp3');
+      audio.play();
+    }
+  };
+
+  const handleNextQuestion = () => {
+    if (currentOppgave < currentDelData.oppgaver.length - 1) {
+      setCurrentOppgave(currentOppgave + 1);
+    } else {
+      setCurrentDel(null);
+      setCurrentOppgave(0);
+    }
+    setShowAnswer(false);
+    setSelectedAnswer(null);
+  };
+
   return (
-    <Layout title={`Lesespill - ${currentDel.tittel}`}>
-      <div className="max-w-4xl mx-auto py-8 px-4">
-        <div className="flex justify-between items-center mb-8">
-          <Button
-            onClick={() => setShowDelVelger(true)}
-            variant="secondary"
-          >
-            ← Tilbake til deler
-          </Button>
-          <h2 className="text-xl font-bold text-white">Del {currentDel.id}: {currentDel.tittel}</h2>
-          <div className="w-24 text-right text-white">
-            Poeng: {score}
-          </div>
+    <Layout>
+      <div className={styles.container}>
+        <button 
+          onClick={() => {
+            setCurrentDel(null);
+            setCurrentOppgave(0);
+            setShowAnswer(false);
+            setSelectedAnswer(null);
+          }}
+          className={styles.backButton}
+        >
+          ← Tilbake til meny
+        </button>
+
+        <div className={styles.scoreStreak}>
+          <div>Poeng: {score}</div>
+          {streak > 1 && <div> {streak} på rad!</div>}
         </div>
 
-        <motion.div
-          key={currentOppgave.id}
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="bg-dark-blue/30 backdrop-blur-sm rounded-lg p-8 mb-8"
-        >
-          <div className="flex flex-col space-y-8">
-            <div className="text-center">
-              <h3 className="text-2xl font-bold mb-4">{currentOppgave.title}</h3>
-              <p className="text-xl leading-relaxed tracking-wide whitespace-pre-line">
-                {currentOppgave.text.split('. ').join('.\n\n')}
-              </p>
-            </div>
-            <div className="w-1/4 flex justify-center">
-              <motion.div
-                initial={{ scale: 0.5, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.5 }}
-                className="text-8xl"
-              >
-                {currentOppgave.emoji}
-              </motion.div>
-            </div>
-            <div className="w-3/4">
-              <AnimatePresence mode="wait">
-                {!showQuiz ? (
-                  <motion.div
-                    key="startQuiz"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                  >
-                    <Button
-                      onClick={() => setShowQuiz(true)}
-                      variant="primary"
-                      fullWidth
-                    >
-                      Svar på spørsmål ✍️
-                    </Button>
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="quiz"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    className="space-y-4"
-                  >
-                    <h3 className="text-xl font-bold mb-4 text-white">{currentOppgave.question}</h3>
-                    {currentOppgave.options.map((option) => (
-                      <Button
-                        key={option}
-                        onClick={() => handleAnswer(option)}
-                        variant={
-                          selectedAnswer === option
-                            ? option === currentOppgave.answer
-                              ? 'success'
-                              : 'error'
-                            : 'secondary'
-                        }
-                        disabled={selectedAnswer !== null}
-                        fullWidth
-                      >
-                        {option}
-                      </Button>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
+        <div className={styles.oppgaveContainer}>
+          <h2>{currentOppgaveData.title}</h2>
+          <p className={styles.oppgaveTekst}>{currentOppgaveData.text}</p>
+          
+          <div className={styles.questionContainer}>
+            <h3>{currentOppgaveData.question}</h3>
+            <div className={styles.optionsContainer}>
+              {currentOppgaveData.options.map((option, index) => (
+                <button
+                  key={index}
+                  onClick={() => !showAnswer && handleAnswer(option)}
+                  className={`${styles.optionButton} ${
+                    showAnswer
+                      ? option === currentOppgaveData.answer
+                        ? styles.correct
+                        : option === selectedAnswer
+                        ? styles.incorrect
+                        : ''
+                      : ''
+                  }`}
+                  disabled={showAnswer}
+                >
+                  {option}
+                </button>
+              ))}
             </div>
           </div>
-        </motion.div>
 
-        {/* Fremgangsbar */}
-        <div className="max-w-md mx-auto">
-          <div className="flex justify-between text-sm text-gray-400 mb-2">
-            <span>Oppgave {currentOppgave.id} av {currentDel.oppgaver.length}</span>
-            <span>{Math.round((currentOppgave.id / currentDel.oppgaver.length) * 100)}% fullført</span>
-          </div>
-          <div className="w-full h-2 bg-dark-blue rounded-full overflow-hidden">
-            <motion.div
-              className="h-full bg-neon-blue"
-              initial={{ width: 0 }}
-              animate={{ 
-                width: `${(currentOppgave.id / currentDel.oppgaver.length) * 100}%` 
-              }}
-              transition={{ duration: 0.5 }}
-            />
-          </div>
+          {showAnswer && (
+            <div className={styles.feedback}>
+              {selectedAnswer === currentOppgaveData.answer ? (
+                <div className={styles.correct}>Riktig! </div>
+              ) : (
+                <div className={styles.incorrect}>
+                  Prøv igjen! Riktig svar er: {currentOppgaveData.answer}
+                </div>
+              )}
+              <button 
+                onClick={handleNextQuestion}
+                className={styles.nextButton}
+              >
+                Neste spørsmål →
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </Layout>
