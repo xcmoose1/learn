@@ -8,6 +8,16 @@
       "posisjon": "ST",
       "bilde": "/images/fotballkort/haaland.jpg",
       "sjelden": "legendary",
+      "klubbFarger": {
+        "primær": "#97C1E7",
+        "sekundær": "#FFFFFF"
+      },
+      "faktaListe": [
+        ["Født", "21. juli 2000"],
+        ["Høyde", "195 cm"],
+        ["Favorittfot", "Venstre"],
+        ["Draktnummer", "9"]
+      ],
       "stats": {
         "pace": 89,
         "shooting": 93,
@@ -39,6 +49,16 @@
       "posisjon": "RW",
       "bilde": "/images/fotballkort/messi.jpg",
       "sjelden": "legendary",
+      "klubbFarger": {
+        "primær": "#F7B5CD",
+        "sekundær": "#000000"
+      },
+      "faktaListe": [
+        ["Født", "24. juni 1987"],
+        ["Høyde", "170 cm"],
+        ["Favorittfot", "Venstre"],
+        ["Draktnummer", "10"]
+      ],
       "stats": {
         "pace": 85,
         "shooting": 92,
@@ -70,6 +90,16 @@
       "posisjon": "ST",
       "bilde": "/images/fotballkort/ronaldo.jpg",
       "sjelden": "legendary",
+      "klubbFarger": {
+        "primær": "#FFC080",
+        "sekundær": "#000000"
+      },
+      "faktaListe": [
+        ["Født", "5. februar 1985"],
+        ["Høyde", "187 cm"],
+        ["Favorittfot", "Høyre"],
+        ["Draktnummer", "7"]
+      ],
       "stats": {
         "pace": 85,
         "shooting": 93,
@@ -101,6 +131,16 @@
       "posisjon": "LW",
       "bilde": "/images/fotballkort/rashford.jpg",
       "sjelden": "epic",
+      "klubbFarger": {
+        "primær": "#DA291C",
+        "sekundær": "#FFFFFF"
+      },
+      "faktaListe": [
+        ["Født", "31. oktober 1997"],
+        ["Høyde", "185 cm"],
+        ["Favorittfot", "Venstre"],
+        ["Draktnummer", "10"]
+      ],
       "stats": {
         "pace": 92,
         "shooting": 85,
@@ -132,6 +172,16 @@
       "posisjon": "CAM",
       "bilde": "/images/fotballkort/odegaard.jpg",
       "sjelden": "epic",
+      "klubbFarger": {
+        "primær": "#FFC080",
+        "sekundær": "#000000"
+      },
+      "faktaListe": [
+        ["Født", "17. desember 1998"],
+        ["Høyde", "178 cm"],
+        ["Favorittfot", "Venstre"],
+        ["Draktnummer", "8"]
+      ],
       "stats": {
         "pace": 78,
         "shooting": 82,
@@ -163,6 +213,16 @@
       "posisjon": "ST",
       "bilde": "/images/fotballkort/mbappe.jpg",
       "sjelden": "legendary",
+      "klubbFarger": {
+        "primær": "#0055B8",
+        "sekundær": "#FFFFFF"
+      },
+      "faktaListe": [
+        ["Født", "20. desember 1998"],
+        ["Høyde", "178 cm"],
+        ["Favorittfot", "Venstre"],
+        ["Draktnummer", "7"]
+      ],
       "stats": {
         "pace": 97,
         "shooting": 89,
@@ -194,6 +254,16 @@
       "posisjon": "CM",
       "bilde": "/images/fotballkort/bellingham.jpg",
       "sjelden": "epic",
+      "klubbFarger": {
+        "primær": "#FFC080",
+        "sekundær": "#000000"
+      },
+      "faktaListe": [
+        ["Født", "29. juni 2003"],
+        ["Høyde", "186 cm"],
+        ["Favorittfot", "Høyre"],
+        ["Draktnummer", "5"]
+      ],
       "stats": {
         "pace": 82,
         "shooting": 84,
@@ -225,6 +295,16 @@
       "posisjon": "RW",
       "bilde": "/images/fotballkort/salah.jpg",
       "sjelden": "legendary",
+      "klubbFarger": {
+        "primær": "#DA291C",
+        "sekundær": "#FFFFFF"
+      },
+      "faktaListe": [
+        ["Født", "15. juni 1992"],
+        ["Høyde", "175 cm"],
+        ["Favorittfot", "Venstre"],
+        ["Draktnummer", "11"]
+      ],
       "stats": {
         "pace": 90,
         "shooting": 89,
@@ -256,6 +336,16 @@
       "posisjon": "LW",
       "bilde": "/images/fotballkort/vinicius.jpg",
       "sjelden": "epic",
+      "klubbFarger": {
+        "primær": "#FFC080",
+        "sekundær": "#000000"
+      },
+      "faktaListe": [
+        ["Født", "12. juli 2000"],
+        ["Høyde", "176 cm"],
+        ["Favorittfot", "Venstre"],
+        ["Draktnummer", "20"]
+      ],
       "stats": {
         "pace": 95,
         "shooting": 83,
@@ -287,6 +377,16 @@
       "posisjon": "RW",
       "bilde": "/images/fotballkort/saka.jpg",
       "sjelden": "epic",
+      "klubbFarger": {
+        "primær": "#FFC080",
+        "sekundær": "#000000"
+      },
+      "faktaListe": [
+        ["Født", "5. september 2001"],
+        ["Høyde", "178 cm"],
+        ["Favorittfot", "Venstre"],
+        ["Draktnummer", "7"]
+      ],
       "stats": {
         "pace": 88,
         "shooting": 84,

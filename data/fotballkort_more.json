@@ -14,6 +14,16 @@
         "defending": 42,
         "physical": 86
       },
+      "klubbFarger": {
+        "primær": "#FFE600",
+        "sekundær": "#005187"
+      },
+      "faktaListe": [
+        ["Født", "5. desember 1995"],
+        ["Høyde", "194 cm"],
+        ["Favorittfot", "Høyre"],
+        ["Draktnummer", "9"]
+      ],
       "sjelden": "rare",
       "bilde": "/images/players/sorloth.png",
       "oppgaver": [
@@ -38,6 +48,16 @@
         "defending": 83,
         "physical": 78
       },
+      "klubbFarger": {
+        "primær": "#C50F2F",
+        "sekundær": "#0055A3"
+      },
+      "faktaListe": [
+        ["Født", "29. april 1998"],
+        ["Høyde", "167 cm"],
+        ["Favorittfot", "Venstre"],
+        ["Draktnummer", "23"]
+      ],
       "sjelden": "rare",
       "bilde": "/images/players/engen.png",
       "oppgaver": [
