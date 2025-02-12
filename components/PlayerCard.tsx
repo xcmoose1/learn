@@ -2,31 +2,27 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 interface PlayerCardProps {
-  name: string;
-  image: string;
-  rating: number;
-  position: string;
-  club: string;
-  country: string;
-  stats: {
-    pace: number;
-    shooting: number;
-    passing: number;
-    dribbling: number;
-    defending: number;
-    physical: number;
+  player: {
+    name: string;
+    image: string;
+    rating: number;
+    position: string;
+    club: string;
+    country: string;
+    stats: {
+      pace: number;
+      shooting: number;
+      passing: number;
+      dribbling: number;
+      defending: number;
+      physical: number;
+    };
   };
 }
 
-export default function PlayerCard({
-  name,
-  image,
-  rating,
-  position,
-  club,
-  country,
-  stats,
-}: PlayerCardProps) {
+export default function PlayerCard({ player }: PlayerCardProps) {
+  const { name, image, rating, position, club, country, stats } = player;
+  
   return (
     <motion.div
       className="fifa-card w-72 relative bg-dark-blue/30 backdrop-blur-sm p-4 rounded-xl"

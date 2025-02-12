@@ -1,544 +1,363 @@
 .container {
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
   min-height: 100vh;
-  position: relative;
+  padding: 2rem;
+  background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
 }
 
-.tittel {
+.title {
   text-align: center;
   color: white;
-  margin-bottom: 20px;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .progress {
   text-align: center;
   color: white;
-  margin-bottom: 30px;
   font-size: 1.2rem;
+  margin-bottom: 3rem;
 }
 
-.kortGrid {
+.cardGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  padding: 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  perspective: 1000px;
 }
 
-.målAnimasjon {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.8);
-  padding: 20px 40px;
-  border-radius: 10px;
-  color: white;
-  font-size: 2rem;
-  z-index: 1000;
-}
-
-.spørsmålContainer {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #1a1a1a;
-  padding: 2rem;
+.card {
+  background: linear-gradient(135deg, #f4d03f, #f1c40f);
   border-radius: 15px;
-  width: 90%;
-  max-width: 500px;
-  z-index: 1000;
-  color: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.lukkKnapp {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.5rem;
+  padding: 1.5rem;
   cursor: pointer;
-  padding: 5px;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.2s;
-}
-
-.lukkKnapp:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.oppgave {
-  margin-bottom: 2rem;
-}
-
-.oppgaveTekst {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 1rem;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.oppgaveTekst button {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  padding: 5px;
-  margin-left: 10px;
-}
-
-.alternativer {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-}
-
-.svarKnapp {
-  background: #2a2a2a;
-  border: 2px solid #3a3a3a;
-  color: white;
-  padding: 1rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: all 0.2s;
-}
-
-.svarKnapp:hover {
-  background: #3a3a3a;
-  transform: translateY(-2px);
-}
-
-.svarKnapp.besvart {
-  background: #4CAF50;
-  cursor: not-allowed;
-  opacity: 0.7;
-}
-
-.svarKnapp.besvart:hover {
-  transform: none;
-}
-
-.svarKnapp:disabled {
-  cursor: not-allowed;
-  opacity: 0.7;
-}
-
-.feilSvar {
-  animation: shake 0.5s;
-  background: #ff4444 !important;
-}
-
-@keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  75% { transform: translateX(5px); }
-}
-
-.spørsmålTittel {
-  color: white;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.svarKnapper {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.svarKnapp {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  background: #4CAF50;
-  color: white;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.svarKnapp:hover {
-  background: #45a049;
-}
-
-.kort {
+  transition: transform 0.3s;
   position: relative;
-  background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
-  border-radius: 10px;
-  padding: 1rem;
-  color: white;
-  cursor: pointer;
-  transition: transform 0.2s;
-  aspect-ratio: 2/3;
-  display: flex;
-  flex-direction: column;
+  transform-style: preserve-3d;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   overflow: hidden;
+  min-height: 450px;
 }
 
-.locked {
-  background: linear-gradient(45deg, #333, #444);
-  cursor: not-allowed;
-  filter: grayscale(1);
-}
-
-.unlocked {
-  cursor: pointer;
-}
-
-.lockedCard {
+.card::before {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+  z-index: 1;
+}
+
+.card:hover {
+  transform: translateY(-5px) rotateY(5deg);
+}
+
+.cardContent {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  text-align: center;
-  padding: 1rem;
+  gap: 1rem;
 }
 
-.lockedCard span {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.lockedCard p {
-  font-size: 1.2rem;
-  color: #ccc;
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .rating {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  width: 64px;
-  height: 64px;
-  border-radius: 9999px;
-  background: linear-gradient(to bottom right, #60a5fa, #4ade80);
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 24px;
   font-weight: bold;
+  font-size: 1.4rem;
   color: white;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.posisjon {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 48px;
-  height: 48px;
-  border-radius: 8px;
-  background: linear-gradient(to bottom right, #60a5fa, #4ade80);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 20px;
+.position {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
   font-weight: bold;
   color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.spillerBildeContainer {
+.playerImage {
+  width: 200px;
+  height: 200px;
+  margin: 1rem auto;
+  border-radius: 10px;
+  overflow: hidden;
   position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.playerImage img {
   width: 100%;
-  height: 192px;
-  margin-bottom: 16px;
-  background: linear-gradient(to bottom, rgba(17, 24, 39, 0.5), rgba(17, 24, 39, 0.8));
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.card:hover .playerImage img {
+  transform: scale(1.05);
+}
+
+.playerInfo {
+  text-align: center;
+  padding: 1rem 0;
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.playerName {
+  font-size: 1.5rem;
+  margin: 0;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.playerDetails {
+  color: #34495e;
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 0.75rem;
   border-radius: 8px;
+  margin-top: auto;
+}
+
+.stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0.8rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.stat span:first-child {
+  color: #666;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.stat span:last-child {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: linear-gradient(135deg, #1a2a3a 0%, #2c3e50 100%);
+  border-radius: 20px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  color: white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  border: 2px solid #3498db;
   overflow: hidden;
 }
 
-.spillerBilde {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  mix-blend-mode: luminosity;
-}
-
-.spillerNavn {
-  text-align: center;
-  margin-bottom: 16px;
-  font-family: 'Exo 2', sans-serif;
-  font-size: 24px;
-  color: white;
-}
-
-.klubbInfo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  font-size: 14px;
-  color: #9ca3af;
-  margin-bottom: 16px;
-}
-
-.statsContainer {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
-  font-size: 14px;
-}
-
-.statItem {
-  display: flex;
-  justify-content: space-between;
-}
-
-.statLabel {
-  color: #9ca3af;
-}
-
-.statValue {
-  font-family: 'Space Grotesk', sans-serif;
-  color: #60a5fa;
-}
-
-.kort::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, rgba(96, 165, 250, 0.1), rgba(74, 222, 128, 0.1));
-  opacity: 0;
-  transition: opacity 0.3s;
-  border-radius: 12px;
-}
-
-.kort:hover::after {
-  opacity: 1;
-}
-
-.legendary {
-  border: 2px solid #FFB700;
-  box-shadow: 0 8px 16px rgba(255, 183, 0, 0.2);
-}
-
-.epic {
-  border: 2px solid #9932CC;
-  box-shadow: 0 8px 16px rgba(153, 50, 204, 0.2);
-}
-
-.rare {
-  border: 2px solid #4169e1;
-  box-shadow: 0 8px 16px rgba(65, 105, 225, 0.2);
-}
-
-.kortInnhold {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  padding: 12px;
-  background: #1a1a1a;
-}
-
-.flagg {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 20px;
-  height: auto;
-}
-
-/* Hover effect */
-.kort:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.2);
-}
-
-/* Container for all cards */
-.kortContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
-}
-
-/* Locked card styling */
-.locked {
-  position: relative;
-}
-
-.locked::after {
+.modal::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 15px;
+  background-image: url('/images/soccer-pattern.png');
+  opacity: 0.1;
+  pointer-events: none;
 }
 
-.lockIcon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 40px;
-  color: white;
-  z-index: 2;
-}
-
-.klubbLogo {
-  position: absolute;
-  top: 120px;
-  left: 10px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: white;
-  padding: 2px;
-}
-
-.klubbLogo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.nasjonalitet {
-  position: absolute;
-  top: 90px;
-  left: 10px;
-  width: 30px;
-  height: 20px;
-  border-radius: 2px;
-  overflow: hidden;
-}
-
-.nasjonalitet img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.pakkeMeny {
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 15px;
-  padding: 2rem;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.pakkeMeny h2 {
-  color: white;
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-}
-
-.pakkeGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-
-.pakkekort {
-  background: linear-gradient(135deg, #2a3f5f, #1a2a3f);
-  border-radius: 10px;
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 1.5rem;
+  background: linear-gradient(90deg, #2980b9, #3498db);
+  border-bottom: 3px solid #2980b9;
+}
+
+.modalHeader h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.progressIndicator {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #333;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.modalContent {
+  padding: 2rem;
+  position: relative;
+}
+
+.question {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
   color: white;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.questionText {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  color: #333;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #3498db;
+}
+
+.answers {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.answerButton {
+  background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+  border: none;
+  padding: 1rem;
+  border-radius: 12px;
+  color: white;
+  font-size: 1.1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-}
-
-.pakkekort:hover {
-  border-color: rgba(255, 255, 255, 0.3);
-  transform: translateY(-5px);
-}
-
-.pakkekort.disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.pakkekort h3 {
-  font-size: 1.4rem;
-  margin-bottom: 0.5rem;
-}
-
-.pris {
-  font-size: 1.2rem;
-  color: #ffd700;
-  margin-top: 1rem;
-}
-
-.åpningAnimasjon {
+  border: 2px solid transparent;
   text-align: center;
-  padding: 3rem;
-  color: white;
+  position: relative;
+  overflow: hidden;
 }
 
-.åpningAnimasjon h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
+.answerButton::before {
+  content: '⚽';
+  position: absolute;
+  left: 1rem;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
 }
 
-.spinner {
-  font-size: 5rem;
-  animation: spin 2s linear infinite;
+.answerButton:hover {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  border-color: #fff;
+  padding-left: 3rem;
 }
 
-.nyttKort {
+.answerButton:hover::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.correctAnswer {
+  background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+}
+
+.wrongAnswer {
+  background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+}
+
+.goalAnimation {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: linear-gradient(135deg, var(--kort-primær), var(--kort-sekundær));
-  padding: 2rem;
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  padding: 2rem 4rem;
   border-radius: 15px;
-  text-align: center;
   color: white;
-  z-index: 1000;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  font-size: 2rem;
+  animation: fadeInOut 2s forwards;
+  z-index: 2000;
+  box-shadow: 0 10px 30px rgba(46, 204, 113, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-.nyttKort img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 1rem;
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+  10% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+  20% { transform: translate(-50%, -50%) scale(1); }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
 }
 
-.nyttKort button {
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
-  padding: 0.8rem 2rem;
-  color: white;
-  border-radius: 5px;
-  margin-top: 1rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
+.locked {
+  filter: grayscale(0.8);
+  opacity: 0.7;
 }
 
-.nyttKort button:hover {
-  background: rgba(255, 255, 255, 0.3);
+.locked::after {
+  content: '🔒';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  z-index: 3;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.unlocked {
+  filter: none;
+  opacity: 1;
 }
 
 .kortGrid {
@@ -546,6 +365,7 @@
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   padding: 1rem;
+  position: relative;
 }
 
 .spillerBilde {
@@ -806,17 +626,17 @@
 }
 
 .rare {
-  border: 2px solid #4169E1;
+  border: 2px solid #4169e1;
   animation: rareGlow 2s infinite;
 }
 
 .epic {
-  border: 2px solid #9400D3;
+  border: 2px solid #9400d3;
   animation: epicGlow 2s infinite;
 }
 
 .legendary {
-  border: 2px solid #FFD700;
+  border: 2px solid #ffd700;
   animation: legendaryGlow 2s infinite;
 }
 
@@ -853,6 +673,117 @@
   }
   50% {
     box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+  }
+}
+
+@keyframes goalAnimation {
+  0% {
+    transform: scale(0.5) translateY(100vh);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.5) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes ballSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes celebration {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.goalMessage {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  animation: goalAnimation 1s ease-out;
+  text-align: center;
+}
+
+.goalMessage span {
+  display: block;
+  font-size: 2rem;
+  margin-top: 1rem;
+  opacity: 0.9;
+}
+
+.celebrationBall {
+  position: fixed;
+  font-size: 3rem;
+  animation: ballSpin 1s infinite linear;
+  z-index: 2001;
+}
+
+.celebrationBall:nth-child(1) {
+  top: 20%;
+  left: 20%;
+  animation-delay: 0.2s;
+}
+
+.celebrationBall:nth-child(2) {
+  top: 20%;
+  right: 20%;
+  animation-delay: 0.4s;
+}
+
+.celebrationBall:nth-child(3) {
+  bottom: 20%;
+  left: 20%;
+  animation-delay: 0.6s;
+}
+
+.celebrationBall:nth-child(4) {
+  bottom: 20%;
+  right: 20%;
+  animation-delay: 0.8s;
+}
+
+.confetti {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1999;
+  pointer-events: none;
+}
+
+.confettiPiece {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  animation: confettiFall 3s linear forwards;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
   }
 }
 
@@ -1059,4 +990,14 @@
   border-radius: 8px;
   font-size: 0.9rem;
   color: #90CAF9;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9998;
 }

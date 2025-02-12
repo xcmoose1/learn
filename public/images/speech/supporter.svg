@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Bakgrunn -->
+  <rect width="300" height="300" fill="#1976D2"/>
+  
+  <!-- Supportere -->
+  <circle cx="100" cy="150" r="40" fill="#FFB74D"/> <!-- Hode 1 -->
+  <circle cx="200" cy="150" r="40" fill="#FFB74D"/> <!-- Hode 2 -->
+  
+  <!-- Skjerf -->
+  <rect x="60" y="180" width="80" height="20" fill="red"/>
+  <rect x="160" y="180" width="80" height="20" fill="red"/>
+  
+  <!-- Heiarop -->
+  <path d="M70,100 Q100,80 130,100" stroke="white" fill="none" stroke-width="3"/>
+  <path d="M170,100 Q200,80 230,100" stroke="white" fill="none" stroke-width="3"/>
+  
+  <!-- Tekst -->
+  <text x="150" y="50" font-family="Arial" font-size="24" fill="white" text-anchor="middle" font-weight="bold">
+    SUPPORTER
+  </text>
+</svg>

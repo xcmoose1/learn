@@ -1,35 +1,18 @@
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import Layout from '../components/Layout';
-import { getUser } from '../lib/user';
 import '../styles/globals.css';
+import Layout from '../components/Layout';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState(true);
+  const [user, setUser] = useState<string | null>(null);
 
   useEffect(() => {
-    const user = getUser();
-    const isOnboarding = router.pathname === '/onboarding';
-
-    if (!user && !isOnboarding) {
-      router.replace('/onboarding');
-    }
-    
-    setIsLoading(false);
-  }, [router]);
-
-  if (isLoading) {
-    return <div className="min-h-screen flex items-center justify-center">
-      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
-    </div>;
-  }
-
-  // Ikke vis Layout på onboarding-siden
-  if (router.pathname === '/onboarding') {
-    return <Component {...pageProps} />;
-  }
+    // Sjekk om brukeren har et navn lagret
+    const savedUser = localStorage.getItem('username');
+    setUser(savedUser);
+  }, []);
 
   return (
     <Layout>

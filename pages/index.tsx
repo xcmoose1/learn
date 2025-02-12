@@ -22,7 +22,7 @@ const activities = [
     title: 'Talespill',
     description: 'Øv på uttale og sammensatte ord med fotballtema',
     icon: '🗣️',
-    href: '/tale',
+    href: '/talespill',
     color: 'from-orange-500 to-yellow-500',
   },
   {
@@ -31,13 +31,6 @@ const activities = [
     icon: '🎴',
     href: '/fotballkort',
     color: 'from-pink-500 to-red-500',
-  },
-  {
-    title: 'Tegning',
-    description: 'Tegn dine favorittspillere og lær om dem',
-    icon: '🎨',
-    href: '/tegning',
-    color: 'from-yellow-500 to-orange-500',
   },
 ];
 
@@ -106,70 +99,43 @@ export default function Home() {
             Lær med <span className="text-neon-blue">Fotball</span>
           </h1>
           <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
-            Bli med på en spennende reise hvor du lærer matematikk, lesing og tegning
-            gjennom fotballens magiske verden!
+            Velkommen til en morsom måte å lære på! Her kan du øve på matematikk,
+            lesing og uttale mens du lærer om fotball.
           </p>
         </motion.div>
+      </section>
 
-        {/* Activity Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-          {activities.map((activity, index) => (
-            <motion.div
+      {/* Activities Grid */}
+      <section className="py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
+          {activities.map((activity) => (
+            <Link
               key={activity.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
+              href={activity.href}
+              className={`block p-6 rounded-xl bg-gradient-to-br ${activity.color} 
+                transform hover:scale-105 transition-all duration-300 
+                shadow-lg hover:shadow-xl`}
             >
-              <Link href={activity.href}>
-                <div className={`fifa-card group cursor-pointer`}>
-                  <div className={`absolute inset-0 bg-gradient-to-br ${activity.color} opacity-10 group-hover:opacity-20 transition-opacity rounded-xl`} />
-                  <div className="relative z-10">
-                    <span className="text-4xl mb-4 block">{activity.icon}</span>
-                    <h2 className="font-heading text-2xl mb-2 text-white">
-                      {activity.title}
-                    </h2>
-                    <p className="text-gray-400">
-                      {activity.description}
-                    </p>
-                  </div>
-                </div>
-              </Link>
-            </motion.div>
+              <div className="text-4xl mb-4">{activity.icon}</div>
+              <h3 className="text-xl font-bold text-white mb-2">
+                {activity.title}
+              </h3>
+              <p className="text-white/90">{activity.description}</p>
+            </Link>
           ))}
         </div>
+      </section>
 
-        {/* Featured Players */}
-        <div className="mb-20">
-          <h2 className="font-heading text-4xl mb-8 text-center text-white">
-            Ukens Spillere
-          </h2>
-          <div className="flex flex-wrap justify-center gap-8">
-            {featuredPlayers.map((player, index) => (
-              <motion.div
-                key={player.name}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 + index * 0.1 }}
-              >
-                <PlayerCard {...player} />
-              </motion.div>
-            ))}
-          </div>
+      {/* Featured Players */}
+      <section className="py-12 px-4">
+        <h2 className="text-3xl font-bold text-white mb-8 text-center">
+          Populære Spillere
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {featuredPlayers.map((player) => (
+            <PlayerCard key={player.name} player={player} />
+          ))}
         </div>
-
-        {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          className="text-center"
-        >
-          <Link href="/matematikk">
-            <button className="btn-neon group text-xl px-8 py-4">
-              Start Læringen! ⚽
-            </button>
-          </Link>
-        </motion.div>
       </section>
     </Layout>
   );

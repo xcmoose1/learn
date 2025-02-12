@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Bakgrunn -->
+  <rect width="300" height="300" fill="#FF5722"/>
+  
+  <!-- Keeper -->
+  <circle cx="150" cy="100" r="35" fill="#FFB74D"/> <!-- Hode -->
+  <rect x="130" y="135" width="40" height="80" fill="#FFE082"/> <!-- Drakt -->
+  <rect x="130" y="215" width="15" height="50" fill="#FFE082"/> <!-- Ben 1 -->
+  <rect x="155" y="215" width="15" height="50" fill="#FFE082"/> <!-- Ben 2 -->
+  
+  <!-- Hansker -->
+  <circle cx="100" cy="160" r="20" fill="white" stroke="black" stroke-width="2"/>
+  <circle cx="200" cy="160" r="20" fill="white" stroke="black" stroke-width="2"/>
+  
+  <!-- Nummer -->
+  <text x="150" y="185" font-family="Arial" font-size="24" fill="black" text-anchor="middle" font-weight="bold">
+    1
+  </text>
+  
+  <!-- Tekst -->
+  <text x="150" y="50" font-family="Arial" font-size="24" fill="white" text-anchor="middle" font-weight="bold">
+    KEEPER
+  </text>
+</svg>

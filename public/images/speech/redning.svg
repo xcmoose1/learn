@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Bakgrunn -->
+  <rect width="300" height="300" fill="#4CAF50"/>
+  
+  <!-- Keeper -->
+  <circle cx="150" cy="150" r="40" fill="#FFA726"/> <!-- Hode -->
+  <rect x="110" y="190" width="80" height="60" fill="#FFA726"/> <!-- Kropp -->
+  
+  <!-- Hansker -->
+  <circle cx="90" cy="200" r="15" fill="white" stroke="black" stroke-width="2"/>
+  <circle cx="210" cy="200" r="15" fill="white" stroke="black" stroke-width="2"/>
+  
+  <!-- Ball -->
+  <circle cx="90" cy="150" r="20" fill="white" stroke="black" stroke-width="2"/>
+  <path d="M80,150 Q90,140 100,150 Q90,160 80,150" fill="black"/>
+  
+  <!-- Tekst -->
+  <text x="150" y="50" font-family="Arial" font-size="24" fill="white" text-anchor="middle" font-weight="bold">
+    REDNING!
+  </text>
+</svg>

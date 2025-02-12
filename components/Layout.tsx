@@ -18,9 +18,8 @@ export default function Layout({ children, title = 'Fotball Læring' }: LayoutPr
     { href: '/', label: '🏠 Hjem', icon: '⚽' },
     { href: '/matematikk', label: '🔢 Matematikk', icon: '📊' },
     { href: '/lesespill', label: '📚 Lesespill', icon: '📖' },
-    { href: '/tale', label: '🗣️ Talespill', icon: '🎯' },
+    { href: '/talespill', label: '🗣️ Talespill', icon: '🎯' },
     { href: '/fotballkort', label: '🎴 Fotballkort', icon: '⭐' },
-    { href: '/tegning', label: '🎨 Tegning', icon: '✏️' },
   ];
 
   const handleReset = () => {
@@ -100,86 +99,60 @@ export default function Layout({ children, title = 'Fotball Læring' }: LayoutPr
               {showResetConfirm ? (
                 <>
                   <button 
-                    className="btn-neon group px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700 transition-colors"
                     onClick={handleReset}
-                    title="Bekreft reset"
+                    className="btn-danger px-4 py-2 rounded-lg"
                   >
-                    Er du sikker? ⚠️
+                    Bekreft Reset
                   </button>
                   <button 
-                    className="btn-neon group px-4 py-2 rounded-lg text-white hover:text-neon-blue transition-colors"
                     onClick={cancelReset}
-                    title="Avbryt"
+                    className="btn-secondary px-4 py-2 rounded-lg"
                   >
                     Avbryt
                   </button>
                 </>
               ) : (
                 <button 
-                  className="btn-neon group px-4 py-2 rounded-lg text-white hover:text-neon-blue transition-colors"
                   onClick={handleReset}
-                  title="Start på nytt"
+                  className="btn-neon group px-4 py-2 rounded-lg"
                 >
-                  🔄 Start på nytt
+                  Reset Spill
                 </button>
               )}
             </div>
           </div>
         </div>
-      </nav>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 md:hidden"
-          >
-            <div className="fixed inset-0 bg-black/50" onClick={() => setIsMenuOpen(false)} />
-            <nav className="fixed top-16 right-0 bottom-0 w-64 bg-dark-blue">
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden"
+            >
               <div className="px-2 pt-2 pb-3 space-y-1">
                 {menuItems.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="block btn-neon group px-3 py-2 rounded-md text-white"
+                    className="btn-neon group block px-3 py-2 rounded-md text-white"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    <span className="mr-2">{item.icon}</span>
                     {item.label}
                   </Link>
                 ))}
               </div>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </nav>
 
       {/* Main Content */}
-      <main className="pt-20 pb-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {children}
-        </div>
+      <main className="pt-16">
+        {children}
       </main>
-
-      {/* Footer */}
-      <footer className="bg-gradient-to-t from-dark-blue to-darker-blue border-t border-neon-blue/20">
-        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center">
-            <p className="text-white/60"> 2025 Fotball Læring</p>
-            <div className="flex items-center space-x-2">
-              <motion.span
-                animate={{ rotate: [0, 360] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-              >
-                ⚽
-              </motion.span>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

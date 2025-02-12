@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Bakgrunn -->
+  <rect width="300" height="300" fill="#7CB342"/>
+  
+  <!-- Fotballmål -->
+  <rect x="30" y="80" width="240" height="160" fill="white" stroke="black" stroke-width="5"/>
+  <line x1="30" y1="80" x2="270" y2="80" stroke="black" stroke-width="5"/>
+  <line x1="150" y1="80" x2="150" y2="240" stroke="black" stroke-width="2"/>
+  
+  <!-- Fotball -->
+  <circle cx="150" cy="150" r="30" fill="white" stroke="black" stroke-width="2"/>
+  <path d="M130,150 Q150,130 170,150 Q150,170 130,150" fill="black"/>
+  
+  <!-- Tekst -->
+  <text x="150" y="50" font-family="Arial" font-size="24" fill="white" text-anchor="middle" font-weight="bold">
+    SCORING!
+  </text>
+</svg>
