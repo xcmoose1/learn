@@ -4,9 +4,11 @@ import styles from '../styles/Fotballkort.module.css';
 import alleSpillere from '../data/fotballkort.json';
 import { getScore, updateScore } from '../lib/score';
 import { useAudio } from '../hooks/useAudio';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 // Kombiner spillere fra begge filer
-const alleSpillereListe = [...alleSpillere];
+const alleSpillereListe = alleSpillere.spillere as Spiller[];
 
 interface Spiller {
   id: number;
@@ -275,7 +277,7 @@ export default function Fotballkort() {
                       <div className={styles.audioControls}>
                         <button 
                           onClick={() => {
-                            const spillerNavn = alleSpillere.find(s => s.id === aktivtKort)?.navn.toLowerCase();
+                            const spillerNavn = alleSpillereListe.find(s => s.id === aktivtKort)?.navn.toLowerCase();
                             play(`players.${spillerNavn}.reading.text${index + 1}`);
                           }}
                           disabled={isPlaying}
@@ -299,7 +301,7 @@ export default function Fotballkort() {
                 )}
                 <h3>
                   {oppgave.spørsmål}
-                  {oppgave?.type === undefined || oppgave.type === 'matte' ? (
+                  {('type' in oppgave ? oppgave.type === 'matte' : true) ? (
                     <button 
                       className={styles.hjelpKnapp}
                       onClick={(e) => {
