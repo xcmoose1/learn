@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from '../styles/TierVenner.module.css';
-import { useSpeech } from '../hooks/useSpeech';
+import { motion } from 'framer-motion';
+import { useAudio } from '../hooks/useAudio';
 
 interface Props {
   onScoreUpdate: (points: number) => void;
@@ -16,17 +17,7 @@ export default function TierVenner({ onScoreUpdate, onBack }: Props) {
   const [streak, setStreak] = useState(0);
   const [visNesteSporsmaal, setVisNesteSporsmaal] = useState(false);
   const [visHjelp, setVisHjelp] = useState(false);
-  const [currentWord, setCurrentWord] = useState('');
-  const { speak, cancel, speaking, supported } = useSpeech({
-    text: currentWord,
-    lang: 'nb-NO',
-    rate: 0.9
-  });
-
-  const playText = (text: string) => {
-    setCurrentWord(text);
-    setTimeout(() => speak(), 0);
-  };
+  const { play, isPlaying } = useAudio();
 
   const genererTall = (tier: number) => {
     const nyttTall1 = Math.floor(Math.random() * 9) + 1;
@@ -43,12 +34,10 @@ export default function TierVenner({ onScoreUpdate, onBack }: Props) {
     if (erRiktig) {
       onScoreUpdate(10); // Gi 10 poeng for riktig svar
       setStreak(streak + 1);
-      const audio = new Audio('/sounds/correct.mp3');
-      audio.play();
+      play('correct');
     } else {
       setStreak(0);
-      const audio = new Audio('/sounds/incorrect.mp3');
-      audio.play();
+      play('incorrect');
     }
     setVisNesteSporsmaal(true);
   };
@@ -112,18 +101,11 @@ export default function TierVenner({ onScoreUpdate, onBack }: Props) {
             
             <div className={styles.hjelpTekst}>
               <div className={styles.hjelpHeader}>
-                <h3>Slik tenker du:</h3>
+                <h3 className={styles.hjelpTittel}>Hvordan spille Tier-venner?</h3>
                 <button 
-                  onClick={() => {
-                    const tekst = `La meg hjelpe deg med ${valgtTier || 10}-venner!
-                    Slik tenker du:
-                    Du har ${tall1} spillere på banen.
-                    Du trenger totalt ${valgtTier || 10} spillere for et fullt lag.
-                    Hvor mange flere spillere trenger du?
-                    Tips: Tell fra ${tall1} opp til ${valgtTier || 10} for å finne svaret!`;
-                    playText(tekst);
-                  }}
                   className={styles.lesHoytKnapp}
+                  onClick={() => play('help.tier_venner.explanation')}
+                  disabled={isPlaying}
                 >
                   🔊 Les høyt
                 </button>

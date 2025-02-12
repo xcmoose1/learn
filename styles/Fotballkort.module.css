@@ -990,3 +990,73 @@
   background-color: #45a049;
   transform: scale(1.02);
 }
+
+.lesespillContainer {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.audioControls {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.audioButton {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+
+.audioButton:hover {
+  background: #45a049;
+  transform: scale(1.05);
+}
+
+.audioButton:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.helpButton {
+  background: #2196F3;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+
+.helpButton:hover {
+  background: #1976D2;
+  transform: scale(1.05);
+}
+
+.helpButton:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.readingProgress {
+  margin-top: 12px;
+  padding: 12px;
+  background: rgba(33, 150, 243, 0.1);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #90CAF9;
+}

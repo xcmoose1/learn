@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
+import Head from 'next/head';
 import Layout from '../components/Layout';
-import { motion } from 'framer-motion';
 import Button from '../components/Button';
 import TierVenner from '../components/TierVenner';
 import { POINTS_PER_CORRECT_ANSWER, getScore, updateScore } from '../lib/score';
-import { useSpeech } from '../hooks/useSpeech';
+import { useAudio } from '../hooks/useAudio';
 
 type GameType = 'tier-venner' | 'fotball-matte';
 
@@ -59,17 +59,7 @@ export default function Matematikk() {
   const [feedback, setFeedback] = useState<{ message: string; isCorrect: boolean } | null>(null);
   const [answer, setAnswer] = useState('');
   const [visHjelp, setVisHjelp] = useState(false);
-  const [currentWord, setCurrentWord] = useState('');
-  const { speak, cancel, speaking, supported } = useSpeech({
-    text: currentWord,
-    lang: 'nb-NO',
-    rate: 0.9
-  });
-
-  const playText = (text: string) => {
-    setCurrentWord(text);
-    setTimeout(() => speak(), 0);
-  };
+  const { play, isPlaying } = useAudio();
 
   useEffect(() => {
     setTotalScore(getScore());
@@ -110,11 +100,7 @@ export default function Matematikk() {
   return (
     <Layout title="Matematikk">
       <div className="max-w-6xl mx-auto px-4 py-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center"
-        >
+        <div className="text-center">
           <h1 className="text-4xl font-bold mb-8">Matematikk</h1>
           <p className="text-xl mb-4">Poeng: {totalScore}</p>
             
@@ -143,16 +129,12 @@ export default function Matematikk() {
           )}
 
           {visHjelp && (
-            <motion.div 
+            <div 
               className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
               onClick={() => setVisHjelp(false)}
             >
-              <motion.div 
+              <div 
                 className="bg-gray-800 p-6 rounded-xl max-w-md w-full space-y-4"
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
                 onClick={e => e.stopPropagation()}
               >
                 <h2 className="text-2xl font-bold text-center mb-4">La meg hjelpe deg! 🌟</h2>
@@ -162,13 +144,8 @@ export default function Matematikk() {
                     <div className="flex justify-between items-center mb-4">
                       <h3 className="font-bold text-green-400">🎯 Tier-venner:</h3>
                       <button
-                        onClick={() => {
-                          const tekst = `Tier-venner: 
-                          Tenk på det som å lage et fotballag!
-                          Hvis du har 7 spillere, hvor mange flere trenger du for å ha et helt lag med 10?
-                          Det er som å telle hvor mange spillere som mangler på banen`;
-                          playText(tekst);
-                        }}
+                        onClick={() => play('help.tier_venner.title')}
+                        disabled={isPlaying}
                         className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-full text-sm flex items-center gap-1 transition-all hover:scale-105"
                       >
                         🔊 Les høyt
@@ -185,14 +162,8 @@ export default function Matematikk() {
                     <div className="flex justify-between items-center mb-4">
                       <h3 className="font-bold text-green-400">⚽ Fotball-matte:</h3>
                       <button
-                        onClick={() => {
-                          const tekst = `Fotball-matte:
-                          Her regner vi med:
-                          Mål i kamper - akkurat som å telle Haaland sine scoringer!
-                          Poeng i serien - 3 poeng for seier, som i ekte fotball
-                          Tilskuere på kamp - som å telle hvor mange som heier på laget ditt`;
-                          playText(tekst);
-                        }}
+                        onClick={() => play('help.fotball_matte.title')}
+                        disabled={isPlaying}
                         className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-full text-sm flex items-center gap-1 transition-all hover:scale-105"
                       >
                         🔊 Les høyt
@@ -213,17 +184,13 @@ export default function Matematikk() {
                 >
                   Jeg forstår! 👍
                 </button>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           )}
           {currentGame === 'tier-venner' ? (
             <TierVenner onScoreUpdate={handleScoreUpdate} onBack={() => setCurrentGame(null)} />
           ) : (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="max-w-2xl mx-auto"
-            >
+            <div className="max-w-2xl mx-auto">
               <div className="bg-dark-blue/30 backdrop-blur-sm rounded-xl p-8">
                 <Button
                   onClick={() => setCurrentGame(null)}
@@ -253,21 +220,17 @@ export default function Matematikk() {
                   </Button>
 
                   {feedback && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className={`text-center text-lg font-bold ${
-                        feedback.isCorrect ? 'text-green-400' : 'text-red-400'
-                      }`}
-                    >
+                    <div className={`text-center text-lg font-bold ${
+                      feedback.isCorrect ? 'text-green-400' : 'text-red-400'
+                    }`}>
                       {feedback.message}
-                    </motion.div>
+                    </div>
                   )}
                 </form>
               </div>
-            </motion.div>
+            </div>
           )}
-        </motion.div>
+        </div>
       </div>
     </Layout>
   );

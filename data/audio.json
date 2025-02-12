@@ -1,0 +1,43 @@
+{
+  "help": {
+    "tier_venner": {
+      "title": "help_tier_venner_title.mp3",
+      "explanation": "help_tier_venner_explanation.mp3"
+    },
+    "fotball_matte": {
+      "title": "help_fotball_matte_title.mp3",
+      "explanation": "help_fotball_matte_explanation.mp3"
+    },
+    "lesespill": {
+      "title": "help_lesespill_title.mp3",
+      "explanation": "help_lesespill_explanation.mp3"
+    }
+  },
+  "players": {
+    "haaland": {
+      "intro": "players_haaland_intro.mp3",
+      "facts": "players_haaland_facts.mp3",
+      "reading": {
+        "text1": "players_haaland_reading_text1.mp3",
+        "text2": "players_haaland_reading_text2.mp3"
+      }
+    },
+    "odegaard": {
+      "intro": "players_odegaard_intro.mp3",
+      "facts": "players_odegaard_facts.mp3",
+      "reading": {
+        "text1": "players_odegaard_reading_text1.mp3",
+        "text2": "players_odegaard_reading_text2.mp3"
+      }
+    }
+  },
+  "reading": {
+    "correct": "reading_correct.mp3",
+    "incorrect": "reading_incorrect.mp3",
+    "instructions": "reading_instructions.mp3"
+  },
+  "feedback": {
+    "correct": "feedback_correct.mp3",
+    "incorrect": "feedback_incorrect.mp3"
+  }
+}

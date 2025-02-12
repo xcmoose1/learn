@@ -1,14 +1,12 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
 import styles from '../styles/Fotballkort.module.css';
-import kortData from '../data/fotballkort.json';
-import moreKortData from '../data/fotballkort_more.json';
-import Image from 'next/image';
-import { useSpeech } from '../hooks/useSpeech';
+import alleSpillere from '../data/fotballkort.json';
+import { getScore, updateScore } from '../lib/score';
+import { useAudio } from '../hooks/useAudio';
 
 // Kombiner spillere fra begge filer
-const alleSpillere = [...kortData.spillere, ...moreKortData.spillere];
+const alleSpillereListe = [...alleSpillere];
 
 interface Spiller {
   id: number;
@@ -51,11 +49,7 @@ export default function Fotballkort() {
   const [riktigeSvar, setRiktigeSvar] = useState<{[key: number]: string[]}>({});
   const [visHjelp, setVisHjelp] = useState(false);
   const [hjelpTekst, setHjelpTekst] = useState('');
-  const { speak, cancel, speaking, supported } = useSpeech({
-    text: currentWord,
-    lang: 'nb-NO',
-    rate: 1
-  });
+  const { play, isPlaying } = useAudio();
 
   useEffect(() => {
     // Last inn lagrede data
@@ -85,7 +79,7 @@ export default function Fotballkort() {
 
   const sjekkAlleOppgaverFullført = (kortId: number) => {
     const svar = riktigeSvar[kortId] || [];
-    const kort = alleSpillere.find(s => s.id === kortId);
+    const kort = alleSpillereListe.find(s => s.id === kortId);
     if (!kort) return false;
     
     // Sjekk om vi har riktig svar på både matte og lesing
@@ -115,7 +109,7 @@ export default function Fotballkort() {
       setAktivtKort(null);
       
       // Vis neste kort
-      const nesteKort = alleSpillere.find(s => s.id === nesteKortId);
+      const nesteKort = alleSpillereListe.find(s => s.id === nesteKortId);
       if (nesteKort) {
         setLåsteKort([...låsteKort, nesteKort.id]);
         setNesteKortId(nesteKortId + 1);
@@ -155,7 +149,7 @@ export default function Fotballkort() {
 
   const playWord = (word: string, speed: number = 1) => {
     setCurrentWord(word);
-    setTimeout(() => speak(), 0);
+    setTimeout(() => play(`players.${alleSpillereListe.find(s => s.id === aktivtKort)?.navn.toLowerCase()}.intro`), 0);
   };
 
   return (
@@ -163,7 +157,7 @@ export default function Fotballkort() {
       <div className={styles.container}>
         <h1 className={styles.tittel}>Fotballkort</h1>
         <div className={styles.progress}>
-          Kort: {låsteKort.length}/{alleSpillere.length} 🎮
+          Kort: {låsteKort.length}/{alleSpillereListe.length} 🎮
         </div>
         
         {visVelkomst && (
@@ -190,7 +184,7 @@ export default function Fotballkort() {
 
         {!visVelkomst && (
           <div className={styles.kortGrid}>
-            {alleSpillere.map((spiller) => (
+            {alleSpillereListe.map((spiller) => (
               <motion.div
                 key={spiller.id}
                 className={`${styles.kort} ${styles[spiller.sjelden]} ${låsteKort.includes(spiller.id) ? styles.unlocked : styles.locked}`}
@@ -272,17 +266,40 @@ export default function Fotballkort() {
               ✕
             </button>
             
-            {alleSpillere.find(s => s.id === aktivtKort)?.oppgaver.map((oppgave, index) => (
+            {alleSpillereListe.find(s => s.id === aktivtKort)?.oppgaver.map((oppgave, index) => (
               <div key={index} className={styles.oppgave}>
                 {'tekst' in oppgave && oppgave.tekst && (
                   <div className={styles.oppgaveTekst}>
-                    <p>{oppgave.tekst}</p>
-                    <button onClick={() => playWord(oppgave.tekst)}>🔊</button>
+                    <div className={styles.lesespillContainer}>
+                      <p>{oppgave.tekst}</p>
+                      <div className={styles.audioControls}>
+                        <button 
+                          onClick={() => {
+                            const spillerNavn = alleSpillere.find(s => s.id === aktivtKort)?.navn.toLowerCase();
+                            play(`players.${spillerNavn}.reading.text${index + 1}`);
+                          }}
+                          disabled={isPlaying}
+                          className={styles.audioButton}
+                        >
+                          🔊 Les høyt
+                        </button>
+                        <button
+                          onClick={() => play('reading.instructions')}
+                          disabled={isPlaying}
+                          className={styles.helpButton}
+                        >
+                          ❓ Hjelp
+                        </button>
+                      </div>
+                    </div>
+                    <div className={styles.readingProgress}>
+                      <p>Les teksten og svar på spørsmålet under:</p>
+                    </div>
                   </div>
                 )}
                 <h3>
                   {oppgave.spørsmål}
-                  {!oppgave.type || oppgave.type === 'matte' ? (
+                  {oppgave?.type === undefined || oppgave.type === 'matte' ? (
                     <button 
                       className={styles.hjelpKnapp}
                       onClick={(e) => {

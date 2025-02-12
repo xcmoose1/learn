@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Stemme-tekster for innspilling</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .category {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 8px;
+        }
+        .category h2 {
+            margin-top: 0;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .text-item {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-left: 4px solid #3498db;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .filename {
+            color: #7f8c8d;
+            font-family: monospace;
+            margin-bottom: 5px;
+        }
+        .text {
+            font-size: 1.1em;
+            color: #2c3e50;
+        }
+        .note {
+            font-style: italic;
+            color: #95a5a6;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Stemme-tekster for innspilling</h1>
+    <p>Her er alle tekstene som skal spilles inn. For tekster med {0} eller {1}, spill inn teksten uten tallene - de vil bli lagt til automatisk.</p>
+
+    <div class="category">
+        <h2>Tier-venner hjelp</h2>
+        <div class="text-item">
+            <div class="filename">help_tier_venner_title.mp3</div>
+            <div class="text">Tier-venner: La oss lære om tall som blir 10 sammen!</div>
+        </div>
+        <div class="text-item">
+            <div class="filename">help_tier_venner_explanation.mp3</div>
+            <div class="text">Tenk på det som å lage et fotballag! Hvis du har 7 spillere, hvor mange flere trenger du for å ha et helt lag med 10? Det er som å telle hvor mange spillere som mangler på banen.</div>
+        </div>
+        <div class="text-item">
+            <div class="filename">tier_venner_help_modal.mp3</div>
+            <div class="text">La meg hjelpe deg med å finne tier-venner! Tenk på det som å lage et fotballag. Hvis du har noen spillere, hvor mange flere trenger du for å ha et helt lag med 10?</div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Fotball-matte</h2>
+        <div class="text-item">
+            <div class="filename">help_fotball_matte_title.mp3</div>
+            <div class="text">Fotball-matte: La oss regne med fotball!</div>
+        </div>
+        <div class="text-item">
+            <div class="filename">help_fotball_matte_explanation.mp3</div>
+            <div class="text">Her regner vi med: Mål i kamper - akkurat som å telle Haaland sine scoringer! Poeng i serien - 3 poeng for seier, som i ekte fotball. Tilskuere på kamp - som å telle hvor mange som heier på laget ditt.</div>
+        </div>
+        <div class="text-item">
+            <div class="filename">math_goals_first_half.mp3</div>
+            <div class="text">scorer {0} mål i første omgang</div>
+            <div class="note">Spill inn uten tallet - det vil bli lagt til automatisk</div>
+        </div>
+        <div class="text-item">
+            <div class="filename">math_goals_second_half.mp3</div>
+            <div class="text">og {0} mål i andre omgang</div>
+            <div class="note">Spill inn uten tallet - det vil bli lagt til automatisk</div>
+        </div>
+        <div class="text-item">
+            <div class="filename">math_goals_total.mp3</div>
+            <div class="text">Hvor mange mål scorer spilleren totalt?</div>
+        </div>
+        <div class="text-item">
+            <div class="filename">math_points_question.mp3</div>
+            <div class="text">vinner {0} kamper. Hvor mange poeng får de totalt når man får 3 poeng for seier?</div>
+            <div class="note">Spill inn uten tallet - det vil bli lagt til automatisk</div>
+        </div>
+        <div class="text-item">
+            <div class="filename">math_stadium_question.mp3</div>
+            <div class="text">Det er {0} tilskuere på stadion. {1} sitter på hovedtribunen. Hvor mange sitter på de andre tribunene?</div>
+            <div class="note">Spill inn uten tallene - de vil bli lagt til automatisk</div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Lesespill</h2>
+        <div class="text-item">
+            <div class="filename">help_lesespill_title.mp3</div>
+            <div class="text">Lesespill: La oss lære om fotballspillerne!</div>
+        </div>
+        <div class="text-item">
+            <div class="filename">help_lesespill_explanation.mp3</div>
+            <div class="text">Her skal vi lese spennende fakta om fotballspillerne! Trykk på høyttaler-knappen for å høre teksten. Les sammen med stemmen og svar på spørsmålene. Jo mer du leser, jo flere kort låser du opp!</div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Haaland</h2>
+        <div class="text-item">
+            <div class="filename">players_haaland_intro.mp3</div>
+            <div class="text">Erling Haaland er en målmaskin som scorer mål nesten hver kamp for Manchester City!</div>
+        </div>
+        <div class="text-item">
+            <div class="filename">players_haaland_facts.mp3</div>
+            <div class="text">Haaland ble født i Leeds i England, men spiller for det norske landslaget. Han er kjent for sin utrolige fart og styrke på banen.</div>
+        </div>
+        <div class="text-item">
+            <div class="filename">players_haaland_reading_text1.mp3</div>
+            <div class="text">Erling Haaland spiller spiss for Manchester City. Han er kjent for å score mange mål og har en egen jubel når han scorer.</div>
+        </div>
+        <div class="text-item">
+            <div class="filename">players_haaland_reading_text2.mp3</div>
+            <div class="text">Haaland trener hardt hver dag for å bli bedre. Han spiser sunn mat og sover godt for å holde seg i form.</div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Ødegaard</h2>
+        <div class="text-item">
+            <div class="filename">players_odegaard_intro.mp3</div>
+            <div class="text">Martin Ødegaard er kaptein for Arsenal og det norske landslaget. Han er kjent for sine fantastiske pasninger!</div>
+        </div>
+        <div class="text-item">
+            <div class="filename">players_odegaard_facts.mp3</div>
+            <div class="text">Ødegaard begynte å spille fotball i Strømsgodset og ble den yngste spilleren som noen gang har spilt i Eliteserien.</div>
+        </div>
+        <div class="text-item">
+            <div class="filename">players_odegaard_reading_text1.mp3</div>
+            <div class="text">Martin Ødegaard er midtbanespiller og kaptein for Arsenal. Han er flink til å sentre ballen til lagkameratene sine.</div>
+        </div>
+        <div class="text-item">
+            <div class="filename">players_odegaard_reading_text2.mp3</div>
+            <div class="text">Ødegaard trener mye på å bli bedre til å skyte og sentre. Han hjelper laget sitt med både mål og assists.</div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Tilbakemeldinger lesing</h2>
+        <div class="text-item">
+            <div class="filename">reading_correct.mp3</div>
+            <div class="text">Riktig svar! Du er flink til å lese!</div>
+        </div>
+        <div class="text-item">
+            <div class="filename">reading_incorrect.mp3</div>
+            <div class="text">Prøv igjen! Les teksten en gang til, så klarer du det!</div>
+        </div>
+        <div class="text-item">
+            <div class="filename">reading_instructions.mp3</div>
+            <div class="text">Trykk på høyttaler-knappen for å høre teksten. Les sammen med stemmen og svar på spørsmålene.</div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Generelle tilbakemeldinger</h2>
+        <div class="text-item">
+            <div class="filename">feedback_correct.mp3</div>
+            <div class="text">Riktig svar! Bra jobbet!</div>
+        </div>
+        <div class="text-item">
+            <div class="filename">feedback_incorrect.mp3</div>
+            <div class="text">Prøv igjen! Du klarer det!</div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Tier-venner tilbakemeldinger</h2>
+        <div class="text-item">
+            <div class="filename">tier_venner_correct.mp3</div>
+            <div class="text">Flott! Du fant riktig tier-venn!</div>
+        </div>
+        <div class="text-item">
+            <div class="filename">tier_venner_incorrect.mp3</div>
+            <div class="text">Ikke helt riktig. Prøv å tenke: Hvilket tall mangler for å få 10?</div>
+        </div>
+        <div class="text-item">
+            <div class="filename">tier_venner_streak.mp3</div>
+            <div class="text">Fantastisk! Du har {0} riktige på rad!</div>
+            <div class="note">Spill inn uten tallet - det vil bli lagt til automatisk</div>
+        </div>
+    </div>
+</body>
+</html>

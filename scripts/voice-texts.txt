@@ -1,0 +1,63 @@
+# Hjelpetekster for Tier-venner
+help_tier_venner_title.mp3:
+"Tier-venner: La oss lære om tall som blir 10 sammen!"
+
+help_tier_venner_explanation.mp3:
+"Tenk på det som å lage et fotballag! Hvis du har 7 spillere, hvor mange flere trenger du for å ha et helt lag med 10? Det er som å telle hvor mange spillere som mangler på banen."
+
+# Hjelpetekster for Fotball-matte
+help_fotball_matte_title.mp3:
+"Fotball-matte: La oss regne med fotball!"
+
+help_fotball_matte_explanation.mp3:
+"Her regner vi med: Mål i kamper - akkurat som å telle Haaland sine scoringer! Poeng i serien - 3 poeng for seier, som i ekte fotball. Tilskuere på kamp - som å telle hvor mange som heier på laget ditt."
+
+# Hjelpetekster for Lesespill
+help_lesespill_title.mp3:
+"Lesespill: La oss lære om fotballspillerne!"
+
+help_lesespill_explanation.mp3:
+"Her skal vi lese spennende fakta om fotballspillerne! Trykk på høyttaler-knappen for å høre teksten. Les sammen med stemmen og svar på spørsmålene. Jo mer du leser, jo flere kort låser du opp!"
+
+# Haaland tekster
+players_haaland_intro.mp3:
+"Erling Haaland er en målmaskin som scorer mål nesten hver kamp for Manchester City!"
+
+players_haaland_facts.mp3:
+"Haaland ble født i Leeds i England, men spiller for det norske landslaget. Han er kjent for sin utrolige fart og styrke på banen."
+
+players_haaland_reading_text1.mp3:
+"Erling Haaland spiller spiss for Manchester City. Han er kjent for å score mange mål og har en egen jubel når han scorer."
+
+players_haaland_reading_text2.mp3:
+"Haaland trener hardt hver dag for å bli bedre. Han spiser sunn mat og sover godt for å holde seg i form."
+
+# Ødegaard tekster
+players_odegaard_intro.mp3:
+"Martin Ødegaard er kaptein for Arsenal og det norske landslaget. Han er kjent for sine fantastiske pasninger!"
+
+players_odegaard_facts.mp3:
+"Ødegaard begynte å spille fotball i Strømsgodset og ble den yngste spilleren som noen gang har spilt i Eliteserien."
+
+players_odegaard_reading_text1.mp3:
+"Martin Ødegaard er midtbanespiller og kaptein for Arsenal. Han er flink til å sentre ballen til lagkameratene sine."
+
+players_odegaard_reading_text2.mp3:
+"Ødegaard trener mye på å bli bedre til å skyte og sentre. Han hjelper laget sitt med både mål og assists."
+
+# Lesespill tilbakemeldinger
+reading_correct.mp3:
+"Riktig svar! Du er flink til å lese!"
+
+reading_incorrect.mp3:
+"Prøv igjen! Les teksten en gang til, så klarer du det!"
+
+reading_instructions.mp3:
+"Trykk på høyttaler-knappen for å høre teksten. Les sammen med stemmen og svar på spørsmålene."
+
+# Generelle tilbakemeldinger
+feedback_correct.mp3:
+"Riktig svar! Bra jobbet!"
+
+feedback_incorrect.mp3:
+"Prøv igjen! Du klarer det!"
