@@ -1,4 +1,6 @@
 // Force update for git push
+// Force update for git push - second attempt
+// Testing git push
 import { useState, useEffect } from 'react';
 import Layout from '../components/Layout';
 import styles from '../styles/Fotballkort.module.css';
