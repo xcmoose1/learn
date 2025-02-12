@@ -27,7 +27,8 @@ interface Spiller {
     spørsmål: string;
     alternativer: (string | number)[];
     svar: number;
-    type: string;
+    type?: string;
+    tekst?: string;
   }[];
   stats: {
     pace: number;
@@ -48,6 +49,8 @@ export default function Fotballkort() {
   const [nesteKortId, setNesteKortId] = useState<number>(1);
   const [currentWord, setCurrentWord] = useState('');
   const [riktigeSvar, setRiktigeSvar] = useState<{[key: number]: string[]}>({});
+  const [visHjelp, setVisHjelp] = useState(false);
+  const [hjelpTekst, setHjelpTekst] = useState('');
   const { speak, cancel, speaking, supported } = useSpeech({
     text: currentWord,
     lang: 'nb-NO',
@@ -277,22 +280,47 @@ export default function Fotballkort() {
                     <button onClick={() => playWord(oppgave.tekst)}>🔊</button>
                   </div>
                 )}
-                <h3>{oppgave.spørsmål}</h3>
+                <h3>
+                  {oppgave.spørsmål}
+                  {!oppgave.type || oppgave.type === 'matte' ? (
+                    <button 
+                      className={styles.hjelpKnapp}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setHjelpTekst(
+                          oppgave.spørsmål.toLowerCase().includes('10-vennen') 
+                            ? "La oss tenke på fotballbanen! 🎯\n\n" +
+                              "Når vi snakker om 10-venner, er det som å ha to lag på banen.\n" +
+                              "For eksempel: Hvis ett lag har 7 spillere, hvor mange spillere trenger vi for å ha 10 spillere totalt?\n\n" +
+                              "Det er som å fylle laget til vi har nok spillere til en full kamp! 🏃‍♂️⚽"
+                            : "La oss gjøre dette enkelt! 🎯\n\n" +
+                              "Tenk på dette som å telle mål i en fotballkamp.\n" +
+                              "Vi kan bruke fingrene våre som spillere for å telle!\n\n" +
+                              "Ta ett skritt om gangen, akkurat som når vi dribler ballen mot mål! ⚽"
+                        );
+                        setVisHjelp(true);
+                      }}
+                    >
+                      🤔 Trenger du hjelp?
+                    </button>
+                  ) : null}
+                </h3>
                 <div className={styles.alternativer}>
                   {oppgave.alternativer.map((alternativ, altIndex) => (
                     <button
                       key={altIndex}
                       className={`${styles.svarKnapp} ${
-                        riktigeSvar[aktivtKort!]?.includes(oppgave.type || 'matte') ? styles.besvart : ''
+                        riktigeSvar[aktivtKort!]?.includes(oppgave.type || (index === 0 ? 'matte' : 'lesing')) ? styles.besvart : ''
                       }`}
                       onClick={() => {
-                        if (altIndex === oppgave.svar) {
-                          håndterRiktigSvar(oppgave.type || 'matte');
-                        } else {
+                        const oppgaveType = oppgave.type || (index === 0 ? 'matte' : 'lesing');
+                        if (altIndex === oppgave.svar && !riktigeSvar[aktivtKort!]?.includes(oppgaveType)) {
+                          håndterRiktigSvar(oppgaveType);
+                        } else if (altIndex !== oppgave.svar) {
                           håndterFeilSvar();
                         }
                       }}
-                      disabled={riktigeSvar[aktivtKort!]?.includes(oppgave.type || 'matte')}
+                      disabled={riktigeSvar[aktivtKort!]?.includes(oppgave.type || (index === 0 ? 'matte' : 'lesing'))}
                     >
                       {alternativ}
                     </button>
@@ -311,6 +339,36 @@ export default function Fotballkort() {
             exit={{ scale: 0, opacity: 0 }}
           >
             <h2>MÅL! 🥅⚽</h2>
+          </motion.div>
+        )}
+
+        {visHjelp && (
+          <motion.div 
+            className={styles.hjelpModal}
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.8, opacity: 0 }}
+          >
+            <div className={styles.hjelpInnhold}>
+              <button 
+                className={styles.lukkKnapp}
+                onClick={() => setVisHjelp(false)}
+              >
+                ✕
+              </button>
+              <h3>La meg hjelpe deg! 🌟</h3>
+              <div className={styles.hjelpTekst}>
+                {hjelpTekst.split('\n').map((linje, i) => (
+                  <p key={i}>{linje}</p>
+                ))}
+              </div>
+              <button 
+                className={styles.forståttKnapp}
+                onClick={() => setVisHjelp(false)}
+              >
+                Jeg forstår! 👍
+              </button>
+            </div>
           </motion.div>
         )}
       </div>

@@ -919,3 +919,74 @@
     gap: 0.5rem;
   }
 }
+
+.hjelpKnapp {
+  background: none;
+  border: none;
+  color: #4CAF50;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-left: 10px;
+  padding: 5px 10px;
+  border-radius: 15px;
+  background-color: rgba(76, 175, 80, 0.1);
+  transition: all 0.3s ease;
+}
+
+.hjelpKnapp:hover {
+  background-color: rgba(76, 175, 80, 0.2);
+  transform: scale(1.05);
+}
+
+.hjelpModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.hjelpInnhold {
+  background-color: #1a1f3d;
+  border-radius: 15px;
+  padding: 20px;
+  max-width: 90%;
+  width: 500px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: 2px solid #2a2f4d;
+}
+
+.hjelpTekst {
+  margin: 20px 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #fff;
+}
+
+.hjelpTekst p {
+  margin: 10px 0;
+}
+
+.forståttKnapp {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+}
+
+.forståttKnapp:hover {
+  background-color: #45a049;
+  transform: scale(1.02);
+}

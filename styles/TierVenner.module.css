@@ -164,6 +164,157 @@
   transform: translateY(-2px);
 }
 
+.hjelpKnapp {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+
+.hjelpKnapp:hover {
+  background: #45a049;
+  transform: scale(1.05);
+}
+
+.hjelpModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.hjelpInnhold {
+  background-color: #1a1f3d;
+  border-radius: 15px;
+  padding: 24px;
+  max-width: 90%;
+  width: 500px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: 2px solid #2a2f4d;
+}
+
+.hjelpInnhold h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.hjelpTekst {
+  margin: 20px 0;
+}
+
+.hjelpTekst h3 {
+  font-size: 1.2rem;
+  color: #4CAF50;
+  margin-bottom: 15px;
+}
+
+.hjelpTekst ul {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+}
+
+.hjelpTekst li {
+  margin: 10px 0;
+  padding-left: 25px;
+  position: relative;
+}
+
+.hjelpTekst li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  background-color: #4CAF50;
+  border-radius: 50%;
+}
+
+.fotballBane {
+  background-color: rgba(76, 175, 80, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.spillerGruppe {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.spiller {
+  font-size: 1.5rem;
+}
+
+.plussTegn, .likTegn {
+  font-size: 1.5rem;
+  color: #4CAF50;
+}
+
+.tips {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: rgba(76, 175, 80, 0.1);
+  border-radius: 10px;
+  font-style: italic;
+}
+
+.hjelpHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.lesHoytKnapp {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+
+.lesHoytKnapp:hover {
+  background: #45a049;
+  transform: scale(1.05);
+}
+
+.lesHoytKnapp:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% {
     transform: translateY(0);

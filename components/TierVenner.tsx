@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from '../styles/TierVenner.module.css';
+import { useSpeech } from '../hooks/useSpeech';
 
 interface Props {
   onScoreUpdate: (points: number) => void;
@@ -14,6 +15,18 @@ export default function TierVenner({ onScoreUpdate, onBack }: Props) {
   const [manglendeTall, setManglendeTall] = useState<number>(0);
   const [streak, setStreak] = useState(0);
   const [visNesteSporsmaal, setVisNesteSporsmaal] = useState(false);
+  const [visHjelp, setVisHjelp] = useState(false);
+  const [currentWord, setCurrentWord] = useState('');
+  const { speak, cancel, speaking, supported } = useSpeech({
+    text: currentWord,
+    lang: 'nb-NO',
+    rate: 0.9
+  });
+
+  const playText = (text: string) => {
+    setCurrentWord(text);
+    setTimeout(() => speak(), 0);
+  };
 
   const genererTall = (tier: number) => {
     const nyttTall1 = Math.floor(Math.random() * 9) + 1;
@@ -83,8 +96,74 @@ export default function TierVenner({ onScoreUpdate, onBack }: Props) {
           <div className={styles.scoreItem}>
             <span>Streak: {streak} 🔥</span>
           </div>
+          <button
+            onClick={() => setVisHjelp(true)}
+            className={styles.hjelpKnapp}
+          >
+            🤔 Trenger du hjelp?
+          </button>
         </div>
       </div>
+
+      {visHjelp && (
+        <div className={styles.hjelpModal} onClick={() => setVisHjelp(false)}>
+          <div className={styles.hjelpInnhold} onClick={e => e.stopPropagation()}>
+            <h2>La meg hjelpe deg med {valgtTier || 10}-venner! 🌟</h2>
+            
+            <div className={styles.hjelpTekst}>
+              <div className={styles.hjelpHeader}>
+                <h3>Slik tenker du:</h3>
+                <button 
+                  onClick={() => {
+                    const tekst = `La meg hjelpe deg med ${valgtTier || 10}-venner!
+                    Slik tenker du:
+                    Du har ${tall1} spillere på banen.
+                    Du trenger totalt ${valgtTier || 10} spillere for et fullt lag.
+                    Hvor mange flere spillere trenger du?
+                    Tips: Tell fra ${tall1} opp til ${valgtTier || 10} for å finne svaret!`;
+                    playText(tekst);
+                  }}
+                  className={styles.lesHoytKnapp}
+                >
+                  🔊 Les høyt
+                </button>
+              </div>
+              <div className={styles.fotballBane}>
+                <div className={styles.spillerGruppe}>
+                  {Array(tall1).fill(0).map((_, i) => (
+                    <span key={i} className={styles.spiller}>👕</span>
+                  ))}
+                </div>
+                <div className={styles.plussTegn}>+</div>
+                <div className={styles.spillerGruppe}>
+                  <span className={styles.spiller}>❓</span>
+                </div>
+                <div className={styles.likTegn}>=</div>
+                <div className={styles.spillerGruppe}>
+                  <span>{valgtTier || 10}</span>
+                </div>
+              </div>
+              
+              <ul>
+                <li>🎯 Du har {tall1} spillere på banen</li>
+                <li>⚽ Du trenger totalt {valgtTier || 10} spillere for et fullt lag</li>
+                <li>❓ Hvor mange flere spillere trenger du?</li>
+              </ul>
+              
+              <p className={styles.tips}>
+                Tips: Tell fra {tall1} opp til {valgtTier || 10} for å finne svaret!
+              </p>
+            </div>
+
+            <button 
+              className={styles.forståttKnapp}
+              onClick={() => setVisHjelp(false)}
+            >
+              Jeg forstår! 👍
+            </button>
+          </div>
+        </div>
+      )}
 
       {!valgtTier ? (
         <div className={styles.tierValg}>
