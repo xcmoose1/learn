@@ -274,7 +274,7 @@ export default function Fotballkort() {
             
             {alleSpillere.find(s => s.id === aktivtKort)?.oppgaver.map((oppgave, index) => (
               <div key={index} className={styles.oppgave}>
-                {oppgave.tekst && (
+                {'tekst' in oppgave && oppgave.tekst && (
                   <div className={styles.oppgaveTekst}>
                     <p>{oppgave.tekst}</p>
                     <button onClick={() => playWord(oppgave.tekst)}>🔊</button>
